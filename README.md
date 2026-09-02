@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Shopping Concierge
 
 AI shopping concierge prototype (max ~100 users). See `CLAUDE.md` for
@@ -23,3 +24,5 @@ npm run dev
 
 ## Not built yet (by design)
 - Ordering/checkout — basket ends in a stubbed CTA, see CLAUDE.md
+=======
+>>>>>>> d17fdd14991f22c742e435a545c9f06069677fe5
