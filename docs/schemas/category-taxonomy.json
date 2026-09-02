@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopping-concierge.app/schemas/category-taxonomy.json",
+  "title": "Shopping use-case category taxonomy",
+  "description": "Canonical source of truth for UseCase.category and UseCase.subcategory values. The $defs.category and $defs.subcategory enums below are normative and are $ref'd from use-case.schema.json. The top-level `x-tree` property is non-normative (ignored by schema validators) and exists purely as a human-readable map of the tree: labels, short descriptions, and a couple of illustrative use-case titles per subcategory, to guide usecase-content-agent when it generates the 1000+ use cases. Adding a new subcategory later means: (1) add its id to $defs.subcategory, (2) add an entry under the matching category in x-tree. Do not remove or rename an id once use cases reference it -- that is a breaking change for any UseCase.subcategory value already written.",
+
+  "$defs": {
+    "category": {
+      "type": "string",
+      "enum": ["events", "travel", "home", "seasonal"]
+    },
+    "subcategory": {
+      "type": "string",
+      "enum": [
+        "events.bbq_grilling",
+        "events.birthday_party",
+        "events.holiday_dinner",
+        "events.wedding_related",
+        "events.baby_kids",
+        "events.graduation",
+        "events.game_watch_party",
+        "events.potluck_dinner_party",
+        "events.cocktail_party",
+        "events.picnic_outdoor_gathering",
+        "events.holiday_party_office",
+        "events.anniversary_celebration",
+        "events.game_night_indoor",
+
+        "travel.weekend_trip",
+        "travel.camping_backpacking",
+        "travel.business_trip",
+        "travel.beach_vacation",
+        "travel.road_trip",
+        "travel.international_trip",
+        "travel.ski_snow_trip",
+        "travel.family_vacation_kids",
+        "travel.solo_travel",
+        "travel.cruise",
+        "travel.festival_concert_trip",
+        "travel.honeymoon_romantic_getaway",
+        "travel.backcountry_hiking",
+
+        "home.moving_in",
+        "home.new_apartment_setup",
+        "home.dorm_move_in",
+        "home.home_office_setup",
+        "home.nursery_setup",
+        "home.kitchen_upgrade",
+        "home.bathroom_refresh",
+        "home.small_space_organization",
+        "home.first_time_homeowner",
+        "home.pet_setup",
+        "home.outdoor_patio_setup",
+        "home.home_gym_setup",
+        "home.guest_room_setup",
+
+        "seasonal.back_to_school",
+        "seasonal.holiday_hosting",
+        "seasonal.summer_prep",
+        "seasonal.winter_prep",
+        "seasonal.spring_cleaning",
+        "seasonal.fall_prep",
+        "seasonal.halloween",
+        "seasonal.new_year_eve",
+        "seasonal.spring_break",
+        "seasonal.gift_wrapping_decor",
+        "seasonal.allergy_season",
+        "seasonal.severe_weather_prep",
+        "seasonal.gardening_planting"
+      ]
+    }
+  },
+
+  "x-tree": {
+    "categories": [
+      {
+        "id": "events",
+        "label": "Events",
+        "description": "One-off gatherings the user is hosting or attending, usually single-day, defined by a headcount and a reason to gather.",
+        "subcategories": [
+          { "id": "events.bbq_grilling", "label": "BBQ & Grilling", "example_use_cases": ["Backyard BBQ cookout", "Fourth of July grill party"] },
+          { "id": "events.birthday_party", "label": "Birthday Parties", "example_use_cases": ["Kids birthday party with bounce house", "Adult milestone birthday at home"] },
+          { "id": "events.holiday_dinner", "label": "Holiday Dinners", "example_use_cases": ["Thanksgiving dinner for 12", "Christmas Eve family dinner"] },
+          { "id": "events.wedding_related", "label": "Wedding-Adjacent Events", "example_use_cases": ["Bridal shower brunch", "Bachelorette weekend"] },
+          { "id": "events.baby_kids", "label": "Baby & Kids Milestones", "example_use_cases": ["Baby shower", "Gender reveal party"] },
+          { "id": "events.graduation", "label": "Graduation Celebrations", "example_use_cases": ["High school graduation open house", "College graduation party"] },
+          { "id": "events.game_watch_party", "label": "Sports Watch Parties", "example_use_cases": ["Super Bowl watch party", "March Madness bracket night"] },
+          { "id": "events.potluck_dinner_party", "label": "Potlucks & Dinner Parties", "example_use_cases": ["Friendsgiving potluck", "Sit-down dinner party for 8"] },
+          { "id": "events.cocktail_party", "label": "Cocktail & Mixers", "example_use_cases": ["Cocktail hour house party", "Wine and cheese mixer"] },
+          { "id": "events.picnic_outdoor_gathering", "label": "Picnics & Outdoor Gatherings", "example_use_cases": ["Park picnic for friends", "Company outdoor picnic"] },
+          { "id": "events.holiday_party_office", "label": "Office & Holiday Parties", "example_use_cases": ["Office holiday party", "Secret Santa exchange"] },
+          { "id": "events.anniversary_celebration", "label": "Anniversaries & Milestone Celebrations", "example_use_cases": ["Wedding anniversary dinner at home", "Retirement party"] },
+          { "id": "events.game_night_indoor", "label": "Game & Movie Nights", "example_use_cases": ["Board game night", "Movie marathon night"] }
+        ]
+      },
+      {
+        "id": "travel",
+        "label": "Travel",
+        "description": "Trips away from home, defined by duration, destination type, and travel-party size; drives packing/prep lists rather than hosting lists.",
+        "subcategories": [
+          { "id": "travel.weekend_trip", "label": "Weekend Trips", "example_use_cases": ["Weekend getaway to the mountains", "Quick weekend city break"] },
+          { "id": "travel.camping_backpacking", "label": "Camping & Backpacking", "example_use_cases": ["Car camping weekend", "3-day backpacking trip"] },
+          { "id": "travel.business_trip", "label": "Business Trips", "example_use_cases": ["2-day business trip with client dinner", "Conference trip"] },
+          { "id": "travel.beach_vacation", "label": "Beach Vacations", "example_use_cases": ["Week-long beach vacation", "Long weekend at the beach"] },
+          { "id": "travel.road_trip", "label": "Road Trips", "example_use_cases": ["Multi-day road trip", "Weekend road trip with kids"] },
+          { "id": "travel.international_trip", "label": "International Trips", "example_use_cases": ["Two-week trip to Europe", "International trip with layovers"] },
+          { "id": "travel.ski_snow_trip", "label": "Ski & Snow Trips", "example_use_cases": ["Weekend ski trip", "Week-long snowboarding trip"] },
+          { "id": "travel.family_vacation_kids", "label": "Family Vacations with Kids", "example_use_cases": ["Family vacation with toddlers", "Theme park trip with kids"] },
+          { "id": "travel.solo_travel", "label": "Solo Travel", "example_use_cases": ["Solo weekend trip", "Solo backpacking trip"] },
+          { "id": "travel.cruise", "label": "Cruises", "example_use_cases": ["7-day cruise", "Weekend cruise"] },
+          { "id": "travel.festival_concert_trip", "label": "Festival & Concert Trips", "example_use_cases": ["Multi-day music festival", "Out-of-town concert trip"] },
+          { "id": "travel.honeymoon_romantic_getaway", "label": "Honeymoons & Romantic Getaways", "example_use_cases": ["Honeymoon trip", "Anniversary getaway"] },
+          { "id": "travel.backcountry_hiking", "label": "Backcountry & Multi-Day Hiking", "example_use_cases": ["Multi-day backcountry hike", "Thru-hike section trip"] }
+        ]
+      },
+      {
+        "id": "home",
+        "label": "Home",
+        "description": "Setting up, refreshing, or reorganizing a living space; not tied to a single day or headcount, driven instead by room/space type and life stage.",
+        "subcategories": [
+          { "id": "home.moving_in", "label": "Moving In", "example_use_cases": ["Moving into a new house", "Moving in with a partner"] },
+          { "id": "home.new_apartment_setup", "label": "New Apartment Setup", "example_use_cases": ["First apartment essentials", "Studio apartment setup"] },
+          { "id": "home.dorm_move_in", "label": "Dorm Move-In", "example_use_cases": ["College dorm move-in", "Dorm room essentials"] },
+          { "id": "home.home_office_setup", "label": "Home Office Setup", "example_use_cases": ["Remote work office setup", "Small home office in a bedroom corner"] },
+          { "id": "home.nursery_setup", "label": "Nursery Setup", "example_use_cases": ["Setting up a nursery", "Nursery on a budget"] },
+          { "id": "home.kitchen_upgrade", "label": "Kitchen Upgrades", "example_use_cases": ["Kitchen essentials refresh", "First-time kitchen stocking"] },
+          { "id": "home.bathroom_refresh", "label": "Bathroom Refresh", "example_use_cases": ["Bathroom refresh on a budget", "Guest bathroom restock"] },
+          { "id": "home.small_space_organization", "label": "Small-Space Organization", "example_use_cases": ["Organizing a small apartment", "Closet organization overhaul"] },
+          { "id": "home.first_time_homeowner", "label": "First-Time Homeowner", "example_use_cases": ["First-time homeowner toolkit", "Basic home maintenance kit"] },
+          { "id": "home.pet_setup", "label": "New Pet Setup", "example_use_cases": ["Bringing home a new puppy", "New cat starter kit"] },
+          { "id": "home.outdoor_patio_setup", "label": "Outdoor & Patio Setup", "example_use_cases": ["Small patio setup", "Backyard deck furnishing"] },
+          { "id": "home.home_gym_setup", "label": "Home Gym Setup", "example_use_cases": ["Home gym in a spare room", "Garage gym setup"] },
+          { "id": "home.guest_room_setup", "label": "Guest Room Setup", "example_use_cases": ["Guest room for visiting family", "Convertible guest/office room"] }
+        ]
+      },
+      {
+        "id": "seasonal",
+        "label": "Seasonal",
+        "description": "Recurring, calendar-driven prep that is not a single hosted event and not a trip; scoped by time of year rather than by a headcount.",
+        "subcategories": [
+          { "id": "seasonal.back_to_school", "label": "Back to School", "example_use_cases": ["Back to school shopping for elementary kids", "College move-in school supplies"] },
+          { "id": "seasonal.holiday_hosting", "label": "Holiday Hosting Prep", "example_use_cases": ["Decorating and prepping to host Christmas", "Hanukkah hosting prep"] },
+          { "id": "seasonal.summer_prep", "label": "Summer Prep", "example_use_cases": ["Getting the pool ready for summer", "Summer road-trip prep"] },
+          { "id": "seasonal.winter_prep", "label": "Winter Prep", "example_use_cases": ["Winterizing the home", "Cold-weather car kit"] },
+          { "id": "seasonal.spring_cleaning", "label": "Spring Cleaning", "example_use_cases": ["Whole-house spring cleaning", "Garage spring cleanout"] },
+          { "id": "seasonal.fall_prep", "label": "Fall Prep", "example_use_cases": ["Fall yard cleanup", "Cozy fall home refresh"] },
+          { "id": "seasonal.halloween", "label": "Halloween", "example_use_cases": ["Trick-or-treat hosting", "Halloween party decor"] },
+          { "id": "seasonal.new_year_eve", "label": "New Year's Eve", "example_use_cases": ["Hosting a New Year's Eve party", "Quiet New Year's Eve at home"] },
+          { "id": "seasonal.spring_break", "label": "Spring Break", "example_use_cases": ["Spring break trip prep", "Spring break at home with kids"] },
+          { "id": "seasonal.gift_wrapping_decor", "label": "Gift Wrapping & Holiday Decor", "example_use_cases": ["Holiday gift-wrapping station", "Holiday decor refresh"] },
+          { "id": "seasonal.allergy_season", "label": "Allergy Season Prep", "example_use_cases": ["Spring allergy season stock-up", "Allergy-proofing the bedroom"] },
+          { "id": "seasonal.severe_weather_prep", "label": "Severe Weather Prep", "example_use_cases": ["Hurricane season prep kit", "Winter storm emergency kit"] },
+          { "id": "seasonal.gardening_planting", "label": "Gardening & Planting Season", "example_use_cases": ["Starting a spring vegetable garden", "Planting a fall garden"] }
+        ]
+      }
+    ]
+  }
+}
