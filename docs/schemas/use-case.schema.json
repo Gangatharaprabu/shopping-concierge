@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopping-concierge.app/schemas/use-case.schema.json",
+  "title": "UseCase",
+  "description": "A pre-built shopping use case (e.g. 'Backyard BBQ cookout', 'Weekend trip'). This is template/seed data produced offline by usecase-content-agent, matched to a user by feed-agent, then instantiated per-session as a Scenario by harness-agent. See /docs/schemas/README.md for field-by-field explanation and worked examples.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "category", "subcategory", "tags", "scenario_slots", "template_list"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Stable unique slug for this use case, e.g. 'backyard-bbq-cookout'. Never reused, never repurposed for a different use case."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable name shown to the user, e.g. 'Backyard BBQ Cookout'."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional one- or two-sentence blurb used in match/feed UI copy."
+    },
+    "category": {
+      "$ref": "category-taxonomy.json#/$defs/category"
+    },
+    "subcategory": {
+      "$ref": "category-taxonomy.json#/$defs/subcategory"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Freeform, cross-cutting search/embedding tags (e.g. 'grilling', 'summer', 'kid-friendly'). Independent of the category tree -- used by feed-agent's similarity search, not for taxonomy navigation."
+    },
+    "scenario_slots": {
+      "$ref": "#/$defs/scenario_slots"
+    },
+    "template_list": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/template_list_item" },
+      "description": "The seed shopping list for this use case. Copied into a new ShoppingList.items[] (as ListItem) when a user starts a Scenario from this UseCase; individual items are then recomputed in place by adjust_scenario as the user patches scenario_slots, never regenerated wholesale."
+    }
+  },
+
+  "$defs": {
+
+    "slot_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Stable identifier for one scenario slot. The six canonical ids (see canonical_slot_id) cover the required axes (time of day, headcount, indoor/outdoor, budget tier, dietary, duration); a UseCase may also define additional use-case-specific slot ids (e.g. 'grill_type') following the same naming pattern."
+    },
+
+    "canonical_slot_id": {
+      "type": "string",
+      "enum": ["time_of_day", "headcount", "setting", "budget_tier", "dietary", "duration"],
+      "description": "Reserved slot ids with a fixed meaning across every UseCase that uses them. Do not reuse one of these ids for a different meaning."
+    },
+
+    "duration_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "count"],
+      "properties": {
+        "unit": {
+          "type": "string",
+          "enum": ["event", "days"],
+          "description": "'event' = a single, non-multi-day occurrence (count is always 1). 'days' = spans multiple days (count = number of days)."
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "description": "Value shape for the 'duration' slot, representing both the single-event/multi-day distinction and (when multi-day) the actual day count, e.g. { unit: 'event', count: 1 } or { unit: 'days', count: 3 }."
+    },
+
+    "enum_slot_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "options", "default"],
+      "properties": {
+        "type": { "const": "enum" },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "options": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "default": { "type": "string" }
+      }
+    },
+
+    "integer_slot_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "min", "max", "default"],
+      "properties": {
+        "type": { "const": "integer" },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "min": { "type": "integer" },
+        "max": { "type": "integer" },
+        "default": { "type": "integer" },
+        "unit": {
+          "type": "string",
+          "description": "Display unit, e.g. 'guests', 'travelers'."
+        }
+      }
+    },
+
+    "tag_list_slot_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "default"],
+      "properties": {
+        "type": { "const": "tag_list" },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "options": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Common/suggested tags for UI pickers. Not exhaustive -- a Scenario may include additional custom tags at runtime."
+        },
+        "default": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "duration_slot_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "default"],
+      "properties": {
+        "type": { "const": "duration" },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "max_days": { "type": "integer", "minimum": 1 },
+        "default": { "$ref": "#/$defs/duration_value" }
+      }
+    },
+
+    "slot_definition": {
+      "description": "Defines one entry of UseCase.scenario_slots: the slot's type, its allowed/default value(s), and display metadata. This is the *definition*, not a live value -- see slot_value for what a Scenario stores at runtime.",
+      "oneOf": [
+        { "$ref": "#/$defs/enum_slot_definition" },
+        { "$ref": "#/$defs/integer_slot_definition" },
+        { "$ref": "#/$defs/tag_list_slot_definition" },
+        { "$ref": "#/$defs/duration_slot_definition" }
+      ]
+    },
+
+    "scenario_slots": {
+      "$anchor": "scenario_slots",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/slot_id" },
+      "additionalProperties": { "$ref": "#/$defs/slot_definition" },
+      "description": "Map of slot_id -> slot_definition. Declares which of the axes (time_of_day, headcount, setting, budget_tier, dietary, duration, or custom ids) are relevant to this use case, and their allowed range/options/default. A UseCase only needs to declare the slots that actually matter for it -- e.g. a home-setup use case may omit 'duration' entirely. Each key is a stable id that template_list_item.depends_on_slots and Scenario.slots both reference, which is what lets adjust_scenario patch a single slot without touching unrelated items."
+    },
+
+    "slot_value": {
+      "description": "The value shape stored for one slot on a live Scenario (as opposed to slot_definition, which describes the allowed values). Which of these shapes applies for a given slot_id is determined by that slot's type in the originating UseCase.scenario_slots.",
+      "oneOf": [
+        { "type": "string", "description": "Value for an 'enum' slot, e.g. setting = 'outdoor'." },
+        { "type": "integer", "description": "Value for an 'integer' slot, e.g. headcount = 20." },
+        { "type": "array", "items": { "type": "string" }, "description": "Value for a 'tag_list' slot, e.g. dietary = ['vegetarian']." },
+        { "$ref": "#/$defs/duration_value" }
+      ]
+    },
+
+    "scenario": {
+      "$anchor": "scenario",
+      "title": "Scenario",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["use_case_id", "slots"],
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "description": "References UseCase.id."
+        },
+        "slots": {
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/slot_id" },
+          "additionalProperties": { "$ref": "#/$defs/slot_value" },
+          "description": "Current resolved value per slot for this session, keyed the same way as the originating UseCase.scenario_slots. Populated from each slot's default at Scenario creation (with enum/tag_list/budget-tier-like defaults optionally pre-filled from UserMemory -- see README 'Memory boundary'), then patched in place, one slot at a time, by adjust_scenario. Never regenerated wholesale on edit."
+        }
+      },
+      "description": "The patched/adjusted version of a UseCase for one user session. Deliberately thin: just the live slot values, not a copy of scenario_slots' definitions/options."
+    },
+
+    "qty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base", "unit"],
+      "properties": {
+        "base": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Reference quantity at each dependent slot's default value. Used to seed the ShoppingList when a UseCase is first selected, before any scenario edits."
+        },
+        "unit": {
+          "type": "string",
+          "description": "e.g. 'kg', 'count', 'pack', 'bag'."
+        }
+      }
+    },
+
+    "presence_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot_id", "condition", "value"],
+      "properties": {
+        "slot_id": { "$ref": "#/$defs/slot_id" },
+        "condition": {
+          "type": "string",
+          "enum": ["equals", "not_equals", "includes", "excludes"],
+          "description": "'equals'/'not_equals' compare against an enum slot's value. 'includes'/'excludes' test membership of value within a tag_list slot's value."
+        },
+        "value": { "type": "string" }
+      },
+      "description": "One gating condition on a slot's current value, controlling whether an item is included in the list at all. A template_list_item's presence_rules (if more than one) are AND-combined -- the item is included only if every rule is satisfied by the current Scenario.slots."
+    },
+
+    "scaling_rule_linear": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot_id", "method", "per_unit"],
+      "properties": {
+        "slot_id": { "$ref": "#/$defs/slot_id" },
+        "method": { "const": "linear" },
+        "per_unit": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Quantity contributed per 1 unit of the referenced slot's numeric value (headcount's integer value, or duration's day count). Total suggested qty = per_unit * slot_value, then rounded per 'round'."
+        },
+        "round": {
+          "type": "string",
+          "enum": ["up", "down", "nearest"],
+          "default": "nearest"
+        },
+        "minimum": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Floor applied after rounding, e.g. never suggest less than 1."
+        }
+      }
+    },
+
+    "scaling_rule_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot_id", "method", "tiers"],
+      "properties": {
+        "slot_id": { "$ref": "#/$defs/slot_id" },
+        "method": { "const": "step" },
+        "tiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["up_to", "qty"],
+            "properties": {
+              "up_to": {
+                "type": ["integer", "null"],
+                "description": "Inclusive upper bound of the slot's numeric value for this tier. null = applies to any value above the previous tier's up_to (must be the last tier)."
+              },
+              "qty": { "type": "number", "minimum": 0 }
+            }
+          },
+          "description": "Ordered ascending by up_to. Use for items that scale in discrete jumps rather than linearly, e.g. coolers: headcount<=10 -> 1, <=25 -> 2, else -> 3."
+        }
+      }
+    },
+
+    "scaling_rule": {
+      "description": "One formula describing how a numeric/duration slot changes an item's quantity once the item is present. A template_list_item may have zero (static quantity), one, or more than one scaling_rule (e.g. an item can scale with both headcount and duration independently -- suggested qty is computed per rule and summed, unless the item's notes specify otherwise).",
+      "oneOf": [
+        { "$ref": "#/$defs/scaling_rule_linear" },
+        { "$ref": "#/$defs/scaling_rule_step" }
+      ]
+    },
+
+    "template_list_item": {
+      "$anchor": "template_list_item",
+      "title": "TemplateListItem",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "name", "category", "qty", "depends_on_slots"],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Stable id for this item within this UseCase's template_list (not globally unique). Copied to ListItem.source_item_id when the list is instantiated, so adjust_scenario can find and patch the right ShoppingList item by id instead of matching on name."
+        },
+        "name": { "type": "string" },
+        "category": {
+          "type": "string",
+          "description": "Freeform grouping label (e.g. 'food', 'gear', 'decor'), matching ListItem.category."
+        },
+        "qty": { "$ref": "#/$defs/qty" },
+        "depends_on_slots": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slot_id" },
+          "uniqueItems": true,
+          "description": "Every slot_id whose value affects whether this item is included and/or how much of it is needed. Empty array = a static item unaffected by any slot (e.g. 'grill tongs' -- always present, quantity never changes). Every slot_id referenced in this item's presence_rules or scaling_rules must also appear here, so the harness can compute, from a single changed slot_id, the exact set of items that might need to change without scanning the whole list."
+        },
+        "presence_rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/presence_rule" },
+          "description": "Conditions controlling whether this item appears at all. Omitted or empty = always present (subject to scaling_rules)."
+        },
+        "scaling_rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/scaling_rule" },
+          "description": "Quantity formulas, consulted by adjust_scenario when a dependent slot is patched to recompute this item's qty without touching the rest of the list. Omitted = quantity is always qty.base."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "list_item": {
+      "$anchor": "list_item",
+      "title": "ListItem",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "qty", "category", "owned"],
+      "properties": {
+        "name": { "type": "string" },
+        "qty": { "type": "number", "minimum": 0 },
+        "unit": { "type": "string" },
+        "category": { "type": "string" },
+        "owned": {
+          "type": "boolean",
+          "description": "User-marked: they already have this, don't shop for it."
+        },
+        "source_item_id": {
+          "type": ["string", "null"],
+          "description": "The template_list_item.item_id this ListItem was instantiated from, or null if the user added this item manually (not from the template). Used by adjust_scenario to locate which ShoppingList items correspond to which template items when a slot is patched."
+        }
+      },
+      "description": "One line of a ShoppingList.items[], per CLAUDE.md's canonical ListItem shape. Distinct from template_list_item: this is the live, per-session, user-editable item, not the template it was seeded from."
+    }
+  }
+}
