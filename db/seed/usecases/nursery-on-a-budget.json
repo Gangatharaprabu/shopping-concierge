@@ -1,0 +1,86 @@
+{
+  "id": "nursery-on-a-budget",
+  "title": "Nursery on a Budget",
+  "description": "The essentials for a nursery without the premium extras.",
+  "category": "home",
+  "subcategory": "home.nursery_setup",
+  "tags": [
+    "nursery",
+    "baby",
+    "budget"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "low"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "secondhand_crib_checklist",
+      "name": "Secondhand crib safety checklist",
+      "category": "documents",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "diapers_starter_pack",
+      "name": "Diapers starter pack",
+      "category": "baby",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "changing_pad",
+      "name": "Changing pad",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "budget_baby_monitor",
+      "name": "Budget baby monitor",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "basic_crib_sheets",
+      "name": "Basic crib sheets",
+      "category": "bedroom",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "dresser_as_changing_table_hack",
+      "name": "Dresser-top changing pad conversion kit",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

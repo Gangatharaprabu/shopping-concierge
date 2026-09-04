@@ -1,0 +1,105 @@
+{
+  "id": "moving-in-with-a-partner",
+  "title": "Moving In With a Partner",
+  "description": "Combining two households into one shared home.",
+  "category": "home",
+  "subcategory": "home.moving_in",
+  "tags": [
+    "moving",
+    "cohabitation",
+    "couples"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "shared_bedding_set",
+      "name": "Shared bedding set",
+      "category": "bedroom",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "duplicate_item_donation_box",
+      "name": "Box for duplicate kitchen items to donate",
+      "category": "packing",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "matching_towel_set",
+      "name": "Matching towel set",
+      "category": "bathroom",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "shared_grocery_starter_kit",
+      "name": "Shared pantry starter kit",
+      "category": "kitchen",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "moving_boxes",
+      "name": "Moving boxes",
+      "category": "packing",
+      "qty": {
+        "base": 20,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "label_maker",
+      "name": "Label maker",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "premium_furniture_upgrade",
+      "name": "Premium shared furniture upgrade",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    }
+  ]
+}

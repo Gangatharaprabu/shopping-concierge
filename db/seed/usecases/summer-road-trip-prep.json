@@ -1,0 +1,157 @@
+{
+  "id": "summer-road-trip-prep",
+  "title": "Summer Road Trip Prep",
+  "description": "Getting the car and family stocked up for summer road trips.",
+  "category": "seasonal",
+  "subcategory": "seasonal.summer_prep",
+  "tags": [
+    "road-trip",
+    "summer",
+    "car",
+    "prep"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 7,
+      "default": 4,
+      "unit": "travelers"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "car_emergency_kit",
+      "name": "Car emergency kit",
+      "category": "car",
+      "qty": {
+        "base": 1,
+        "unit": "kit"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cooler_for_car",
+      "name": "Cooler for the car",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 4,
+              "qty": 1
+            },
+            {
+              "up_to": 6,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "sunscreen",
+      "name": "Sunscreen",
+      "category": "toiletries",
+      "qty": {
+        "base": 1,
+        "unit": "bottle"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "car_phone_mount",
+      "name": "Car phone mount",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "road_trip_snacks",
+      "name": "Road trip snacks",
+      "category": "food",
+      "qty": {
+        "base": 4,
+        "unit": "bags"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "portable_car_charger",
+      "name": "Portable car charger",
+      "category": "electronics",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "tire_pressure_gauge",
+      "name": "Tire pressure gauge",
+      "category": "car",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

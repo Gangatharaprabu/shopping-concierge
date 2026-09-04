@@ -1,0 +1,96 @@
+{
+  "id": "planting-a-fall-garden",
+  "title": "Planting a Fall Garden",
+  "description": "Getting cool-weather crops and bulbs into the ground for fall.",
+  "category": "seasonal",
+  "subcategory": "seasonal.gardening_planting",
+  "tags": [
+    "gardening",
+    "fall",
+    "planting",
+    "bulbs"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "fall_vegetable_seeds",
+      "name": "Fall vegetable seeds (kale, garlic, spinach)",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "frost_cloth_row_cover",
+      "name": "Frost cloth row cover",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "garden_gloves",
+      "name": "Garden gloves",
+      "category": "garden",
+      "qty": {
+        "base": 2,
+        "unit": "pair"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "compost",
+      "name": "Compost",
+      "category": "garden",
+      "qty": {
+        "base": 0,
+        "unit": "bag"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "bulb_planting_kit",
+      "name": "Bulb planting kit",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "mulch_bags",
+      "name": "Mulch bags",
+      "category": "garden",
+      "qty": {
+        "base": 3,
+        "unit": "bag"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

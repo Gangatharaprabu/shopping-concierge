@@ -1,0 +1,166 @@
+{
+  "id": "prepping-to-host-christmas",
+  "title": "Prepping to Host Christmas",
+  "description": "Getting the house decorated and stocked to host family for Christmas.",
+  "category": "seasonal",
+  "subcategory": "seasonal.holiday_hosting",
+  "tags": [
+    "christmas",
+    "hosting",
+    "holiday",
+    "winter"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Expected guests",
+      "min": 4,
+      "max": 25,
+      "default": 12,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "gluten_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "christmas_tree",
+      "name": "Christmas tree",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "string_lights_indoor",
+      "name": "Indoor string lights",
+      "category": "decor",
+      "qty": {
+        "base": 2,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "stockings",
+      "name": "Stockings",
+      "category": "decor",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 2
+        }
+      ]
+    },
+    {
+      "item_id": "holiday_tablecloth",
+      "name": "Holiday tablecloth",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "guest_bedding_for_overnight_family",
+      "name": "Guest bedding sets",
+      "category": "bedroom",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 8,
+              "qty": 1
+            },
+            {
+              "up_to": 16,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "christmas_cookies_ingredients",
+      "name": "Christmas cookie ingredients",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.1,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "gluten_free_cookie_mix",
+      "name": "Gluten-free cookie mix",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "box"
+      },
+      "depends_on_slots": [
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "gluten_free"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "backyard-kids-birthday-budget",
+  "title": "Backyard Kids Birthday Party on a Budget",
+  "description": "A low-cost, DIY-leaning kids birthday party at home.",
+  "category": "events",
+  "subcategory": "events.birthday_party",
+  "tags": [
+    "birthday",
+    "kids",
+    "budget",
+    "diy"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Kids attending",
+      "min": 4,
+      "max": 30,
+      "default": 12,
+      "unit": "kids"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "low"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "nut_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "diy_pinata",
+      "name": "DIY piñata kit",
+      "category": "party-favors",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "hired_entertainer",
+      "name": "Hired entertainer / magician",
+      "category": "rental",
+      "qty": {
+        "base": 1,
+        "unit": "booking"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "balloons",
+      "name": "Balloons",
+      "category": "decor",
+      "qty": {
+        "base": 24,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "homemade_cupcakes",
+      "name": "Homemade cupcakes",
+      "category": "food",
+      "qty": {
+        "base": 12,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "juice_boxes",
+      "name": "Juice boxes",
+      "category": "food",
+      "qty": {
+        "base": 12,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "paper_tablecloth",
+      "name": "Paper tablecloth",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "nut_free_treats",
+      "name": "Nut-free treat bags",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "bag"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "nut_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}

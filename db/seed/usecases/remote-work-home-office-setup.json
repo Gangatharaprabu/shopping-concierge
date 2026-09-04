@@ -1,0 +1,142 @@
+{
+  "id": "remote-work-home-office-setup",
+  "title": "Remote Work Home Office Setup",
+  "description": "Setting up a dedicated home office for full-time remote work.",
+  "category": "home",
+  "subcategory": "home.home_office_setup",
+  "tags": [
+    "home-office",
+    "remote-work",
+    "wfh"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "ergonomic_office_chair",
+      "name": "Ergonomic office chair",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "basic_desk_chair",
+      "name": "Basic desk chair",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "standing_desk",
+      "name": "Standing desk",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "basic_desk",
+      "name": "Basic desk",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "monitor",
+      "name": "Monitor",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "webcam",
+      "name": "Webcam",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "desk_lamp",
+      "name": "Desk lamp",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cable_management_kit",
+      "name": "Cable management kit",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

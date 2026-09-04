@@ -1,0 +1,176 @@
+{
+  "id": "weekend-mountain-cabin-retreat",
+  "title": "Weekend Mountain Cabin Retreat",
+  "description": "A cozy weekend away at a rented mountain cabin.",
+  "category": "travel",
+  "subcategory": "travel.weekend_trip",
+  "tags": [
+    "cabin",
+    "mountains",
+    "weekend",
+    "cozy"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 8,
+      "default": 4,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 14,
+      "default": {
+        "unit": "days",
+        "count": 3
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "firewood_bundle",
+      "name": "Firewood bundle",
+      "category": "gear",
+      "qty": {
+        "base": 3,
+        "unit": "bundle"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up"
+        }
+      ],
+      "notes": "Additive: 0.5 bundle per traveler + 0.5 bundle per day."
+    },
+    {
+      "item_id": "hiking_boots",
+      "name": "Hiking boots",
+      "category": "apparel",
+      "qty": {
+        "base": 4,
+        "unit": "pair"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "trail_snacks",
+      "name": "Trail snacks",
+      "category": "food",
+      "qty": {
+        "base": 11,
+        "unit": "bars"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ],
+      "notes": "Additive: 2 bars per traveler + 1 per day."
+    },
+    {
+      "item_id": "cabin_rental_confirmation_printout",
+      "name": "Cabin rental confirmation printout",
+      "category": "documents",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "board_games",
+      "name": "Board games",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "bug_spray",
+      "name": "Bug spray",
+      "category": "toiletries",
+      "qty": {
+        "base": 1,
+        "unit": "bottle"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "warm_layers",
+      "name": "Warm layers",
+      "category": "apparel",
+      "qty": {
+        "base": 4,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}

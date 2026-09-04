@@ -1,0 +1,227 @@
+{
+  "id": "kids-birthday-party-bounce-house",
+  "title": "Kids Birthday Party with Bounce House",
+  "description": "A backyard birthday bash for a class' worth of kids, centered on a bounce house rental.",
+  "category": "events",
+  "subcategory": "events.birthday_party",
+  "tags": [
+    "birthday",
+    "kids",
+    "bounce-house",
+    "party"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Kids attending",
+      "min": 4,
+      "max": 40,
+      "default": 15,
+      "unit": "kids"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "outdoor",
+        "indoor",
+        "mixed"
+      ],
+      "default": "outdoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "nut_free",
+        "gluten_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "bounce_house_rental",
+      "name": "Bounce house rental",
+      "category": "rental",
+      "qty": {
+        "base": 1,
+        "unit": "rental"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "birthday_cake",
+      "name": "Birthday cake",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "cake"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 15,
+              "qty": 1
+            },
+            {
+              "up_to": 30,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "balloons",
+      "name": "Balloons",
+      "category": "decor",
+      "qty": {
+        "base": 30,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "loot_bags",
+      "name": "Loot bags",
+      "category": "party-favors",
+      "qty": {
+        "base": 15,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "juice_boxes",
+      "name": "Juice boxes",
+      "category": "food",
+      "qty": {
+        "base": 30,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "nut_free_snack_mix",
+      "name": "Nut-free snack mix",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "bag"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "nut_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.2,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "paper_plates",
+      "name": "Paper plates",
+      "category": "gear",
+      "qty": {
+        "base": 15,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 15,
+              "qty": 15
+            },
+            {
+              "up_to": 30,
+              "qty": 30
+            },
+            {
+              "up_to": null,
+              "qty": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "happy_birthday_banner",
+      "name": "Happy Birthday banner",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

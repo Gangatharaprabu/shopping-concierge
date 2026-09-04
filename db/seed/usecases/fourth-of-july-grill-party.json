@@ -1,0 +1,262 @@
+{
+  "id": "fourth-of-july-grill-party",
+  "title": "Fourth of July Grill Party",
+  "description": "A bigger backyard cookout for the Fourth, with fireworks-viewing extras.",
+  "category": "events",
+  "subcategory": "events.bbq_grilling",
+  "tags": [
+    "grilling",
+    "summer",
+    "holiday",
+    "outdoor",
+    "fireworks"
+  ],
+  "scenario_slots": {
+    "time_of_day": {
+      "type": "enum",
+      "label": "Time of day",
+      "options": [
+        "day",
+        "night"
+      ],
+      "default": "night"
+    },
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 4,
+      "max": 150,
+      "default": 20,
+      "unit": "guests"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "outdoor",
+        "mixed"
+      ],
+      "default": "outdoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "nut_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "charcoal_briquettes",
+      "name": "Charcoal briquettes",
+      "category": "fuel",
+      "qty": {
+        "base": 2.4,
+        "unit": "kg"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.3,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "hot_dogs",
+      "name": "Hot dogs",
+      "category": "food",
+      "qty": {
+        "base": 16,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "veggie_dogs",
+      "name": "Veggie dogs",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "sparklers",
+      "name": "Sparklers",
+      "category": "decor",
+      "qty": {
+        "base": 8,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "red_white_blue_decorations",
+      "name": "Red, white & blue decorations",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cooler",
+      "name": "Cooler",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 15,
+              "qty": 1
+            },
+            {
+              "up_to": 40,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "citronella_candles",
+      "name": "Citronella candles",
+      "category": "gear",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "time_of_day",
+        "setting"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "time_of_day",
+          "condition": "equals",
+          "value": "night"
+        },
+        {
+          "slot_id": "setting",
+          "condition": "equals",
+          "value": "outdoor"
+        }
+      ],
+      "notes": "Two-slot gate: only present for an outdoor evening party."
+    },
+    {
+      "item_id": "lawn_chairs",
+      "name": "Lawn chairs",
+      "category": "gear",
+      "qty": {
+        "base": 6,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 6
+            },
+            {
+              "up_to": 30,
+              "qty": 15
+            },
+            {
+              "up_to": null,
+              "qty": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
