@@ -36,6 +36,15 @@ exact shapes below.)
   which is how `adjust_scenario` finds the right item to patch.
 - **UserMemory (durable)**: { user_id, household_size, dietary_prefs[], budget_tier, brand_prefs[] }
 - **Basket**: { id, user_id, items[], status: "draft" } — no order/checkout fields yet
+- **ListShare**: { id, list_id, shared_with_user_id, permission: "view"|"edit",
+  created_at } — sharing a `ShoppingList` with another registered user.
+  Direct user-to-user only (no public/anonymous share links yet); one row
+  per (list_id, shared_with_user_id) pair, re-sharing with the same user
+  updates `permission` rather than creating a duplicate row. The list's
+  owner can create/update/revoke any share on their own list; a sharee can
+  always view the list and can also edit it if their `permission` is
+  `"edit"`, and can revoke their own share (leave the list) without the
+  owner's involvement.
 
 ## Locked decisions (do not relitigate without asking)
 1. Ordering/checkout is OUT OF SCOPE for this phase. Basket ends in a stubbed
