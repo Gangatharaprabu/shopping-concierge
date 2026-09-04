@@ -1,0 +1,223 @@
+{
+  "id": "week-long-beach-vacation",
+  "title": "Week-Long Beach Vacation",
+  "description": "A full week at the beach with a rental house or condo.",
+  "category": "travel",
+  "subcategory": "travel.beach_vacation",
+  "tags": [
+    "beach",
+    "vacation",
+    "summer",
+    "week-long"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 8,
+      "default": 4,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 21,
+      "default": {
+        "unit": "days",
+        "count": 7
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "sunscreen",
+      "name": "Sunscreen",
+      "category": "toiletries",
+      "qty": {
+        "base": 3.5,
+        "unit": "bottle"
+      },
+      "depends_on_slots": [
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "swimsuits",
+      "name": "Swimsuits",
+      "category": "apparel",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "beach_towels",
+      "name": "Beach towels",
+      "category": "gear",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "beach_umbrella",
+      "name": "Beach umbrella",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 4,
+              "qty": 1
+            },
+            {
+              "up_to": 8,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "cooler",
+      "name": "Cooler",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 4,
+              "qty": 1
+            },
+            {
+              "up_to": 8,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "snorkel_gear",
+      "name": "Snorkel gear",
+      "category": "gear",
+      "qty": {
+        "base": 0,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "flip_flops",
+      "name": "Flip flops",
+      "category": "apparel",
+      "qty": {
+        "base": 4,
+        "unit": "pair"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}

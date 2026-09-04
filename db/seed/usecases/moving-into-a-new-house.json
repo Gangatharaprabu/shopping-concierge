@@ -1,0 +1,172 @@
+{
+  "id": "moving-into-a-new-house",
+  "title": "Moving Into a New House",
+  "description": "Packing and moving supplies for relocating an entire household.",
+  "category": "home",
+  "subcategory": "home.moving_in",
+  "tags": [
+    "moving",
+    "packing",
+    "relocation"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Household members",
+      "min": 1,
+      "max": 8,
+      "default": 2,
+      "unit": "people"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "moving_boxes",
+      "name": "Moving boxes",
+      "category": "packing",
+      "qty": {
+        "base": 30,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 15,
+          "round": "up",
+          "minimum": 10
+        }
+      ]
+    },
+    {
+      "item_id": "packing_tape",
+      "name": "Packing tape",
+      "category": "packing",
+      "qty": {
+        "base": 4,
+        "unit": "roll"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "bubble_wrap",
+      "name": "Bubble wrap",
+      "category": "packing",
+      "qty": {
+        "base": 2,
+        "unit": "roll"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "furniture_sliders",
+      "name": "Furniture sliders",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "moving_dolly",
+      "name": "Moving dolly",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 3,
+              "qty": 1
+            },
+            {
+              "up_to": null,
+              "qty": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "box_cutter",
+      "name": "Box cutter",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "address_change_kit",
+      "name": "Address change kit",
+      "category": "documents",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "premium_moving_insurance",
+      "name": "Premium moving insurance",
+      "category": "services",
+      "qty": {
+        "base": 0,
+        "unit": "policy"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    }
+  ]
+}

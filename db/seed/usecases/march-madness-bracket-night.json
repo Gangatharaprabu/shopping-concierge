@@ -1,0 +1,194 @@
+{
+  "id": "march-madness-bracket-night",
+  "title": "March Madness Bracket Night",
+  "description": "A casual bracket-filling get-together for the tournament's opening round.",
+  "category": "events",
+  "subcategory": "events.game_watch_party",
+  "tags": [
+    "basketball",
+    "watch-party",
+    "bracket",
+    "sports"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 2,
+      "max": 30,
+      "default": 10,
+      "unit": "guests"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "indoor",
+        "mixed"
+      ],
+      "default": "indoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegan"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "pizza",
+      "name": "Pizza",
+      "category": "food",
+      "qty": {
+        "base": 4,
+        "unit": "pizza"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.375,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "printed_bracket_sheets",
+      "name": "Printed bracket sheets",
+      "category": "party-favors",
+      "qty": {
+        "base": 10,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "nachos_platter",
+      "name": "Nachos platter",
+      "category": "food",
+      "qty": {
+        "base": 2,
+        "unit": "platter"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.2,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "vegan_nacho_cheese",
+      "name": "Vegan nacho cheese",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "jar"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.1,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "assorted_soda",
+      "name": "Assorted soda",
+      "category": "drinks",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 1
+            },
+            {
+              "up_to": 20,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "prize_for_winner",
+      "name": "Prize for bracket winner",
+      "category": "party-favors",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "poster_board_for_bracket",
+      "name": "Poster board for group bracket",
+      "category": "party-favors",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

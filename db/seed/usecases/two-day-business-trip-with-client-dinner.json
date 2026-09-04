@@ -1,0 +1,143 @@
+{
+  "id": "two-day-business-trip-with-client-dinner",
+  "title": "Two-Day Business Trip with Client Dinner",
+  "description": "A short business trip that includes a client dinner requiring business-formal attire.",
+  "category": "travel",
+  "subcategory": "travel.business_trip",
+  "tags": [
+    "business",
+    "work-trip",
+    "client-dinner"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 4,
+      "default": 1,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 5,
+      "default": {
+        "unit": "days",
+        "count": 2
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "business_attire",
+      "name": "Business attire",
+      "category": "apparel",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "laptop_charger",
+      "name": "Laptop charger",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "business_cards",
+      "name": "Business cards",
+      "category": "documents",
+      "qty": {
+        "base": 50,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 50,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "travel_toiletries_kit",
+      "name": "Travel toiletries kit",
+      "category": "toiletries",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "dress_shoes",
+      "name": "Dress shoes",
+      "category": "apparel",
+      "qty": {
+        "base": 1,
+        "unit": "pair"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "portable_luggage_scale",
+      "name": "Portable luggage scale",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

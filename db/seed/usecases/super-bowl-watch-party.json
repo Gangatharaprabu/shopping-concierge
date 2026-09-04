@@ -1,0 +1,257 @@
+{
+  "id": "super-bowl-watch-party",
+  "title": "Super Bowl Watch Party",
+  "description": "Hosting friends to watch the big game at home.",
+  "category": "events",
+  "subcategory": "events.game_watch_party",
+  "tags": [
+    "football",
+    "watch-party",
+    "game-day",
+    "sports"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 2,
+      "max": 40,
+      "default": 12,
+      "unit": "guests"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "indoor",
+        "mixed"
+      ],
+      "default": "indoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegetarian",
+        "vegan"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "chicken_wings",
+      "name": "Chicken wings",
+      "category": "food",
+      "qty": {
+        "base": 72,
+        "unit": "wings"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegan"
+        },
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegetarian"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 6,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "vegetarian_wings",
+      "name": "Cauliflower wings",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "wings"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegetarian"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 6,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "vegan_wings",
+      "name": "Vegan buffalo wings",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "wings"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 6,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "chips_and_dip",
+      "name": "Chips and dip",
+      "category": "food",
+      "qty": {
+        "base": 3,
+        "unit": "bag"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.25,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "beer",
+      "name": "Beer",
+      "category": "drinks",
+      "qty": {
+        "base": 6,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "soda_variety_pack",
+      "name": "Soda variety pack",
+      "category": "drinks",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 12,
+              "qty": 1
+            },
+            {
+              "up_to": 25,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "paper_towels",
+      "name": "Paper towels",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "roll"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "folding_tv_trays",
+      "name": "Folding TV trays",
+      "category": "gear",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 8,
+              "qty": 4
+            },
+            {
+              "up_to": 20,
+              "qty": 8
+            },
+            {
+              "up_to": null,
+              "qty": 12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

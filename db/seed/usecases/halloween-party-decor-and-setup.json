@@ -1,0 +1,156 @@
+{
+  "id": "halloween-party-decor-and-setup",
+  "title": "Halloween Party Decor and Setup",
+  "description": "Decorating and stocking up for a hosted Halloween party.",
+  "category": "seasonal",
+  "subcategory": "seasonal.halloween",
+  "tags": [
+    "halloween",
+    "party",
+    "decor",
+    "fall"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 5,
+      "max": 40,
+      "default": 15,
+      "unit": "guests"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "indoor",
+        "outdoor",
+        "mixed"
+      ],
+      "default": "indoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "spooky_string_lights",
+      "name": "Spooky string lights",
+      "category": "decor",
+      "qty": {
+        "base": 2,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "fog_machine",
+      "name": "Fog machine",
+      "category": "decor",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "halloween_tablecloth",
+      "name": "Halloween tablecloth",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "fake_spiderwebs",
+      "name": "Fake spiderwebs",
+      "category": "decor",
+      "qty": {
+        "base": 3,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "halloween_themed_cups",
+      "name": "Halloween-themed cups",
+      "category": "gear",
+      "qty": {
+        "base": 15,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 15,
+              "qty": 15
+            },
+            {
+              "up_to": 30,
+              "qty": 30
+            },
+            {
+              "up_to": null,
+              "qty": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "costume_contest_prize",
+      "name": "Costume contest prize",
+      "category": "party-favors",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "jack_o_lanterns",
+      "name": "Jack-o'-lanterns",
+      "category": "decor",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "setting"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "setting",
+          "condition": "not_equals",
+          "value": "indoor"
+        }
+      ],
+      "notes": "Present for outdoor or mixed settings -- 'not_equals indoor' covers both with a single condition."
+    }
+  ]
+}

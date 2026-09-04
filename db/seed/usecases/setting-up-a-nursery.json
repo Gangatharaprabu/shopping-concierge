@@ -1,0 +1,142 @@
+{
+  "id": "setting-up-a-nursery",
+  "title": "Setting Up a Nursery",
+  "description": "Furnishing and stocking a nursery for a new baby.",
+  "category": "home",
+  "subcategory": "home.nursery_setup",
+  "tags": [
+    "nursery",
+    "baby",
+    "newborn"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "crib",
+      "name": "Crib",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "budget_crib",
+      "name": "Budget crib",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "changing_table",
+      "name": "Changing table",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "diapers_starter_pack",
+      "name": "Diapers starter pack",
+      "category": "baby",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "baby_monitor",
+      "name": "Baby monitor",
+      "category": "electronics",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "blackout_curtains",
+      "name": "Blackout curtains",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "nursery_glider_chair",
+      "name": "Nursery glider chair",
+      "category": "furniture",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "crib_sheets",
+      "name": "Crib sheets",
+      "category": "bedroom",
+      "qty": {
+        "base": 3,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}
