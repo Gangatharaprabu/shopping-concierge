@@ -1,0 +1,169 @@
+{
+  "id": "multi-city-conference-trip",
+  "title": "Multi-City Conference Trip",
+  "description": "A multi-day conference trip involving travel between cities.",
+  "category": "travel",
+  "subcategory": "travel.business_trip",
+  "tags": [
+    "business",
+    "conference",
+    "multi-city"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 4,
+      "default": 1,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 10,
+      "default": {
+        "unit": "days",
+        "count": 4
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "conference_badge_holder",
+      "name": "Conference badge holder",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "portable_charger",
+      "name": "Portable charger",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "business_casual_outfits",
+      "name": "Business casual outfits",
+      "category": "apparel",
+      "qty": {
+        "base": 5,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 0.3,
+          "round": "up"
+        }
+      ],
+      "notes": "Additive: 1 base outfit per traveler + a bit more per extra conference day."
+    },
+    {
+      "item_id": "noise_cancelling_headphones",
+      "name": "Noise-cancelling headphones",
+      "category": "electronics",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "travel_size_toiletries",
+      "name": "Travel-size toiletries",
+      "category": "toiletries",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "printed_itinerary",
+      "name": "Printed itinerary",
+      "category": "documents",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

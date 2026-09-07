@@ -1,0 +1,203 @@
+{
+  "id": "sit-down-dinner-party-for-eight",
+  "title": "Sit-Down Dinner Party for Eight",
+  "description": "A hosted, multi-course dinner party for a small group.",
+  "category": "events",
+  "subcategory": "events.potluck_dinner_party",
+  "tags": [
+    "dinner-party",
+    "hosting",
+    "multi-course"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 2,
+      "max": 12,
+      "default": 8,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "wine_pairing",
+      "name": "Wine for pairing",
+      "category": "drinks",
+      "qty": {
+        "base": 3,
+        "unit": "bottle"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.33,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "cloth_napkins",
+      "name": "Cloth napkins",
+      "category": "gear",
+      "qty": {
+        "base": 8,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "place_cards",
+      "name": "Place cards",
+      "category": "decor",
+      "qty": {
+        "base": 8,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "appetizer_course_ingredients",
+      "name": "Appetizer course ingredients",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "main_course_ingredients",
+      "name": "Main course ingredients",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.125,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "dessert_course_ingredients",
+      "name": "Dessert course ingredients",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "vegetarian_main_substitute",
+      "name": "Vegetarian main substitute",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegetarian"
+        }
+      ]
+    },
+    {
+      "item_id": "gluten_free_bread",
+      "name": "Gluten-free bread",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "loaf"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "gluten_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.1,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "candles_and_centerpiece",
+      "name": "Candles and centerpiece",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

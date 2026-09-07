@@ -1,0 +1,95 @@
+{
+  "id": "small-home-office-in-a-bedroom-corner",
+  "title": "Small Home Office in a Bedroom Corner",
+  "description": "Carving out a functional workspace in an unused bedroom corner.",
+  "category": "home",
+  "subcategory": "home.home_office_setup",
+  "tags": [
+    "home-office",
+    "small-space",
+    "bedroom"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "compact_corner_desk",
+      "name": "Compact corner desk",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "room_divider_screen",
+      "name": "Room divider screen",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "noise_cancelling_headphones",
+      "name": "Noise-cancelling headphones",
+      "category": "electronics",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "desk_lamp",
+      "name": "Desk lamp",
+      "category": "furniture",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "under_desk_cable_tray",
+      "name": "Under-desk cable tray",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "wall_mounted_shelving",
+      "name": "Wall-mounted shelving",
+      "category": "storage",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

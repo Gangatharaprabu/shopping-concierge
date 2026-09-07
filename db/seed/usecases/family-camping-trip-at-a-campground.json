@@ -1,0 +1,206 @@
+{
+  "id": "family-camping-trip-at-a-campground",
+  "title": "Family Camping Trip at a Campground",
+  "description": "A kid-friendly camping trip at a developed campground.",
+  "category": "travel",
+  "subcategory": "travel.camping_backpacking",
+  "tags": [
+    "camping",
+    "family",
+    "kids",
+    "campground"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Campers",
+      "min": 2,
+      "max": 12,
+      "default": 5,
+      "unit": "campers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 14,
+      "default": {
+        "unit": "days",
+        "count": 3
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "nut_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "family_tent",
+      "name": "Family tent",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 4,
+              "qty": 1
+            },
+            {
+              "up_to": 8,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "sleeping_bags",
+      "name": "Sleeping bags",
+      "category": "gear",
+      "qty": {
+        "base": 5,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "marshmallows_and_smores_kit",
+      "name": "S'mores kit",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "kit"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.2,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "kid_friendly_camp_games",
+      "name": "Kid-friendly camp games",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cooler",
+      "name": "Cooler",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 6,
+              "qty": 1
+            },
+            {
+              "up_to": 10,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "bug_spray_family_size",
+      "name": "Bug spray (family size)",
+      "category": "toiletries",
+      "qty": {
+        "base": 1,
+        "unit": "bottle"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "nut_free_snacks",
+      "name": "Nut-free snacks",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "bags"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "nut_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    }
+  ]
+}

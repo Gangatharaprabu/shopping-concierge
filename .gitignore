@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# usecase-pipeline: regenerable audit log, not meant to be reviewed via git history
+/scripts/usecase-pipeline/logs/*.log
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code: scratch git worktrees for background subagents
+/.claude/worktrees/

@@ -1,0 +1,172 @@
+{
+  "id": "starting-a-spring-vegetable-garden",
+  "title": "Starting a Spring Vegetable Garden",
+  "description": "Getting set up to plant a home vegetable garden this spring.",
+  "category": "seasonal",
+  "subcategory": "seasonal.gardening_planting",
+  "tags": [
+    "gardening",
+    "spring",
+    "vegetables",
+    "planting"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "garden_size": {
+      "type": "enum",
+      "label": "Garden size",
+      "options": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "medium"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "starter_seed_packets",
+      "name": "Starter seed packets (small garden)",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "garden_size"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "garden_size",
+          "condition": "equals",
+          "value": "small"
+        }
+      ]
+    },
+    {
+      "item_id": "standard_seed_packet_set",
+      "name": "Standard seed packet set",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "garden_size"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "garden_size",
+          "condition": "equals",
+          "value": "medium"
+        }
+      ]
+    },
+    {
+      "item_id": "expanded_seed_packet_set",
+      "name": "Expanded seed packet set",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "garden_size"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "garden_size",
+          "condition": "equals",
+          "value": "large"
+        }
+      ]
+    },
+    {
+      "item_id": "potting_soil",
+      "name": "Potting soil",
+      "category": "garden",
+      "qty": {
+        "base": 2,
+        "unit": "bag"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "garden_gloves",
+      "name": "Garden gloves",
+      "category": "garden",
+      "qty": {
+        "base": 2,
+        "unit": "pair"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "trowel_and_hand_tools",
+      "name": "Trowel and hand tools",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "watering_can",
+      "name": "Watering can",
+      "category": "garden",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "organic_fertilizer",
+      "name": "Organic fertilizer",
+      "category": "garden",
+      "qty": {
+        "base": 0,
+        "unit": "bag"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "raised_garden_bed_kit",
+      "name": "Raised garden bed kit",
+      "category": "garden",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "garden_size"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "garden_size",
+          "condition": "equals",
+          "value": "large"
+        }
+      ]
+    }
+  ]
+}

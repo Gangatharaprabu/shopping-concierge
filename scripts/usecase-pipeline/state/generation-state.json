@@ -1,0 +1,425 @@
+{
+  "updated_at": "2026-09-04T12:57:24.248Z",
+  "subcategories": {
+    "events.bbq_grilling": {
+      "target": 20,
+      "generated": 3,
+      "status": "in_progress"
+    },
+    "travel.weekend_trip": {
+      "target": 20,
+      "generated": 3,
+      "status": "in_progress"
+    },
+    "home.new_apartment_setup": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "events.birthday_party": {
+      "target": 20,
+      "generated": 3,
+      "status": "in_progress"
+    },
+    "events.holiday_dinner": {
+      "target": 20,
+      "generated": 3,
+      "status": "in_progress"
+    },
+    "events.game_watch_party": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "events.potluck_dinner_party": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "travel.camping_backpacking": {
+      "target": 20,
+      "generated": 3,
+      "status": "in_progress"
+    },
+    "travel.beach_vacation": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "travel.ski_snow_trip": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "travel.business_trip": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "home.moving_in": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "home.nursery_setup": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "home.home_office_setup": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "home.pet_setup": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "home.dorm_move_in": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.back_to_school": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.holiday_hosting": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.halloween": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.severe_weather_prep": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.gardening_planting": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    },
+    "seasonal.summer_prep": {
+      "target": 20,
+      "generated": 2,
+      "status": "in_progress"
+    }
+  },
+  "batches": [
+    {
+      "batch_id": "hand-authored-events.bbq_grilling-1788526644246",
+      "timestamp": "2026-09-04T12:57:24.246Z",
+      "subcategory": "events.bbq_grilling",
+      "model": null,
+      "requested_count": 3,
+      "generated_count": 3,
+      "valid_count": 3,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 3,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-travel.weekend_trip-1788526644246",
+      "timestamp": "2026-09-04T12:57:24.246Z",
+      "subcategory": "travel.weekend_trip",
+      "model": null,
+      "requested_count": 3,
+      "generated_count": 3,
+      "valid_count": 3,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 3,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.new_apartment_setup-1788526644246",
+      "timestamp": "2026-09-04T12:57:24.246Z",
+      "subcategory": "home.new_apartment_setup",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-events.birthday_party-1788526644246",
+      "timestamp": "2026-09-04T12:57:24.246Z",
+      "subcategory": "events.birthday_party",
+      "model": null,
+      "requested_count": 3,
+      "generated_count": 3,
+      "valid_count": 3,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 3,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-events.holiday_dinner-1788526644246",
+      "timestamp": "2026-09-04T12:57:24.246Z",
+      "subcategory": "events.holiday_dinner",
+      "model": null,
+      "requested_count": 3,
+      "generated_count": 3,
+      "valid_count": 3,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 3,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-events.game_watch_party-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "events.game_watch_party",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-events.potluck_dinner_party-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "events.potluck_dinner_party",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-travel.camping_backpacking-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "travel.camping_backpacking",
+      "model": null,
+      "requested_count": 3,
+      "generated_count": 3,
+      "valid_count": 3,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 3,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-travel.beach_vacation-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "travel.beach_vacation",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-travel.ski_snow_trip-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "travel.ski_snow_trip",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-travel.business_trip-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "travel.business_trip",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.moving_in-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "home.moving_in",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.nursery_setup-1788526644247",
+      "timestamp": "2026-09-04T12:57:24.247Z",
+      "subcategory": "home.nursery_setup",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.home_office_setup-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "home.home_office_setup",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.pet_setup-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "home.pet_setup",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-home.dorm_move_in-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "home.dorm_move_in",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.back_to_school-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.back_to_school",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.holiday_hosting-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.holiday_hosting",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.halloween-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.halloween",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.severe_weather_prep-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.severe_weather_prep",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.gardening_planting-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.gardening_planting",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    },
+    {
+      "batch_id": "hand-authored-seasonal.summer_prep-1788526644248",
+      "timestamp": "2026-09-04T12:57:24.248Z",
+      "subcategory": "seasonal.summer_prep",
+      "model": null,
+      "requested_count": 2,
+      "generated_count": 2,
+      "valid_count": 2,
+      "invalid_count": 0,
+      "dedup_flagged_count": 0,
+      "written_count": 2,
+      "source": "hand-authored",
+      "notes": "Initial hand-authored seed batch (no ANTHROPIC_API_KEY available in this environment); see PIPELINE_README.md."
+    }
+  ]
+}

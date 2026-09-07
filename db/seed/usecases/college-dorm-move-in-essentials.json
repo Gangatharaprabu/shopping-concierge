@@ -1,0 +1,124 @@
+{
+  "id": "college-dorm-move-in-essentials",
+  "title": "College Dorm Move-In Essentials",
+  "description": "The essentials for moving into a college dorm room.",
+  "category": "home",
+  "subcategory": "home.dorm_move_in",
+  "tags": [
+    "dorm",
+    "college",
+    "move-in"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "twin_xl_bedding",
+      "name": "Twin XL bedding",
+      "category": "bedroom",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "mini_fridge",
+      "name": "Mini fridge",
+      "category": "kitchen",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "shower_caddy",
+      "name": "Shower caddy",
+      "category": "bathroom",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "desk_organizer",
+      "name": "Desk organizer",
+      "category": "storage",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "command_strips",
+      "name": "Command strips",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "laundry_bag",
+      "name": "Laundry bag",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "noise_cancelling_earplugs",
+      "name": "Earplugs",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "microwave",
+      "name": "Microwave",
+      "category": "kitchen",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    }
+  ]
+}

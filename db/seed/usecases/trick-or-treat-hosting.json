@@ -1,0 +1,141 @@
+{
+  "id": "trick-or-treat-hosting",
+  "title": "Trick-or-Treat Hosting",
+  "description": "Stocking up to hand out candy and decorate the porch for trick-or-treaters.",
+  "category": "seasonal",
+  "subcategory": "seasonal.halloween",
+  "tags": [
+    "halloween",
+    "trick-or-treat",
+    "candy",
+    "fall"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Expected trick-or-treaters",
+      "min": 10,
+      "max": 300,
+      "default": 60,
+      "unit": "trick-or-treaters"
+    },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [
+        "outdoor",
+        "indoor"
+      ],
+      "default": "outdoor"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Allergy notes",
+      "options": [
+        "nut_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "candy_bulk_bag",
+      "name": "Candy (bulk bag)",
+      "category": "food",
+      "qty": {
+        "base": 3,
+        "unit": "lb"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.05,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "pumpkin_carving_kit",
+      "name": "Pumpkin carving kit",
+      "category": "decor",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "porch_lights_orange",
+      "name": "Orange porch lights",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "setting"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "setting",
+          "condition": "equals",
+          "value": "outdoor"
+        }
+      ]
+    },
+    {
+      "item_id": "non_food_treats",
+      "name": "Non-food treats (allergy-friendly)",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "nut_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.1,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "halloween_door_decor",
+      "name": "Halloween door decor",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

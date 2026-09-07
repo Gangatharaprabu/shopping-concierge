@@ -1,0 +1,227 @@
+{
+  "id": "car-camping-weekend",
+  "title": "Car Camping Weekend",
+  "description": "A drive-up campsite weekend with the comfort of packing straight from the car.",
+  "category": "travel",
+  "subcategory": "travel.camping_backpacking",
+  "tags": [
+    "camping",
+    "outdoors",
+    "weekend"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Campers",
+      "min": 1,
+      "max": 10,
+      "default": 4,
+      "unit": "campers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 10,
+      "default": {
+        "unit": "days",
+        "count": 2
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegan",
+        "vegetarian"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "tent",
+      "name": "Tent",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 2,
+              "qty": 1
+            },
+            {
+              "up_to": 4,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "sleeping_bags",
+      "name": "Sleeping bags",
+      "category": "gear",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "camp_stove_fuel",
+      "name": "Camp stove fuel canister",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "canister"
+      },
+      "depends_on_slots": [
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 0.3,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "firewood_bundle",
+      "name": "Firewood bundle",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "bundle"
+      },
+      "depends_on_slots": [
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "trail_mix",
+      "name": "Trail mix",
+      "category": "food",
+      "qty": {
+        "base": 6,
+        "unit": "bags"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "bear_proof_food_container",
+      "name": "Bear-proof food container",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "portable_water_filter",
+      "name": "Portable water filter",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "vegan_camp_meals",
+      "name": "Vegan camp meals",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "meals"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}

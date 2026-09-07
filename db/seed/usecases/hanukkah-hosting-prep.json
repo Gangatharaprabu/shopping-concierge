@@ -1,0 +1,176 @@
+{
+  "id": "hanukkah-hosting-prep",
+  "title": "Hanukkah Hosting Prep",
+  "description": "Prepping to host a Hanukkah celebration with latkes and candle-lighting.",
+  "category": "seasonal",
+  "subcategory": "seasonal.holiday_hosting",
+  "tags": [
+    "hanukkah",
+    "hosting",
+    "holiday",
+    "winter"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Expected guests",
+      "min": 4,
+      "max": 20,
+      "default": 10,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "gluten_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "menorah_and_candles",
+      "name": "Menorah and candles",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "potato_latke_ingredients",
+      "name": "Potato latke ingredients",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.15,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "dreidels_and_gelt",
+      "name": "Dreidels and gelt",
+      "category": "party-favors",
+      "qty": {
+        "base": 10,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "applesauce",
+      "name": "Applesauce",
+      "category": "food",
+      "qty": {
+        "base": 2,
+        "unit": "jar"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.2,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "gluten_free_latke_mix",
+      "name": "Gluten-free latke mix",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "box"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "gluten_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.1,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "hanukkah_napkins",
+      "name": "Hanukkah-themed napkins",
+      "category": "gear",
+      "qty": {
+        "base": 20,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 20
+            },
+            {
+              "up_to": 20,
+              "qty": 40
+            },
+            {
+              "up_to": null,
+              "qty": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

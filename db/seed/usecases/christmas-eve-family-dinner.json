@@ -1,0 +1,263 @@
+{
+  "id": "christmas-eve-family-dinner",
+  "title": "Christmas Eve Family Dinner",
+  "description": "A festive sit-down family dinner on Christmas Eve.",
+  "category": "events",
+  "subcategory": "events.holiday_dinner",
+  "tags": [
+    "christmas",
+    "holiday",
+    "dinner",
+    "family"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 2,
+      "max": 20,
+      "default": 8,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "prime_rib_roast",
+      "name": "Prime rib roast",
+      "category": "food",
+      "qty": {
+        "base": 4,
+        "unit": "lb"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegetarian"
+        },
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 2
+        }
+      ]
+    },
+    {
+      "item_id": "vegetarian_main_wellington",
+      "name": "Vegetarian main (wellington)",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegetarian"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.15,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "vegan_main_roast",
+      "name": "Vegan roast",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.15,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "scalloped_potatoes",
+      "name": "Scalloped potatoes",
+      "category": "food",
+      "qty": {
+        "base": 4,
+        "unit": "lb"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "christmas_crackers",
+      "name": "Christmas crackers",
+      "category": "decor",
+      "qty": {
+        "base": 8,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "dinner_candles",
+      "name": "Dinner candles",
+      "category": "decor",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "eggnog",
+      "name": "Eggnog",
+      "category": "drinks",
+      "qty": {
+        "base": 2,
+        "unit": "carton"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.2,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "gluten_free_dessert",
+      "name": "Gluten-free dessert",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "gluten_free"
+        }
+      ]
+    },
+    {
+      "item_id": "yule_log_cake",
+      "name": "Yule log cake",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "cake"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "gluten_free"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 1
+            },
+            {
+              "up_to": null,
+              "qty": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

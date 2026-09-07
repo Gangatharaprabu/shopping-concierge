@@ -1,0 +1,95 @@
+{
+  "id": "getting-the-pool-ready-for-summer",
+  "title": "Getting the Pool Ready for Summer",
+  "description": "Opening and prepping a backyard pool for the summer season.",
+  "category": "seasonal",
+  "subcategory": "seasonal.summer_prep",
+  "tags": [
+    "pool",
+    "summer",
+    "backyard"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "pool_chemical_starter_kit",
+      "name": "Pool chemical starter kit",
+      "category": "pool",
+      "qty": {
+        "base": 1,
+        "unit": "kit"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "pool_skimmer_net",
+      "name": "Pool skimmer net",
+      "category": "pool",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "pool_cover_removal_and_cleaning_kit",
+      "name": "Pool cover cleaning kit",
+      "category": "pool",
+      "qty": {
+        "base": 1,
+        "unit": "kit"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "pool_float_set",
+      "name": "Pool float set",
+      "category": "pool",
+      "qty": {
+        "base": 0,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "low"
+        }
+      ]
+    },
+    {
+      "item_id": "pool_filter_replacement",
+      "name": "Pool filter replacement",
+      "category": "pool",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "pool_test_strips",
+      "name": "Pool test strips",
+      "category": "pool",
+      "qty": {
+        "base": 1,
+        "unit": "pack"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

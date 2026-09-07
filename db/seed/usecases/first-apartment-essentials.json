@@ -1,0 +1,73 @@
+{
+  "id": "first-apartment-essentials",
+  "title": "First Apartment Essentials",
+  "category": "home",
+  "subcategory": "home.new_apartment_setup",
+  "tags": [
+    "move-in",
+    "kitchen",
+    "starter-kit"
+  ],
+  "scenario_slots": {
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "broom_and_dustpan",
+      "name": "Broom and dustpan",
+      "category": "cleaning",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "basic_cookware_set",
+      "name": "Basic cookware set",
+      "category": "kitchen",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "not_equals",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "item_id": "premium_cookware_set",
+      "name": "Premium cookware set",
+      "category": "kitchen",
+      "qty": {
+        "base": 0,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "budget_tier"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "budget_tier",
+          "condition": "equals",
+          "value": "high"
+        }
+      ]
+    }
+  ]
+}

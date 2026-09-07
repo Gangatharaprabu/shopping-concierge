@@ -1,0 +1,102 @@
+{
+  "id": "weekend-trip-getaway",
+  "title": "Weekend Trip",
+  "description": "A short getaway, 2-4 days, for a couple or small group.",
+  "category": "travel",
+  "subcategory": "travel.weekend_trip",
+  "tags": [
+    "packing",
+    "short-trip"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 8,
+      "default": 2,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 14,
+      "default": {
+        "unit": "days",
+        "count": 3
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "phone_charger",
+      "name": "Phone charger",
+      "category": "electronics",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "toothbrush",
+      "name": "Toothbrush",
+      "category": "toiletries",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1
+        }
+      ]
+    },
+    {
+      "item_id": "granola_bars",
+      "name": "Granola bars",
+      "category": "food",
+      "qty": {
+        "base": 7,
+        "unit": "bars"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1
+        }
+      ],
+      "notes": "Additive: 2 bars per traveler + 1 per day, not travelers x days."
+    }
+  ]
+}

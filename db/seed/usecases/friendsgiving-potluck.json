@@ -1,0 +1,202 @@
+{
+  "id": "friendsgiving-potluck",
+  "title": "Friendsgiving Potluck",
+  "description": "A potluck-style Thanksgiving with friends, where the host handles the main and everyone else brings a dish.",
+  "category": "events",
+  "subcategory": "events.potluck_dinner_party",
+  "tags": [
+    "friendsgiving",
+    "potluck",
+    "thanksgiving",
+    "friends"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 4,
+      "max": 25,
+      "default": 12,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegan",
+        "vegetarian"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "disposable_serving_trays",
+      "name": "Disposable serving trays",
+      "category": "gear",
+      "qty": {
+        "base": 4,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.3,
+          "round": "up",
+          "minimum": 2
+        }
+      ]
+    },
+    {
+      "item_id": "dish_name_tags",
+      "name": "Dish name/allergen tags",
+      "category": "gear",
+      "qty": {
+        "base": 12,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "host_main_turkey_or_ham",
+      "name": "Host's main (turkey or ham)",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegan"
+        },
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegetarian"
+        }
+      ]
+    },
+    {
+      "item_id": "host_vegan_main",
+      "name": "Host's vegan main",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ]
+    },
+    {
+      "item_id": "folding_tables",
+      "name": "Folding tables",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 8,
+              "qty": 1
+            },
+            {
+              "up_to": 16,
+              "qty": 2
+            },
+            {
+              "up_to": null,
+              "qty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "beverage_napkins",
+      "name": "Beverage napkins",
+      "category": "gear",
+      "qty": {
+        "base": 20,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 12,
+              "qty": 20
+            },
+            {
+              "up_to": 25,
+              "qty": 40
+            },
+            {
+              "up_to": null,
+              "qty": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "centerpiece_candles",
+      "name": "Centerpiece candles",
+      "category": "decor",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    }
+  ]
+}

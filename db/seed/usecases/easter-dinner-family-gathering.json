@@ -1,0 +1,246 @@
+{
+  "id": "easter-dinner-family-gathering",
+  "title": "Easter Dinner Family Gathering",
+  "description": "A midday Easter dinner with an egg hunt for the kids.",
+  "category": "events",
+  "subcategory": "events.holiday_dinner",
+  "tags": [
+    "easter",
+    "holiday",
+    "dinner",
+    "family",
+    "kids"
+  ],
+  "scenario_slots": {
+    "time_of_day": {
+      "type": "enum",
+      "label": "Time of day",
+      "options": [
+        "day",
+        "night"
+      ],
+      "default": "day"
+    },
+    "headcount": {
+      "type": "integer",
+      "label": "Guests",
+      "min": 2,
+      "max": 20,
+      "default": 10,
+      "unit": "guests"
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [
+        "vegetarian",
+        "vegan"
+      ],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "honey_baked_ham",
+      "name": "Honey-baked ham",
+      "category": "food",
+      "qty": {
+        "base": 5,
+        "unit": "lb"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegetarian"
+        },
+        {
+          "slot_id": "dietary",
+          "condition": "excludes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 3
+        }
+      ]
+    },
+    {
+      "item_id": "vegetarian_quiche",
+      "name": "Vegetarian quiche",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegetarian"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.15,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "vegan_stuffed_squash",
+      "name": "Vegan stuffed squash",
+      "category": "food",
+      "qty": {
+        "base": 0,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "dietary"
+      ],
+      "presence_rules": [
+        {
+          "slot_id": "dietary",
+          "condition": "includes",
+          "value": "vegan"
+        }
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 0.3,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "deviled_eggs",
+      "name": "Deviled eggs",
+      "category": "food",
+      "qty": {
+        "base": 12,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "easter_egg_hunt_kit",
+      "name": "Easter egg hunt kit",
+      "category": "party-favors",
+      "qty": {
+        "base": 1,
+        "unit": "set"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "spring_flower_centerpiece",
+      "name": "Spring flower centerpiece",
+      "category": "decor",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "dinner_rolls",
+      "name": "Dinner rolls",
+      "category": "food",
+      "qty": {
+        "base": 10,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 10
+            },
+            {
+              "up_to": 20,
+              "qty": 20
+            },
+            {
+              "up_to": null,
+              "qty": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "carrot_cake",
+      "name": "Carrot cake",
+      "category": "food",
+      "qty": {
+        "base": 1,
+        "unit": "cake"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 10,
+              "qty": 1
+            },
+            {
+              "up_to": null,
+              "qty": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "long-weekend-beach-trip",
+  "title": "Long Weekend Beach Trip",
+  "description": "A quick 3-day escape to the coast.",
+  "category": "travel",
+  "subcategory": "travel.beach_vacation",
+  "tags": [
+    "beach",
+    "weekend",
+    "short-trip"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 6,
+      "default": 2,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 10,
+      "default": {
+        "unit": "days",
+        "count": 3
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "sunscreen",
+      "name": "Sunscreen",
+      "category": "toiletries",
+      "qty": {
+        "base": 1.5,
+        "unit": "bottle"
+      },
+      "depends_on_slots": [
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 0.5,
+          "round": "up",
+          "minimum": 1
+        }
+      ]
+    },
+    {
+      "item_id": "beach_chairs",
+      "name": "Beach chairs",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "step",
+          "tiers": [
+            {
+              "up_to": 2,
+              "qty": 2
+            },
+            {
+              "up_to": 4,
+              "qty": 4
+            },
+            {
+              "up_to": null,
+              "qty": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "beach_bag",
+      "name": "Beach bag",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "cold_drinks_cooler",
+      "name": "Small cooler for cold drinks",
+      "category": "gear",
+      "qty": {
+        "base": 1,
+        "unit": "count"
+      },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "beach_read_book",
+      "name": "Beach read (book)",
+      "category": "leisure",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "waterproof_phone_pouch",
+      "name": "Waterproof phone pouch",
+      "category": "gear",
+      "qty": {
+        "base": 2,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}

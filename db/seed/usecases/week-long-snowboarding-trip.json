@@ -1,0 +1,185 @@
+{
+  "id": "week-long-snowboarding-trip",
+  "title": "Week-Long Snowboarding Trip",
+  "description": "A full week at a mountain resort focused on snowboarding.",
+  "category": "travel",
+  "subcategory": "travel.ski_snow_trip",
+  "tags": [
+    "snowboarding",
+    "ski",
+    "resort",
+    "week-long"
+  ],
+  "scenario_slots": {
+    "headcount": {
+      "type": "integer",
+      "label": "Travelers",
+      "min": 1,
+      "max": 6,
+      "default": 3,
+      "unit": "travelers"
+    },
+    "duration": {
+      "type": "duration",
+      "label": "Trip length",
+      "max_days": 14,
+      "default": {
+        "unit": "days",
+        "count": 7
+      }
+    },
+    "budget_tier": {
+      "type": "enum",
+      "label": "Budget",
+      "options": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Dietary needs",
+      "options": [],
+      "default": []
+    }
+  },
+  "template_list": [
+    {
+      "item_id": "lift_tickets",
+      "name": "Lift tickets (week pass)",
+      "category": "activities",
+      "qty": {
+        "base": 3,
+        "unit": "passes"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ],
+      "notes": "Genuinely per-person-per-day, but per README guidance a typical 7-day week is folded into the constant (1 week-pass per traveler) rather than multiplying headcount x duration."
+    },
+    {
+      "item_id": "snowboard_rental",
+      "name": "Snowboard rental",
+      "category": "gear",
+      "qty": {
+        "base": 3,
+        "unit": "set"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "goggles",
+      "name": "Goggles",
+      "category": "gear",
+      "qty": {
+        "base": 3,
+        "unit": "count"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "hand_warmers",
+      "name": "Hand warmers",
+      "category": "gear",
+      "qty": {
+        "base": 10,
+        "unit": "pairs"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "thermal_base_layers",
+      "name": "Thermal base layers",
+      "category": "apparel",
+      "qty": {
+        "base": 6,
+        "unit": "sets"
+      },
+      "depends_on_slots": [
+        "headcount"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 2,
+          "round": "up"
+        }
+      ]
+    },
+    {
+      "item_id": "trail_snacks",
+      "name": "Trail snacks",
+      "category": "food",
+      "qty": {
+        "base": 13,
+        "unit": "bars"
+      },
+      "depends_on_slots": [
+        "headcount",
+        "duration"
+      ],
+      "scaling_rules": [
+        {
+          "slot_id": "headcount",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        },
+        {
+          "slot_id": "duration",
+          "method": "linear",
+          "per_unit": 1,
+          "round": "up"
+        }
+      ]
+    }
+  ]
+}
