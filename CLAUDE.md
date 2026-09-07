@@ -8,12 +8,32 @@ already own, and build a basket. No product catalogue — products are
 resolved live via web search. Ordering/checkout is NOT built yet (deferred).
 
 ## Canonical data models
-(Keep this section in sync with actual schema files in /docs/schemas/ once they exist.)
+(Kept in sync with the formal schema files in /docs/schemas/. See
+/docs/schemas/README.md for the full field-by-field explanation and worked
+examples; /docs/schemas/use-case.schema.json is the source of truth for the
+exact shapes below.)
 
-- **UseCase**: { id, category, tags[], scenario_slots{}, template_list[] }
-- **Scenario**: { use_case_id, slots{} } — the patched/adjusted version for one user session
+- **Category tree**: 4 top-level categories (`events`, `travel`, `home`,
+  `seasonal`) x ~13 subcategories each, ids like `events.bbq_grilling`.
+  Canonical id enums live in /docs/schemas/category-taxonomy.json
+  (`$defs.category` / `$defs.subcategory`); a human-readable version of the
+  same tree is in that file's `x-tree` property.
+- **UseCase**: { id, title, description?, category, subcategory, tags[],
+  scenario_slots{}, template_list[] } — `scenario_slots` is a map of
+  slot_id -> slot definition (type/options/default) covering time_of_day,
+  headcount, setting, budget_tier, dietary, duration (a UseCase only
+  declares the slots relevant to it, and may add custom slot ids). Each
+  `template_list[]` item carries `depends_on_slots[]` plus optional
+  `presence_rules`/`scaling_rules`, so `adjust_scenario` can patch one slot
+  and recompute only the items that depend on it.
+- **Scenario**: { use_case_id, slots{} } — the patched/adjusted version for
+  one user session; `slots{}` holds only the current resolved value per slot
+  (same keys as the originating UseCase's scenario_slots).
 - **ShoppingList**: { id, user_id, scenario, items[], created_at, edited_at }
-- **ListItem**: { name, qty, category, owned:boolean }
+- **ListItem**: { name, qty, unit?, category, owned:boolean,
+  source_item_id? } — `source_item_id` links back to the originating
+  `template_list_item.item_id` (null if the user added the item manually),
+  which is how `adjust_scenario` finds the right item to patch.
 - **UserMemory (durable)**: { user_id, household_size, dietary_prefs[], budget_tier, brand_prefs[] }
 - **Basket**: { id, user_id, items[], status: "draft" } — no order/checkout fields yet
 
