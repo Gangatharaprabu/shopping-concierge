@@ -1,0 +1,122 @@
+{
+  "description": "Reusable catalog-attribute shapes referenced by each decision vector's catalog_attribute.attribute_type. Resolved (not referenced) into archetypes.apparel.json at generation time \u2014 this file documents the underlying patterns for maintainers extending the schema.",
+  "attribute_types": {
+    "size_enum": {
+      "value_type": "enum",
+      "required": true,
+      "personalization_source": "size_profile",
+      "match_type": "exact_equals",
+      "pdp_surface": "fit_badge",
+      "proposed_memory_extension": true
+    },
+    "size_numeric": {
+      "value_type": "number",
+      "required": true,
+      "personalization_source": "size_profile",
+      "match_type": "range_overlap",
+      "pdp_surface": "fit_badge",
+      "proposed_memory_extension": true
+    },
+    "fit_style_pref": {
+      "value_type": "enum",
+      "required": false,
+      "personalization_source": "order_history",
+      "match_type": "categorical_preference_score",
+      "pdp_surface": "why_this_fits_chip"
+    },
+    "material_spec": {
+      "value_type": "multi_enum",
+      "required": true,
+      "personalization_source": "display_only",
+      "match_type": "not_applicable",
+      "pdp_surface": "spec_row"
+    },
+    "occasion_tag": {
+      "value_type": "multi_enum",
+      "required": false,
+      "personalization_source": "scenario_slot",
+      "personalization_field": "setting",
+      "match_type": "categorical_preference_score",
+      "pdp_surface": "sort_boost"
+    },
+    "season_climate": {
+      "value_type": "enum",
+      "required": false,
+      "personalization_source": "scenario_slot",
+      "personalization_field": "setting",
+      "match_type": "categorical_preference_score",
+      "pdp_surface": "filter_facet"
+    },
+    "price_tier": {
+      "value_type": "number",
+      "unit": "currency",
+      "required": true,
+      "personalization_source": "user_memory",
+      "personalization_field": "budget_tier",
+      "match_type": "range_overlap",
+      "pdp_surface": "sort_boost"
+    },
+    "durability_rating": {
+      "value_type": "rating_1_5",
+      "required": false,
+      "personalization_source": "display_only",
+      "match_type": "not_applicable",
+      "pdp_surface": "spec_row"
+    },
+    "safety_flag": {
+      "value_type": "multi_enum",
+      "required": false,
+      "personalization_source": "household_context",
+      "personalization_field": "household_size",
+      "match_type": "flag_if_missing",
+      "pdp_surface": "warning_banner"
+    },
+    "capacity_dimension": {
+      "value_type": "number",
+      "required": false,
+      "personalization_source": "display_only",
+      "match_type": "not_applicable",
+      "pdp_surface": "spec_row"
+    },
+    "policy_flag": {
+      "value_type": "boolean",
+      "required": true,
+      "personalization_source": "display_only",
+      "match_type": "not_applicable",
+      "pdp_surface": "warning_banner"
+    },
+    "lead_time": {
+      "value_type": "number",
+      "unit": "days",
+      "required": false,
+      "personalization_source": "scenario_slot",
+      "personalization_field": "duration",
+      "match_type": "threshold_lte",
+      "pdp_surface": "warning_banner"
+    },
+    "compliance_spec": {
+      "value_type": "enum",
+      "required": false,
+      "personalization_source": "use_case_context",
+      "personalization_field": "use_case_requirement",
+      "match_type": "exact_equals",
+      "pdp_surface": "filter_facet"
+    },
+    "pack_value": {
+      "value_type": "number",
+      "unit": "units_per_pack",
+      "required": false,
+      "personalization_source": "display_only",
+      "match_type": "not_applicable",
+      "pdp_surface": "comparison_column"
+    },
+    "color_match": {
+      "value_type": "enum",
+      "required": false,
+      "personalization_source": "size_profile",
+      "match_type": "exact_equals",
+      "pdp_surface": "filter_facet",
+      "proposed_memory_extension": true
+    }
+  }
+}

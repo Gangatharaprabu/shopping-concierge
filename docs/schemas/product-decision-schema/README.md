@@ -24,7 +24,12 @@ needs the second.
   "footwear", "fine jewelry"). Each archetype carries 5–7 **decision
   vectors** (what to weigh, why it matters, how to evaluate it, where the
   data comes from), a `personalization` block, and a one-line `best_way_to_buy`
-  heuristic.
+  heuristic. Every decision vector also carries a `catalog_attribute` — the
+  machine-usable half, described below.
+- `attribute-types.apparel.json` — the 15 reusable catalog-attribute *shapes*
+  (`size_enum`, `price_tier`, `material_spec`, ...) that `catalog_attribute`
+  entries are resolved from. Reference only; not needed to consume
+  `archetypes.apparel.json`, which already has each attribute fully resolved.
 - `leaf-mapping.apparel.json` — all 403 Apparel & Accessories leaf categories,
   each mapped to exactly one archetype id.
 - `_apparel-leaves.json` — the raw input: leaf category paths + product
@@ -32,9 +37,13 @@ needs the second.
   directly by the app; kept so the mapping is regenerable.
 - `../../../scripts/generate-apparel-decision-schema.py` — the generator.
   `classify()` assigns each leaf to an archetype id by matching its ancestor
-  path; `ARCHETYPES` holds the hand-written schema per archetype id. The
-  script fails loudly if any leaf doesn't resolve to a known archetype, so
-  the two stay in sync by construction.
+  path; `ARCHETYPES` holds the hand-written narrative schema per archetype
+  id. The script fails loudly if any leaf doesn't resolve to a known
+  archetype, so the two stay in sync by construction.
+- `../../../scripts/apparel_catalog_attributes.py` — `ATTRIBUTE_TYPES` (the
+  registry) and `VECTOR_ATTRIBUTES` (which type + overrides each decision
+  vector uses). The generator fails loudly if any decision vector has no
+  entry here, same guarantee as `classify()`.
 
 ## Why archetypes, not one schema per leaf category
 
@@ -78,6 +87,70 @@ built yet) would take {archetype's decision vectors + the resolved weights
 for this user/session + candidate products from `resolve_products`} and
 return a ranked, explained shortlist plus a "best way to buy" pick — the
 `best_way_to_buy` string on each archetype is the seed heuristic for that.
+
+## The catalog-attribute layer: from "what to weigh" to a runtime match
+
+`decision_vectors[].why_it_matters` / `how_to_evaluate` are for a human (or
+an LLM prompt) reading the schema. `decision_vectors[].catalog_attribute` is
+for code: it says what a catalog item needs to carry for that vector, and
+how to compare it against the user at PDP render time, without an LLM call
+in the hot path.
+
+```json
+"catalog_attribute": {
+  "attribute_type": "size_numeric",
+  "catalog_field": "ring_size,chain_length_in",
+  "value_type": "number",
+  "required": true,
+  "personalization_match": {
+    "source": "size_profile",
+    "field": "size_profile.jewelry",
+    "match_type": "range_overlap",
+    "pdp_surface": "fit_badge",
+    "proposed_memory_extension": true
+  }
+}
+```
+
+- `catalog_field` — the field(s) this needs to exist on the catalog item
+  (or be extracted from the product listing your source provides).
+- `value_type` / `unit` / `allowed_values` — the shape of that field.
+- `required` — whether the PDP can render meaningfully without it.
+- `personalization_match.source` — where the comparison value comes from:
+  `user_memory` (existing `UserMemory` field), `scenario_slot` (existing
+  `Scenario.slots` field), `order_history` (derived from past
+  `ShoppingList`/`Basket` items — data that already exists, just needs
+  aggregating), `size_profile` (see below), or `display_only` (no match —
+  the attribute is shown/filterable on the PDP but never compared to the
+  user).
+- `match_type` — `exact_equals`, `range_overlap`, `threshold_lte`/`gte`,
+  `categorical_preference_score`, `flag_if_missing`, or `not_applicable`.
+- `pdp_surface` — what rendering this drives: `fit_badge`,
+  `why_this_fits_chip`, `warning_banner`, `sort_boost`, `filter_facet`,
+  `comparison_column`, or `spec_row`.
+
+Every attribute type and every vector's specific mapping is defined once —
+`attribute-types.apparel.json` for the reusable shape,
+`apparel_catalog_attributes.py`'s `VECTOR_ATTRIBUTES` for which vectors use
+it — and the generator resolves them together, so `archetypes.apparel.json`
+ships fully flattened and self-contained.
+
+### The gap this surfaces: `size_profile` doesn't exist yet
+
+A large share of what actually drives apparel PDP personalization — top
+size, shoe size and width, ring size, wrist size, bra band/cup, hair color —
+is a **durable, cross-session body/fit fact about the user**, exactly the
+kind of thing `memory_write` is for. But today's `UserMemory` only has
+`household_size`, `dietary_prefs`, `budget_tier`, `brand_prefs` — no
+size/fit profile at all. Every `personalization_match` that needs one is
+marked `"proposed_memory_extension": true` rather than silently assumed, so
+this is visible rather than papered over: **building the personalized PDP
+for real requires adding a `size_profile` object to `UserMemory` first**
+(same durable, global-to-the-user boundary as the existing fields — this
+isn't a new kind of memory, just a field this app hasn't needed until now).
+Until that exists, every `size_profile`-sourced attribute still has a
+fallback: `display_only` with the size chart surfaced to the user directly,
+same as today's `resolve_products` flow.
 
 ## Extending to other departments
 

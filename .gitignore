@@ -45,3 +45,4 @@ next-env.d.ts
 
 # Claude Code: scratch git worktrees for background subagents
 /.claude/worktrees/
+__pycache__/

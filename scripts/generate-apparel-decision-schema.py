@@ -20,11 +20,54 @@ and `ARCHETYPES` together — every leaf must resolve to a known archetype id
 """
 import json
 import os
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
 LEAVES_PATH = os.path.join(REPO_ROOT, "docs", "schemas", "product-decision-schema", "_apparel-leaves.json")
 OUT_DIR = os.path.join(REPO_ROOT, "docs", "schemas", "product-decision-schema")
+
+sys.path.insert(0, HERE)
+from apparel_catalog_attributes import ATTRIBUTE_TYPES, VECTOR_ATTRIBUTES  # noqa: E402
+
+
+def resolve_catalog_attribute(archetype_id, vector_id):
+    """Merge a vector's ATTRIBUTE_TYPES base with its VECTOR_ATTRIBUTES override into one flat object."""
+    key = (archetype_id, vector_id)
+    if key not in VECTOR_ATTRIBUTES:
+        raise SystemExit(f"No catalog attribute mapping for {key} — add one to apparel_catalog_attributes.VECTOR_ATTRIBUTES.")
+    spec = VECTOR_ATTRIBUTES[key]
+    base = dict(ATTRIBUTE_TYPES[spec["attribute_type"]])
+    overrides = spec["overrides"]
+    merged = dict(base)
+    merged.update({k: v for k, v in overrides.items() if v is not None or k not in merged})
+    # a `None` override explicitly clears an inherited field (e.g. no personalization_field for a pure spec check)
+    for k, v in overrides.items():
+        if v is None:
+            merged.pop(k, None)
+
+    catalog_attribute = {
+        "attribute_type": spec["attribute_type"],
+        "catalog_field": merged.pop("catalog_field", None),
+        "value_type": merged.pop("value_type"),
+        "required": merged.pop("required"),
+    }
+    if "unit" in merged:
+        catalog_attribute["unit"] = merged.pop("unit")
+    if "allowed_values" in merged:
+        catalog_attribute["allowed_values"] = merged.pop("allowed_values")
+
+    personalization = {"source": merged.pop("personalization_source")}
+    if "personalization_field" in merged:
+        personalization["field"] = merged.pop("personalization_field")
+    if "profile_field" in merged:
+        personalization["field"] = merged.pop("profile_field")
+    personalization["match_type"] = merged.pop("match_type")
+    personalization["pdp_surface"] = merged.pop("pdp_surface")
+    if merged.pop("proposed_memory_extension", False):
+        personalization["proposed_memory_extension"] = True
+    catalog_attribute["personalization_match"] = personalization
+    return catalog_attribute
 
 
 def classify(path):
@@ -548,17 +591,27 @@ def main():
     archetypes_out = []
     for arch_id, spec in ARCHETYPES.items():
         leaves_here = [m for m in mapping if m["archetype_id"] == arch_id]
+        vectors_out = []
+        for v in spec["decision_vectors"]:
+            v_out = dict(v)
+            v_out["catalog_attribute"] = resolve_catalog_attribute(arch_id, v["id"])
+            vectors_out.append(v_out)
         archetypes_out.append({
             "id": arch_id,
             "label": spec["label"],
             "covers": spec["covers"],
             "leaf_count": len(leaves_here),
             "product_count": sum(m["product_count"] for m in leaves_here),
-            "decision_vectors": spec["decision_vectors"],
+            "decision_vectors": vectors_out,
             "personalization": spec["personalization"],
             "best_way_to_buy": spec["best_way_to_buy"]
         })
     archetypes_out.sort(key=lambda a: -a["product_count"])
+
+    used_types = {v["catalog_attribute"]["attribute_type"] for a in archetypes_out for v in a["decision_vectors"]}
+    unused_types = set(ATTRIBUTE_TYPES) - used_types
+    if unused_types:
+        print("WARNING: attribute types defined but unused:", unused_types)
 
     os.makedirs(OUT_DIR, exist_ok=True)
     with open(os.path.join(OUT_DIR, "archetypes.apparel.json"), "w") as f:
@@ -573,7 +626,14 @@ def main():
     with open(os.path.join(OUT_DIR, "leaf-mapping.apparel.json"), "w") as f:
         json.dump(sorted(mapping, key=lambda m: m["path"]), f, indent=2)
 
-    print(f"wrote {len(archetypes_out)} archetypes covering {len(mapping)} leaf categories")
+    with open(os.path.join(OUT_DIR, "attribute-types.apparel.json"), "w") as f:
+        json.dump({
+            "description": "Reusable catalog-attribute shapes referenced by each decision vector's catalog_attribute.attribute_type. Resolved (not referenced) into archetypes.apparel.json at generation time — this file documents the underlying patterns for maintainers extending the schema.",
+            "attribute_types": ATTRIBUTE_TYPES
+        }, f, indent=2)
+
+    print(f"wrote {len(archetypes_out)} archetypes covering {len(mapping)} leaf categories, "
+          f"{sum(len(a['decision_vectors']) for a in archetypes_out)} catalog attributes")
     if missing:
         print("WARNING: archetypes defined but unused:", missing)
 
