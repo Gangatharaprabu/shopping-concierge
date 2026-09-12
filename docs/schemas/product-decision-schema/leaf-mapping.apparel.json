@@ -1,0 +1,2420 @@
+[
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Joggers",
+    "leaf": "Joggers",
+    "product_count": 172478,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Leggings",
+    "leaf": "Leggings",
+    "product_count": 190345,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Shorts",
+    "leaf": "Shorts",
+    "product_count": 827456,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Sweatpants",
+    "leaf": "Sweatpants",
+    "product_count": 248829,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Tights",
+    "leaf": "Tights",
+    "product_count": 50427,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Track Pants",
+    "leaf": "Track Pants",
+    "product_count": 147721,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Training Pants",
+    "leaf": "Training Pants",
+    "product_count": 54903,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Pants > Wind Pants",
+    "leaf": "Wind Pants",
+    "product_count": 36688,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Sweatshirts & Hoodies > Hoodies",
+    "leaf": "Hoodies",
+    "product_count": 634896,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Sweatshirts & Hoodies > Sweatshirts",
+    "leaf": "Sweatshirts",
+    "product_count": 321057,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Sweatshirts & Hoodies > Track Jackets",
+    "leaf": "Track Jackets",
+    "product_count": 75121,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Tops > Crop Tops",
+    "leaf": "Crop Tops",
+    "product_count": 218652,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Tops > T-Shirts",
+    "leaf": "T-Shirts",
+    "product_count": 771177,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Tops > Tank Tops",
+    "leaf": "Tank Tops",
+    "product_count": 252580,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Vests & Jackets > Jackets",
+    "leaf": "Jackets",
+    "product_count": 242758,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Activewear Vests & Jackets > Vests",
+    "leaf": "Vests",
+    "product_count": 37063,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Boxing Shorts",
+    "leaf": "Boxing Shorts",
+    "product_count": 9933,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Dance Dresses, Skirts & Costumes",
+    "leaf": "Dance Dresses, Skirts & Costumes",
+    "product_count": 63719,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Leotards & Unitards",
+    "leaf": "Leotards & Unitards",
+    "product_count": 162236,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Activewear > Sports Bras",
+    "leaf": "Sports Bras",
+    "product_count": 188541,
+    "archetype_id": "activewear_performance"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Cargos",
+    "leaf": "Cargos",
+    "product_count": 13032,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Chinos",
+    "leaf": "Chinos",
+    "product_count": 23087,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Jeans",
+    "leaf": "Jeans",
+    "product_count": 59731,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Jeggings",
+    "leaf": "Jeggings",
+    "product_count": 4179,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Joggers",
+    "leaf": "Joggers",
+    "product_count": 40901,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Leggings",
+    "leaf": "Leggings",
+    "product_count": 39093,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Skirts",
+    "leaf": "Skirts",
+    "product_count": 38886,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Skorts",
+    "leaf": "Skorts",
+    "product_count": 48171,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Sweatpants",
+    "leaf": "Sweatpants",
+    "product_count": 26759,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Bottoms > Trousers",
+    "leaf": "Trousers",
+    "product_count": 61149,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Diaper Covers",
+    "leaf": "Baby & Children's Diaper Covers",
+    "product_count": 4389,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Dresses",
+    "leaf": "Baby & Children's Dresses",
+    "product_count": 287400,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's One-Pieces",
+    "leaf": "Baby & Children's One-Pieces",
+    "product_count": 123203,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Bolero Jackets",
+    "leaf": "Bolero Jackets",
+    "product_count": 2509,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Bomber Jackets",
+    "leaf": "Bomber Jackets",
+    "product_count": 6873,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Capes",
+    "leaf": "Capes",
+    "product_count": 1935,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Motorcycle Outerwear",
+    "leaf": "Motorcycle Outerwear",
+    "product_count": 1258,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Overcoats",
+    "leaf": "Overcoats",
+    "product_count": 2980,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Parkas",
+    "leaf": "Parkas",
+    "product_count": 4051,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Pea Coats",
+    "leaf": "Pea Coats",
+    "product_count": 2690,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Ponchos",
+    "leaf": "Ponchos",
+    "product_count": 1101,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Puffer Jackets",
+    "leaf": "Puffer Jackets",
+    "product_count": 15465,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Rain Coats",
+    "leaf": "Rain Coats",
+    "product_count": 10982,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Sport Jackets",
+    "leaf": "Sport Jackets",
+    "product_count": 42470,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Track Jackets",
+    "leaf": "Track Jackets",
+    "product_count": 8431,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Trench Coats",
+    "leaf": "Trench Coats",
+    "product_count": 414,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Trucker Jackets",
+    "leaf": "Trucker Jackets",
+    "product_count": 7538,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Windbreakers",
+    "leaf": "Windbreakers",
+    "product_count": 7779,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Baby & Children's Coats & Jackets > Wrap Coats",
+    "leaf": "Wrap Coats",
+    "product_count": 773,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outerwear > Snow Pants & Suits",
+    "leaf": "Snow Pants & Suits",
+    "product_count": 10239,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Outfits",
+    "leaf": "Baby & Children's Outfits",
+    "product_count": 230123,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Sleepwear",
+    "leaf": "Baby & Children's Sleepwear",
+    "product_count": 116201,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Socks & Tights",
+    "leaf": "Baby & Children's Socks & Tights",
+    "product_count": 37004,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Burkinis",
+    "leaf": "Burkinis",
+    "product_count": 195,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Classic Bikinis",
+    "leaf": "Classic Bikinis",
+    "product_count": 15046,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Cover Ups",
+    "leaf": "Cover Ups",
+    "product_count": 4724,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > One-Piece Swimsuits",
+    "leaf": "One-Piece Swimsuits",
+    "product_count": 21295,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Rash Guards",
+    "leaf": "Rash Guards",
+    "product_count": 25371,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Skirtinis",
+    "leaf": "Skirtinis",
+    "product_count": 1726,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Surf Tops",
+    "leaf": "Surf Tops",
+    "product_count": 1433,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swim Boxers",
+    "leaf": "Swim Boxers",
+    "product_count": 218,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swim Briefs",
+    "leaf": "Swim Briefs",
+    "product_count": 953,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swim Dresses",
+    "leaf": "Swim Dresses",
+    "product_count": 879,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swim Jammers",
+    "leaf": "Swim Jammers",
+    "product_count": 1910,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swim Trunks",
+    "leaf": "Swim Trunks",
+    "product_count": 21708,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Swimwear > Swimwear Tops",
+    "leaf": "Swimwear Tops",
+    "product_count": 8903,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Bodysuits",
+    "leaf": "Bodysuits",
+    "product_count": 65511,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Cardigans",
+    "leaf": "Cardigans",
+    "product_count": 21933,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Hoodies",
+    "leaf": "Hoodies",
+    "product_count": 103026,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Overshirts",
+    "leaf": "Overshirts",
+    "product_count": 2527,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Polos",
+    "leaf": "Polos",
+    "product_count": 93428,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Shirts",
+    "leaf": "Shirts",
+    "product_count": 188104,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Sweaters",
+    "leaf": "Sweaters",
+    "product_count": 45464,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Sweatshirts",
+    "leaf": "Sweatshirts",
+    "product_count": 106492,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > T-Shirts",
+    "leaf": "T-Shirts",
+    "product_count": 805484,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Tops > Tunics",
+    "leaf": "Tunics",
+    "product_count": 31642,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Long Johns",
+    "leaf": "Boys' Long Johns",
+    "product_count": 1564,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Underpants > Boxer Briefs",
+    "leaf": "Boxer Briefs",
+    "product_count": 3405,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Underpants > Boxer Shorts",
+    "leaf": "Boxer Shorts",
+    "product_count": 1607,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Underpants > Briefs",
+    "leaf": "Briefs",
+    "product_count": 2615,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Underpants > Midway Briefs",
+    "leaf": "Midway Briefs",
+    "product_count": 189,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Underpants > Trunks",
+    "leaf": "Trunks",
+    "product_count": 1373,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Boys' Underwear > Boys' Undershirts",
+    "leaf": "Boys' Undershirts",
+    "product_count": 5859,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Long Johns",
+    "leaf": "Girls' Long Johns",
+    "product_count": 2480,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Bikinis",
+    "leaf": "Bikinis",
+    "product_count": 717,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Boxer Briefs",
+    "leaf": "Boxer Briefs",
+    "product_count": 370,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Boyshorts",
+    "leaf": "Boyshorts",
+    "product_count": 4284,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Briefs",
+    "leaf": "Briefs",
+    "product_count": 3079,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Hipsters",
+    "leaf": "Hipsters",
+    "product_count": 2833,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Panties",
+    "leaf": "Panties",
+    "product_count": 1910,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Period Underwear",
+    "leaf": "Period Underwear",
+    "product_count": 585,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Underpants > Thongs",
+    "leaf": "Thongs",
+    "product_count": 243,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Girls' Underwear > Girls' Undershirts > First Bras",
+    "leaf": "First Bras",
+    "product_count": 3344,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Toddler Underwear > Boxer Briefs",
+    "leaf": "Boxer Briefs",
+    "product_count": 444,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Toddler Underwear > Boxers",
+    "leaf": "Boxers",
+    "product_count": 359,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Toddler Underwear > Briefs",
+    "leaf": "Briefs",
+    "product_count": 586,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Toddler Underwear > Panties",
+    "leaf": "Panties",
+    "product_count": 521,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Baby & Children's Clothing > Baby & Children's Underwear > Toddler Underwear > Training Pants",
+    "leaf": "Training Pants",
+    "product_count": 298,
+    "archetype_id": "baby_childrens_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Blouses",
+    "leaf": "Blouses",
+    "product_count": 1011024,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Bodysuits",
+    "leaf": "Bodysuits",
+    "product_count": 89215,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Cardigans",
+    "leaf": "Cardigans",
+    "product_count": 341325,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Hoodies",
+    "leaf": "Hoodies",
+    "product_count": 951526,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Overshirts",
+    "leaf": "Overshirts",
+    "product_count": 134805,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Polos",
+    "leaf": "Polos",
+    "product_count": 971768,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Shirts",
+    "leaf": "Shirts",
+    "product_count": 2457726,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Sweaters",
+    "leaf": "Sweaters",
+    "product_count": 864566,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Sweatshirts",
+    "leaf": "Sweatshirts",
+    "product_count": 1238777,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > T-Shirts",
+    "leaf": "T-Shirts",
+    "product_count": 6205407,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Tank Tops",
+    "leaf": "Tank Tops",
+    "product_count": 815569,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Clothing Tops > Tunics",
+    "leaf": "Tunics",
+    "product_count": 446552,
+    "archetype_id": "everyday_tops_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Dresses",
+    "leaf": "Dresses",
+    "product_count": 4028328,
+    "archetype_id": "dresses_onepieces_outfitsets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bodysuits",
+    "leaf": "Bodysuits",
+    "product_count": 80466,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bra Accessories > Bra Strap Pads",
+    "leaf": "Bra Strap Pads",
+    "product_count": 590,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bra Accessories > Bra Straps & Extenders",
+    "leaf": "Bra Straps & Extenders",
+    "product_count": 1431,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bra Accessories > Breast Enhancing Inserts",
+    "leaf": "Breast Enhancing Inserts",
+    "product_count": 2683,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bra Accessories > Breast Petals & Concealers",
+    "leaf": "Breast Petals & Concealers",
+    "product_count": 3478,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Bras",
+    "leaf": "Bras",
+    "product_count": 559000,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Camisoles",
+    "leaf": "Camisoles",
+    "product_count": 136357,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Hosiery",
+    "leaf": "Hosiery",
+    "product_count": 40999,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Jock Straps",
+    "leaf": "Jock Straps",
+    "product_count": 1525,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Lingerie Accessories > Garter Belts",
+    "leaf": "Garter Belts",
+    "product_count": 8542,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Lingerie Accessories > Garters",
+    "leaf": "Garters",
+    "product_count": 6589,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Lingerie Accessories > Pantyhose",
+    "leaf": "Pantyhose",
+    "product_count": 5785,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Petticoats & Pettipants",
+    "leaf": "Petticoats & Pettipants",
+    "product_count": 7552,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Shapewear > Bodysuits",
+    "leaf": "Bodysuits",
+    "product_count": 29687,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Shapewear > Full Body Shapes",
+    "leaf": "Full Body Shapes",
+    "product_count": 40109,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Shapewear > High Waisted Briefs",
+    "leaf": "High Waisted Briefs",
+    "product_count": 19538,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Shapewear > Thigh Slimmers",
+    "leaf": "Thigh Slimmers",
+    "product_count": 9592,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Shapewear > Waist Cinchers",
+    "leaf": "Waist Cinchers",
+    "product_count": 35324,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > Bikinis",
+    "leaf": "Bikinis",
+    "product_count": 26374,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > Boyshorts",
+    "leaf": "Boyshorts",
+    "product_count": 30318,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > Briefs",
+    "leaf": "Briefs",
+    "product_count": 70079,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > G-Strings",
+    "leaf": "G-Strings",
+    "product_count": 13359,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > Period Underwear",
+    "leaf": "Period Underwear",
+    "product_count": 6585,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underpants > Thongs",
+    "leaf": "Thongs",
+    "product_count": 53340,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Undershirts",
+    "leaf": "Women's Undershirts",
+    "product_count": 29354,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Lingerie > Women's Underwear Slips",
+    "leaf": "Women's Underwear Slips",
+    "product_count": 11884,
+    "archetype_id": "lingerie_intimates_shapewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Dresses",
+    "leaf": "Maternity Dresses",
+    "product_count": 43664,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity One-Pieces",
+    "leaf": "Maternity One-Pieces",
+    "product_count": 3671,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Cargos",
+    "leaf": "Cargos",
+    "product_count": 1001,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Chinos",
+    "leaf": "Chinos",
+    "product_count": 273,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Jeans",
+    "leaf": "Jeans",
+    "product_count": 5740,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Jeggings",
+    "leaf": "Jeggings",
+    "product_count": 291,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Joggers",
+    "leaf": "Joggers",
+    "product_count": 2432,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Leggings",
+    "leaf": "Leggings",
+    "product_count": 4605,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Skorts",
+    "leaf": "Skorts",
+    "product_count": 934,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Pants > Trousers",
+    "leaf": "Trousers",
+    "product_count": 8968,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Skirts",
+    "leaf": "Maternity Skirts",
+    "product_count": 1859,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Sleepwear",
+    "leaf": "Maternity Sleepwear",
+    "product_count": 10624,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Burkinis",
+    "leaf": "Burkinis",
+    "product_count": 1,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Classic Bikinis",
+    "leaf": "Classic Bikinis",
+    "product_count": 414,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Cover Ups",
+    "leaf": "Cover Ups",
+    "product_count": 309,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > One-Piece Swimsuits",
+    "leaf": "One-Piece Swimsuits",
+    "product_count": 724,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Swim Boxers",
+    "leaf": "Swim Boxers",
+    "product_count": 6,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Swim Dresses",
+    "leaf": "Swim Dresses",
+    "product_count": 11,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Swimwear > Swimwear Tops",
+    "leaf": "Swimwear Tops",
+    "product_count": 329,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Blouses",
+    "leaf": "Blouses",
+    "product_count": 1286,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Bodysuits",
+    "leaf": "Bodysuits",
+    "product_count": 457,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Cardigans",
+    "leaf": "Cardigans",
+    "product_count": 1364,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Nursing Shirts",
+    "leaf": "Nursing Shirts",
+    "product_count": 7610,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Overshirts",
+    "leaf": "Overshirts",
+    "product_count": 390,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Shirts",
+    "leaf": "Shirts",
+    "product_count": 5448,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > T-Shirts",
+    "leaf": "T-Shirts",
+    "product_count": 16700,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Maternity Tops > Tunics",
+    "leaf": "Tunics",
+    "product_count": 3601,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Maternity Clothing > Nursing Bras",
+    "leaf": "Nursing Bras",
+    "product_count": 11141,
+    "archetype_id": "maternity_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Long Johns",
+    "leaf": "Men's Long Johns",
+    "product_count": 8606,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Undershirts",
+    "leaf": "Men's Undershirts",
+    "product_count": 41535,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Boxer Briefs",
+    "leaf": "Boxer Briefs",
+    "product_count": 56805,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Boxer Shorts",
+    "leaf": "Boxer Shorts",
+    "product_count": 19037,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Briefs",
+    "leaf": "Briefs",
+    "product_count": 22337,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Jockstraps",
+    "leaf": "Jockstraps",
+    "product_count": 9313,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Midway Briefs",
+    "leaf": "Midway Briefs",
+    "product_count": 2147,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Thongs",
+    "leaf": "Thongs",
+    "product_count": 16553,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Trunks",
+    "leaf": "Trunks",
+    "product_count": 17437,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Men's Undergarments > Men's Underwear > Undershorts",
+    "leaf": "Undershorts",
+    "product_count": 2037,
+    "archetype_id": "mens_undergarments"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > One-Pieces",
+    "leaf": "One-Pieces",
+    "product_count": 324732,
+    "archetype_id": "dresses_onepieces_outfitsets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Chaps",
+    "leaf": "Chaps",
+    "product_count": 6228,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Bolero Jackets",
+    "leaf": "Bolero Jackets",
+    "product_count": 35383,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Bomber Jackets",
+    "leaf": "Bomber Jackets",
+    "product_count": 169429,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Capes",
+    "leaf": "Capes",
+    "product_count": 28726,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Overcoats",
+    "leaf": "Overcoats",
+    "product_count": 121595,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Parkas",
+    "leaf": "Parkas",
+    "product_count": 78148,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Pea Coats",
+    "leaf": "Pea Coats",
+    "product_count": 21388,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Ponchos",
+    "leaf": "Ponchos",
+    "product_count": 17476,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Puffer Jackets",
+    "leaf": "Puffer Jackets",
+    "product_count": 244290,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Rain Coats",
+    "leaf": "Rain Coats",
+    "product_count": 60448,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Sport Jackets",
+    "leaf": "Sport Jackets",
+    "product_count": 657253,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Track Jackets",
+    "leaf": "Track Jackets",
+    "product_count": 45265,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Trench Coats",
+    "leaf": "Trench Coats",
+    "product_count": 50135,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Trucker Jackets",
+    "leaf": "Trucker Jackets",
+    "product_count": 118110,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Varsity Jackets",
+    "leaf": "Varsity Jackets",
+    "product_count": 77314,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Windbreakers",
+    "leaf": "Windbreakers",
+    "product_count": 139741,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets > Wrap Coats",
+    "leaf": "Wrap Coats",
+    "product_count": 12992,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Motorcycle Outerwear",
+    "leaf": "Motorcycle Outerwear",
+    "product_count": 75252,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Rain Pants",
+    "leaf": "Rain Pants",
+    "product_count": 10625,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Rain Suits",
+    "leaf": "Rain Suits",
+    "product_count": 13062,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Snow Pants & Suits",
+    "leaf": "Snow Pants & Suits",
+    "product_count": 37956,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outerwear > Vests",
+    "leaf": "Vests",
+    "product_count": 312931,
+    "archetype_id": "outerwear_coats_jackets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Outfit Sets",
+    "leaf": "Outfit Sets",
+    "product_count": 1249152,
+    "archetype_id": "dresses_onepieces_outfitsets"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Cargo Pants",
+    "leaf": "Cargo Pants",
+    "product_count": 321980,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Chinos",
+    "leaf": "Chinos",
+    "product_count": 352471,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Jeans",
+    "leaf": "Jeans",
+    "product_count": 1829921,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Jeggings",
+    "leaf": "Jeggings",
+    "product_count": 30021,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Joggers",
+    "leaf": "Joggers",
+    "product_count": 310010,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Leggings",
+    "leaf": "Leggings",
+    "product_count": 132483,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Pants > Trousers",
+    "leaf": "Trousers",
+    "product_count": 1052754,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Bermudas",
+    "leaf": "Bermudas",
+    "product_count": 27415,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Cargo Shorts",
+    "leaf": "Cargo Shorts",
+    "product_count": 97635,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Chino Shorts",
+    "leaf": "Chino Shorts",
+    "product_count": 123123,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Denim Shorts",
+    "leaf": "Denim Shorts",
+    "product_count": 180634,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Jegging Shorts",
+    "leaf": "Jegging Shorts",
+    "product_count": 10205,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Jogger Shorts",
+    "leaf": "Jogger Shorts",
+    "product_count": 14721,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Legging Shorts",
+    "leaf": "Legging Shorts",
+    "product_count": 27692,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Shorts > Short Trousers",
+    "leaf": "Short Trousers",
+    "product_count": 43859,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Skirts",
+    "leaf": "Skirts",
+    "product_count": 799114,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Skorts",
+    "leaf": "Skorts",
+    "product_count": 237926,
+    "archetype_id": "bottoms_pants_shorts_skirts_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Long Johns",
+    "leaf": "Long Johns",
+    "product_count": 2460,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Bottoms > Boxers",
+    "leaf": "Boxers",
+    "product_count": 12628,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Bottoms > Joggers",
+    "leaf": "Joggers",
+    "product_count": 85338,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Bottoms > Leggings",
+    "leaf": "Leggings",
+    "product_count": 13125,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Bottoms > Shorts",
+    "leaf": "Shorts",
+    "product_count": 175890,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Bottoms > Skirts",
+    "leaf": "Skirts",
+    "product_count": 1670,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Loungewear > Loungewear Tops",
+    "leaf": "Loungewear Tops",
+    "product_count": 177636,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Nightgowns",
+    "leaf": "Nightgowns",
+    "product_count": 117082,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Onesies",
+    "leaf": "Onesies",
+    "product_count": 8359,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Pajamas",
+    "leaf": "Pajamas",
+    "product_count": 253200,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Sleepwear & Loungewear > Robes",
+    "leaf": "Robes",
+    "product_count": 57557,
+    "archetype_id": "sleepwear_loungewear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Ankle Socks",
+    "leaf": "Ankle Socks",
+    "product_count": 24615,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Athletic Socks",
+    "leaf": "Athletic Socks",
+    "product_count": 123459,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Crew Socks",
+    "leaf": "Crew Socks",
+    "product_count": 96120,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Dance Socks",
+    "leaf": "Dance Socks",
+    "product_count": 4175,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Footie Socks",
+    "leaf": "Footie Socks",
+    "product_count": 1799,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Heel Socks",
+    "leaf": "Heel Socks",
+    "product_count": 754,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Hold Up Socks",
+    "leaf": "Hold Up Socks",
+    "product_count": 1416,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Knee Socks",
+    "leaf": "Knee Socks",
+    "product_count": 16609,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Panty Socks",
+    "leaf": "Panty Socks",
+    "product_count": 908,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Socks > Sneaker Socks",
+    "leaf": "Sneaker Socks",
+    "product_count": 18347,
+    "archetype_id": "hosiery_socks"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Suits > Pant Suits",
+    "leaf": "Pant Suits",
+    "product_count": 505348,
+    "archetype_id": "suits_formalwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Suits > Skirt Suits",
+    "leaf": "Skirt Suits",
+    "product_count": 34244,
+    "archetype_id": "suits_formalwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Suits > Tuxedos",
+    "leaf": "Tuxedos",
+    "product_count": 166819,
+    "archetype_id": "suits_formalwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Boardshorts",
+    "leaf": "Boardshorts",
+    "product_count": 134586,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Burkinis",
+    "leaf": "Burkinis",
+    "product_count": 2221,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Classic Bikinis",
+    "leaf": "Classic Bikinis",
+    "product_count": 258948,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Cover Ups",
+    "leaf": "Cover Ups",
+    "product_count": 73777,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > One-Piece Swimsuits",
+    "leaf": "One-Piece Swimsuits",
+    "product_count": 125387,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Period Swimwear",
+    "leaf": "Period Swimwear",
+    "product_count": 4547,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Rash Guards",
+    "leaf": "Rash Guards",
+    "product_count": 34220,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Surf Tops",
+    "leaf": "Surf Tops",
+    "product_count": 12646,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Swim Boxers",
+    "leaf": "Swim Boxers",
+    "product_count": 6206,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Swim Briefs",
+    "leaf": "Swim Briefs",
+    "product_count": 20112,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Swim Dresses",
+    "leaf": "Swim Dresses",
+    "product_count": 12816,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Swimwear > Swimwear Tops",
+    "leaf": "Swimwear Tops",
+    "product_count": 229995,
+    "archetype_id": "swimwear_adult"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Traditional & Ceremonial Clothing > Kimonos",
+    "leaf": "Kimonos",
+    "product_count": 19210,
+    "archetype_id": "traditional_ceremonial_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Traditional & Ceremonial Clothing > Saris & Lehengas",
+    "leaf": "Saris & Lehengas",
+    "product_count": 352321,
+    "archetype_id": "traditional_ceremonial_clothing"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Contractor Pants & Coveralls",
+    "leaf": "Contractor Pants & Coveralls",
+    "product_count": 129565,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Flight Suits",
+    "leaf": "Flight Suits",
+    "product_count": 4272,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Food Service Uniforms",
+    "leaf": "Food Service Uniforms",
+    "product_count": 14033,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Military Uniforms",
+    "leaf": "Military Uniforms",
+    "product_count": 13027,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > School Uniforms",
+    "leaf": "School Uniforms",
+    "product_count": 80477,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Scrubs",
+    "leaf": "Scrubs",
+    "product_count": 139873,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Security Uniforms",
+    "leaf": "Security Uniforms",
+    "product_count": 79328,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > Sports Uniforms",
+    "leaf": "Sports Uniforms",
+    "product_count": 37397,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Uniforms & Workwear > White Coats",
+    "leaf": "White Coats",
+    "product_count": 36482,
+    "archetype_id": "uniforms_workwear"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Bridal Party Dresses",
+    "leaf": "Bridal Party Dresses",
+    "product_count": 350929,
+    "archetype_id": "bridal_occasion_dresses"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses",
+    "leaf": "Wedding Dresses",
+    "product_count": 331240,
+    "archetype_id": "bridal_occasion_dresses"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Arm Warmers & Sleeves",
+    "leaf": "Arm Warmers & Sleeves",
+    "product_count": 13670,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Baby & Children's Clothing Accessories > Baby & Children's Belts",
+    "leaf": "Baby & Children's Belts",
+    "product_count": 8127,
+    "archetype_id": "belts_buckles"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Baby & Children's Clothing Accessories > Baby & Children's Gloves & Mittens",
+    "leaf": "Baby & Children's Gloves & Mittens",
+    "product_count": 5729,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Baby & Children's Clothing Accessories > Baby & Children's Hats",
+    "leaf": "Baby & Children's Hats",
+    "product_count": 33648,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Baby & Children's Clothing Accessories > Baby & Children's Protective Wear",
+    "leaf": "Baby & Children's Protective Wear",
+    "product_count": 6367,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Balaclavas",
+    "leaf": "Balaclavas",
+    "product_count": 7534,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Bandanas & Headties",
+    "leaf": "Bandanas & Headties",
+    "product_count": 15633,
+    "archetype_id": "scarves_wraps"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Belt Buckles",
+    "leaf": "Belt Buckles",
+    "product_count": 12479,
+    "archetype_id": "belts_buckles"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Belts",
+    "leaf": "Belts",
+    "product_count": 297406,
+    "archetype_id": "belts_buckles"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Bridal Accessories",
+    "leaf": "Bridal Accessories",
+    "product_count": 28614,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Button Studs",
+    "leaf": "Button Studs",
+    "product_count": 1206,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Collar Stays",
+    "leaf": "Collar Stays",
+    "product_count": 1563,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Cufflinks",
+    "leaf": "Cufflinks",
+    "product_count": 23650,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Decorative Fans",
+    "leaf": "Decorative Fans",
+    "product_count": 2320,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Earmuffs",
+    "leaf": "Earmuffs",
+    "product_count": 2318,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Fashion Face Masks",
+    "leaf": "Fashion Face Masks",
+    "product_count": 7082,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Gloves & Mittens",
+    "leaf": "Gloves & Mittens",
+    "product_count": 39974,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Bands",
+    "leaf": "Hair Bands",
+    "product_count": 11279,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Bun & Volume Shapers",
+    "leaf": "Hair Bun & Volume Shapers",
+    "product_count": 446,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Combs",
+    "leaf": "Hair Combs",
+    "product_count": 5366,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Extensions",
+    "leaf": "Hair Extensions",
+    "product_count": 21033,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Forks & Sticks",
+    "leaf": "Hair Forks & Sticks",
+    "product_count": 3235,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Nets",
+    "leaf": "Hair Nets",
+    "product_count": 1738,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Pins, Claws & Clips",
+    "leaf": "Hair Pins, Claws & Clips",
+    "product_count": 49882,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Hair Wreaths",
+    "leaf": "Hair Wreaths",
+    "product_count": 3669,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Headbands",
+    "leaf": "Headbands",
+    "product_count": 39570,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Ponytail Holders",
+    "leaf": "Ponytail Holders",
+    "product_count": 19044,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Tiaras",
+    "leaf": "Tiaras",
+    "product_count": 6572,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Wig Accessories",
+    "leaf": "Wig Accessories",
+    "product_count": 902,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hair Accessories > Wigs",
+    "leaf": "Wigs",
+    "product_count": 13257,
+    "archetype_id": "hair_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hand Muffs",
+    "leaf": "Hand Muffs",
+    "product_count": 1677,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Handkerchiefs",
+    "leaf": "Handkerchiefs",
+    "product_count": 14181,
+    "archetype_id": "scarves_wraps"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Baseball Caps",
+    "leaf": "Baseball Caps",
+    "product_count": 354461,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Beanies",
+    "leaf": "Beanies",
+    "product_count": 61019,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Berets",
+    "leaf": "Berets",
+    "product_count": 7470,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Bowler Hats",
+    "leaf": "Bowler Hats",
+    "product_count": 906,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Bucket Hats",
+    "leaf": "Bucket Hats",
+    "product_count": 35276,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Cowboy Hats",
+    "leaf": "Cowboy Hats",
+    "product_count": 86347,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Fedoras",
+    "leaf": "Fedoras",
+    "product_count": 41357,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Flat Caps",
+    "leaf": "Flat Caps",
+    "product_count": 31165,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Panama Hats",
+    "leaf": "Panama Hats",
+    "product_count": 7488,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Snapback Caps",
+    "leaf": "Snapback Caps",
+    "product_count": 77400,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Sun Hats",
+    "leaf": "Sun Hats",
+    "product_count": 41283,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Top Hats",
+    "leaf": "Top Hats",
+    "product_count": 3387,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Trilbies",
+    "leaf": "Trilbies",
+    "product_count": 3109,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Trucker Hats",
+    "leaf": "Trucker Hats",
+    "product_count": 50058,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Visors",
+    "leaf": "Visors",
+    "product_count": 8859,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Hats > Winter Hats",
+    "leaf": "Winter Hats",
+    "product_count": 20876,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Headwear > Fascinators",
+    "leaf": "Fascinators",
+    "product_count": 8239,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Headwear > Headdresses",
+    "leaf": "Headdresses",
+    "product_count": 2018,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Headwear > Turbans",
+    "leaf": "Turbans",
+    "product_count": 5037,
+    "archetype_id": "headwear_hats"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Leg Warmers",
+    "leaf": "Leg Warmers",
+    "product_count": 4948,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Leis",
+    "leaf": "Leis",
+    "product_count": 2007,
+    "archetype_id": "scarves_wraps"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Maternity Belts & Support Bands",
+    "leaf": "Maternity Belts & Support Bands",
+    "product_count": 810,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Neck Gaiters",
+    "leaf": "Neck Gaiters",
+    "product_count": 7457,
+    "archetype_id": "cold_weather_small_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Neckties",
+    "leaf": "Neckties",
+    "product_count": 140816,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Pinback Buttons",
+    "leaf": "Pinback Buttons",
+    "product_count": 17653,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Sashes",
+    "leaf": "Sashes",
+    "product_count": 12388,
+    "archetype_id": "scarves_wraps"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Scarves & Shawls",
+    "leaf": "Scarves & Shawls",
+    "product_count": 81439,
+    "archetype_id": "scarves_wraps"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Sunglasses",
+    "leaf": "Sunglasses",
+    "product_count": 224741,
+    "archetype_id": "eyewear_sunglasses"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Suspenders",
+    "leaf": "Suspenders",
+    "product_count": 13366,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Tie Clips",
+    "leaf": "Tie Clips",
+    "product_count": 6977,
+    "archetype_id": "neckwear_formalwear_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Traditional Clothing Accessories",
+    "leaf": "Traditional Clothing Accessories",
+    "product_count": 4913,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Clothing Accessories > Wristbands",
+    "leaf": "Wristbands",
+    "product_count": 17205,
+    "archetype_id": "general_clothing_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Costumes & Accessories > Costume Accessories",
+    "leaf": "Costume Accessories",
+    "product_count": 11450,
+    "archetype_id": "costumes_partywear"
+  },
+  {
+    "path": "Apparel & Accessories > Costumes & Accessories > Costume Shoes",
+    "leaf": "Costume Shoes",
+    "product_count": 11178,
+    "archetype_id": "costumes_partywear"
+  },
+  {
+    "path": "Apparel & Accessories > Costumes & Accessories > Costumes > Costume Dresses",
+    "leaf": "Costume Dresses",
+    "product_count": 20423,
+    "archetype_id": "costumes_partywear"
+  },
+  {
+    "path": "Apparel & Accessories > Costumes & Accessories > Costumes > Costume Sets",
+    "leaf": "Costume Sets",
+    "product_count": 99316,
+    "archetype_id": "costumes_partywear"
+  },
+  {
+    "path": "Apparel & Accessories > Costumes & Accessories > Masks",
+    "leaf": "Masks",
+    "product_count": 14487,
+    "archetype_id": "costumes_partywear"
+  },
+  {
+    "path": "Apparel & Accessories > Handbag & Wallet Accessories > Keychains",
+    "leaf": "Keychains",
+    "product_count": 76024,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbag & Wallet Accessories > Lanyards",
+    "leaf": "Lanyards",
+    "product_count": 16160,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbag & Wallet Accessories > Wallet Chains",
+    "leaf": "Wallet Chains",
+    "product_count": 7721,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Badge & Pass Holders",
+    "leaf": "Badge & Pass Holders",
+    "product_count": 13961,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Business Card Cases",
+    "leaf": "Business Card Cases",
+    "product_count": 7297,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Checkbook Covers",
+    "leaf": "Checkbook Covers",
+    "product_count": 1394,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Baguette Handbags",
+    "leaf": "Baguette Handbags",
+    "product_count": 2287,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Barrel Bags",
+    "leaf": "Barrel Bags",
+    "product_count": 768,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Beach Bags",
+    "leaf": "Beach Bags",
+    "product_count": 10451,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Bucket Bags",
+    "leaf": "Bucket Bags",
+    "product_count": 10158,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Clutch Bags",
+    "leaf": "Clutch Bags",
+    "product_count": 29802,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Convertible Bags",
+    "leaf": "Convertible Bags",
+    "product_count": 13657,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Cross Body Bags",
+    "leaf": "Cross Body Bags",
+    "product_count": 72278,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Doctor Bags",
+    "leaf": "Doctor Bags",
+    "product_count": 2721,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Envelope Clutches",
+    "leaf": "Envelope Clutches",
+    "product_count": 2042,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Fold Over Clutches",
+    "leaf": "Fold Over Clutches",
+    "product_count": 854,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Half-Moon Bags",
+    "leaf": "Half-Moon Bags",
+    "product_count": 3690,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Hobo Bags",
+    "leaf": "Hobo Bags",
+    "product_count": 10014,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Minaudieres",
+    "leaf": "Minaudieres",
+    "product_count": 5380,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Muff Clutches & Bags",
+    "leaf": "Muff Clutches & Bags",
+    "product_count": 2947,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Saddle Bags",
+    "leaf": "Saddle Bags",
+    "product_count": 3082,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Satchel Bags",
+    "leaf": "Satchel Bags",
+    "product_count": 27766,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > School Bags",
+    "leaf": "School Bags",
+    "product_count": 3948,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Shopper Bags",
+    "leaf": "Shopper Bags",
+    "product_count": 25966,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Shoulder Bags",
+    "leaf": "Shoulder Bags",
+    "product_count": 88212,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Handbags > Trapezoid Bags",
+    "leaf": "Trapezoid Bags",
+    "product_count": 773,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Card Cases",
+    "leaf": "Card Cases",
+    "product_count": 27160,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Coin Purses",
+    "leaf": "Coin Purses",
+    "product_count": 7841,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Key Cases",
+    "leaf": "Key Cases",
+    "product_count": 11170,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Neck Pouches",
+    "leaf": "Neck Pouches",
+    "product_count": 2692,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Travel Wallets",
+    "leaf": "Travel Wallets",
+    "product_count": 5811,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Wallets",
+    "leaf": "Wallets",
+    "product_count": 81159,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Handbags, Wallets & Cases > Wallets & Money Clips > Wrist Bags",
+    "leaf": "Wrist Bags",
+    "product_count": 5209,
+    "archetype_id": "bags_wallets_cases"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Anklets",
+    "leaf": "Anklets",
+    "product_count": 20731,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Body Jewelry",
+    "leaf": "Body Jewelry",
+    "product_count": 296062,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Bracelets",
+    "leaf": "Bracelets",
+    "product_count": 592337,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Brooches & Lapel Pins",
+    "leaf": "Brooches & Lapel Pins",
+    "product_count": 44648,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Charms & Pendants",
+    "leaf": "Charms & Pendants",
+    "product_count": 388817,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Earrings",
+    "leaf": "Earrings",
+    "product_count": 652256,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Jewelry Sets",
+    "leaf": "Jewelry Sets",
+    "product_count": 118224,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Necklaces",
+    "leaf": "Necklaces",
+    "product_count": 842183,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Rings",
+    "leaf": "Rings",
+    "product_count": 3172961,
+    "archetype_id": "fine_jewelry"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Smart Watches",
+    "leaf": "Smart Watches",
+    "product_count": 6161,
+    "archetype_id": "watches_smartwatches"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Watch Accessories > Watch Bands",
+    "leaf": "Watch Bands",
+    "product_count": 103003,
+    "archetype_id": "watches_smartwatches"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Watch Accessories > Watch Stickers & Decals",
+    "leaf": "Watch Stickers & Decals",
+    "product_count": 390,
+    "archetype_id": "watches_smartwatches"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Watch Accessories > Watch Winders",
+    "leaf": "Watch Winders",
+    "product_count": 1030,
+    "archetype_id": "watches_smartwatches"
+  },
+  {
+    "path": "Apparel & Accessories > Jewelry > Watches",
+    "leaf": "Watches",
+    "product_count": 199959,
+    "archetype_id": "watches_smartwatches"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Boot Liners",
+    "leaf": "Boot Liners",
+    "product_count": 2085,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Gaiters",
+    "leaf": "Gaiters",
+    "product_count": 1243,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Covers",
+    "leaf": "Shoe Covers",
+    "product_count": 2320,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Grips",
+    "leaf": "Shoe Grips",
+    "product_count": 2072,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Inserts > Anti Slip Steps",
+    "leaf": "Anti Slip Steps",
+    "product_count": 701,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Inserts > Arch Supports",
+    "leaf": "Arch Supports",
+    "product_count": 20483,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Inserts > Gel Pads",
+    "leaf": "Gel Pads",
+    "product_count": 1029,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoe Inserts > Heel Cushions",
+    "leaf": "Heel Cushions",
+    "product_count": 1449,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Shoelaces",
+    "leaf": "Shoelaces",
+    "product_count": 14678,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoe Accessories > Spurs",
+    "leaf": "Spurs",
+    "product_count": 1747,
+    "archetype_id": "shoe_care_accessories"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Athletic Shoes",
+    "leaf": "Athletic Shoes",
+    "product_count": 777971,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Baby & Children's Shoes > Baby & Children's Athletic Shoes",
+    "leaf": "Baby & Children's Athletic Shoes",
+    "product_count": 47164,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Baby & Children's Shoes > Baby & Children's Boots",
+    "leaf": "Baby & Children's Boots",
+    "product_count": 92293,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Baby & Children's Shoes > Baby & Children's Sandals",
+    "leaf": "Baby & Children's Sandals",
+    "product_count": 93214,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Baby & Children's Shoes > Baby & Children's Sneakers",
+    "leaf": "Baby & Children's Sneakers",
+    "product_count": 243076,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Baby & Children's Shoes > First Steps & Crawlers",
+    "leaf": "First Steps & Crawlers",
+    "product_count": 32061,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Boots",
+    "leaf": "Boots",
+    "product_count": 1627207,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Flats",
+    "leaf": "Flats",
+    "product_count": 1080189,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Heels",
+    "leaf": "Heels",
+    "product_count": 768519,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Sandals",
+    "leaf": "Sandals",
+    "product_count": 1656606,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Slippers",
+    "leaf": "Slippers",
+    "product_count": 234708,
+    "archetype_id": "footwear"
+  },
+  {
+    "path": "Apparel & Accessories > Shoes > Sneakers",
+    "leaf": "Sneakers",
+    "product_count": 1613389,
+    "archetype_id": "footwear"
+  }
+]
