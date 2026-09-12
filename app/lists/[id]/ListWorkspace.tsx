@@ -52,10 +52,6 @@ export default function ListWorkspace({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ slot_id: slotId, new_value: newValue }),
       });
-      if (res.status === 401) {
-        router.push(`/login?next=${encodeURIComponent(`/lists/${listId}`)}`);
-        return;
-      }
       const data = await res.json();
       if (!res.ok) {
         setScenarioStatus("error");
@@ -82,10 +78,6 @@ export default function ListWorkspace({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items: nextItems }),
       });
-      if (res.status === 401) {
-        router.push(`/login?next=${encodeURIComponent(`/lists/${listId}`)}`);
-        return;
-      }
       const data = await res.json();
       if (!res.ok) {
         setItemsStatus("error");
@@ -107,10 +99,6 @@ export default function ListWorkspace({
     setBasketError(null);
     try {
       const createRes = await fetch("/api/baskets", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
-      if (createRes.status === 401) {
-        router.push(`/login?next=${encodeURIComponent(`/lists/${listId}`)}`);
-        return;
-      }
       const createData = await createRes.json();
       if (!createRes.ok) {
         setBasketStatus("error");

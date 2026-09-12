@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { BasketItem } from "@/lib/types";
 import BasketItemRow from "./BasketItemRow";
@@ -8,10 +7,10 @@ interface PageProps {
 }
 
 /**
- * Basket screen. Persists nothing on this page by itself beyond what
- * happens via child components, but viewing a basket is inherently
- * user-scoped (baskets RLS is owner-only, no sharing story -- see
- * /app/api/baskets/[id]/route.ts), so the whole page is auth-gated.
+ * Basket screen. Viewing a basket is inherently user-scoped (baskets RLS is
+ * owner-only, no sharing story -- see /app/api/baskets/[id]/route.ts), but
+ * that user is established silently by middleware.ts's anonymous-session
+ * logic before this page ever runs -- no login wall here.
  *
  * The primary CTA is a stub ("Buy" / "Get this") per CLAUDE.md locked
  * decision #1 -- see BasketItemRow, which renders it as an inert,
@@ -22,17 +21,6 @@ export default async function BasketPage({ params }: PageProps) {
   const { id } = await params;
 
   const supabase = await createSupabaseServerClient();
-
-  let userId: string | null = null;
-  try {
-    const { data } = await supabase.auth.getUser();
-    userId = data.user?.id ?? null;
-  } catch {
-    userId = null;
-  }
-  if (!userId) {
-    redirect(`/login?next=${encodeURIComponent(`/baskets/${id}`)}`);
-  }
 
   let items: BasketItem[] | null = null;
   let loadError: string | null = null;

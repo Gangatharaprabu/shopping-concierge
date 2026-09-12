@@ -38,10 +38,6 @@ export default function StartScenarioForm({ useCaseId, scenarioSlots }: StartSce
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ scenario: { use_case_id: useCaseId, slots: values } }),
       });
-      if (res.status === 401) {
-        router.push(`/login?next=${encodeURIComponent(`/usecases/${useCaseId}`)}`);
-        return;
-      }
       const data = await res.json();
       if (!res.ok) {
         setStatus("error");

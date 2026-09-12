@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 
 /**
  * Best-effort "who's signed in" check for the nav bar only -- never throws
- * and never blocks rendering. This sandbox has no live Supabase project
- * (see CLAUDE.md-adjacent phase notes), so this resolves to `null` here;
- * against a real project it reflects the caller's session. Route handlers
- * and pages that actually gate on auth do their own `requireUser`/redirect
- * check -- this is display-only.
+ * and never blocks rendering. middleware.ts silently establishes an
+ * anonymous session for every visitor (no email), so this resolves to
+ * `null` for the common case; it only returns a value for a real
+ * (non-anonymous) account, which nothing in this app currently creates --
+ * kept as a display-only hook for a possible future real-login feature.
  */
 async function getNavUserEmail(): Promise<string | null> {
   try {
@@ -55,13 +55,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <Link href="/" className="text-zinc-600 hover:text-zinc-900">
                 Browse
               </Link>
-              {email ? (
-                <span className="text-zinc-600">{email}</span>
-              ) : (
-                <Link href="/login" className="text-zinc-600 hover:text-zinc-900">
-                  Sign in
-                </Link>
-              )}
+              {email && <span className="text-zinc-600">{email}</span>}
             </div>
           </nav>
         </header>

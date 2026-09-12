@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ScenarioSlots } from "@/app/components/scenario-slots";
 import type { ListItem, ListShareRow } from "@/lib/types";
@@ -17,25 +16,17 @@ interface ListDetail {
 
 /**
  * Shopping list / basket-building screen. Persists things for a specific
- * user (owned flags, scenario edits, shares, basket creation) so, per this
- * phase's auth boundary, the whole page is gated -- redirect to /login if
- * unauthenticated, rather than only gating individual actions.
+ * user (owned flags, scenario edits, shares, basket creation), but that user
+ * is established silently by middleware.ts's anonymous-session logic before
+ * this page ever runs -- no login wall here. If middleware couldn't
+ * establish a session at all (no live Supabase project, or anonymous
+ * sign-ins disabled on the project), the query below just comes back empty
+ * under RLS and the existing "couldn't reach the server" state handles it.
  */
 export default async function ListPage({ params }: PageProps) {
   const { id } = await params;
 
   const supabase = await createSupabaseServerClient();
-
-  let userId: string | null = null;
-  try {
-    const { data } = await supabase.auth.getUser();
-    userId = data.user?.id ?? null;
-  } catch {
-    userId = null;
-  }
-  if (!userId) {
-    redirect(`/login?next=${encodeURIComponent(`/lists/${id}`)}`);
-  }
 
   let list: ListDetail | null = null;
   let useCaseTitle: string | null = null;
