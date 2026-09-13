@@ -23,7 +23,7 @@ export default function BuyButton({ itemName }: { itemName: string }) {
         type="button"
         aria-label={`Get this: ${itemName}`}
         onClick={() => setAcknowledged(true)}
-        className="rounded bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white"
+        className="rounded-full bg-ink px-3 py-1.5 text-sm font-bold text-white active:scale-95"
       >
         Get this
       </button>

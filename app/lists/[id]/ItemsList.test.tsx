@@ -9,27 +9,31 @@ const ITEMS: ListItem[] = [
   { name: "Charcoal briquettes", qty: 2.4, unit: "kg", category: "fuel", owned: true, source_item_id: "charcoal_briquettes" },
 ];
 
+/**
+ * `ListItem.owned` semantics are unchanged (owned: true still means "I
+ * already have this, don't shop for it") -- but per this redesign's Figma
+ * visual language, the checkbox's *visual* checked state is the inverse of
+ * `owned` (see ItemChecklist.tsx's file header): an item still needed
+ * (`owned: false`) renders as the checked/active-looking circle, and an
+ * item already owned (`owned: true`) renders as unchecked/struck-through.
+ * These tests assert that inverted mapping explicitly so it doesn't silently
+ * drift back to a literal `checked === owned` assumption.
+ */
 describe("ItemsList", () => {
-  it("renders each item's owned checkbox reflecting its current state", () => {
+  it("renders the checkbox's visual checked state as the inverse of `owned`", () => {
     render(<ItemsList items={ITEMS} onToggleOwned={vi.fn()} />);
 
-    const tongsCheckbox = screen.getByLabelText("Grill tongs") as HTMLInputElement;
-    const charcoalCheckbox = screen.getByLabelText("Charcoal briquettes") as HTMLInputElement;
-
-    // Checkbox and label are separate elements linked by htmlFor/id -- get
-    // the actual <input> via its role in the same list item.
-    expect(screen.getAllByRole("checkbox")[0]).not.toBeChecked();
-    expect(screen.getAllByRole("checkbox")[1]).toBeChecked();
-    expect(tongsCheckbox).toBeInTheDocument();
-    expect(charcoalCheckbox).toBeInTheDocument();
+    // Grill tongs: owned: false (still needed) -> visually checked.
+    expect(screen.getByRole("checkbox", { name: "Grill tongs" })).toBeChecked();
+    // Charcoal briquettes: owned: true (already have it) -> visually unchecked.
+    expect(screen.getByRole("checkbox", { name: "Charcoal briquettes" })).not.toBeChecked();
   });
 
   it("calls onToggleOwned with the toggled item's index, and only that index", async () => {
     const onToggleOwned = vi.fn();
     render(<ItemsList items={ITEMS} onToggleOwned={onToggleOwned} />);
 
-    const checkboxes = screen.getAllByRole("checkbox");
-    await userEvent.click(checkboxes[0]);
+    await userEvent.click(screen.getByRole("checkbox", { name: "Grill tongs" }));
 
     expect(onToggleOwned).toHaveBeenCalledTimes(1);
     expect(onToggleOwned).toHaveBeenCalledWith(0);
@@ -39,7 +43,22 @@ describe("ItemsList", () => {
     const onToggleOwned = vi.fn();
     render(<ItemsList items={ITEMS} onToggleOwned={onToggleOwned} disabled />);
 
-    const checkboxes = screen.getAllByRole("checkbox");
-    expect(checkboxes[0]).toBeDisabled();
+    expect(screen.getByRole("checkbox", { name: "Grill tongs" })).toBeDisabled();
+  });
+
+  it("renders no checkboxes at all when onToggleOwned is omitted (read-only preview mode)", () => {
+    render(<ItemsList items={ITEMS} />);
+
+    expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
+    expect(screen.getByText("Grill tongs")).toBeInTheDocument();
+  });
+
+  it("filters items by category via the filter chips", async () => {
+    render(<ItemsList items={ITEMS} onToggleOwned={vi.fn()} />);
+
+    await userEvent.click(screen.getByRole("button", { name: "fuel" }));
+
+    expect(screen.queryByText("Grill tongs")).not.toBeInTheDocument();
+    expect(screen.getByText("Charcoal briquettes")).toBeInTheDocument();
   });
 });

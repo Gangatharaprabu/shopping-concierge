@@ -7,12 +7,17 @@ import {
   type SearchUseCasesMemory,
   type UseCaseForSearch,
 } from "@/lib/tools/search_usecases";
+import { generateList, type UseCaseForList } from "@/lib/tools/generate_list";
+import type { ListItem } from "@/lib/types";
 
 const VALID_CATEGORIES = new Set<string>(categoryTaxonomy.$defs.category.enum);
 const VALID_BUDGET_TIERS = new Set<BudgetTier>(["low", "mid", "high"]);
 
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 200;
+
+/** How many of a use case's default-scenario items to include as a feed preview -- see file header. */
+const PREVIEW_ITEM_LIMIT = 10;
 
 /**
  * GET /api/usecases/search?q=&category=&subcategory=&limit=
@@ -40,6 +45,17 @@ const MAX_LIMIT = 200;
  * tool's contract until it lands, matching the CLAUDE.md-documented
  * memory/scenario boundary -- the caller, not this route, decides what
  * durable memory to pass in).
+ *
+ * Each result also now includes `item_count` and `preview_items` (this
+ * phase's redesign brief, for the home feed's per-use-case item carousel):
+ * `template_list` is selected alongside the existing columns and run through
+ * the existing, unmodified `generateList` (lib/tools/generate_list.ts) at
+ * each use case's *default* scenario_slots values (no per-user scenario
+ * exists yet at feed time) -- reusing the exact same pure function
+ * StartScenarioForm/generate_list-backed /api/lists both already call,
+ * rather than reimplementing template-list evaluation here. `preview_items`
+ * is capped at PREVIEW_ITEM_LIMIT; `item_count` is the *full* generated
+ * count so the feed can show "23 items" even though only 10 are previewed.
  */
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -70,7 +86,7 @@ export async function GET(request: Request) {
   const supabase = await createSupabaseServerClient();
   let dbQuery = supabase
     .from("use_cases")
-    .select("id, title, description, category, subcategory, tags, scenario_slots")
+    .select("id, title, description, category, subcategory, tags, scenario_slots, template_list")
     .order("id", { ascending: true });
 
   if (category) dbQuery = dbQuery.eq("category", category);
@@ -82,11 +98,27 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  const useCases = (data ?? []) as unknown as UseCaseForSearch[];
-  const ranked = searchUseCases(useCases, query, { limit, memory });
+  type RowWithTemplate = UseCaseForSearch & { template_list: unknown[] };
+  const rows = (data ?? []) as unknown as RowWithTemplate[];
+  const ranked = searchUseCases(rows, query, { limit, memory });
 
   return NextResponse.json({
-    results: ranked.map((r) => ({ use_case: r.useCase, score: r.score, signals: r.signals })),
+    results: ranked.map((r) => {
+      const row = r.useCase as RowWithTemplate;
+      const { template_list, ...useCasePublic } = row;
+      const items: ListItem[] = generateList({
+        id: row.id,
+        scenario_slots: row.scenario_slots,
+        template_list,
+      } as unknown as UseCaseForList);
+      return {
+        use_case: useCasePublic,
+        score: r.score,
+        signals: r.signals,
+        item_count: items.length,
+        preview_items: items.slice(0, PREVIEW_ITEM_LIMIT),
+      };
+    }),
     query,
     limit,
   });

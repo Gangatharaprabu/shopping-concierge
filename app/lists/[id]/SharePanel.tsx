@@ -70,15 +70,15 @@ export default function SharePanel({ listId, initialShares }: SharePanelProps) {
   }
 
   return (
-    <div className="rounded border border-zinc-200 bg-white p-5">
-      <h2 className="text-lg font-medium">Sharing</h2>
+    <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+      <h2 className="text-sm font-black text-ink">Sharing</h2>
 
       {shares.length === 0 ? (
-        <p className="mt-2 text-sm text-zinc-600">Not shared with anyone yet.</p>
+        <p className="mt-2 text-sm text-zinc-500">Not shared with anyone yet.</p>
       ) : (
         <ul className="mt-3 flex flex-col gap-2">
           {shares.map((share) => (
-            <li key={share.id} className="flex items-center justify-between rounded border border-zinc-100 px-3 py-2 text-sm">
+            <li key={share.id} className="flex items-center justify-between rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm">
               <span>
                 {share.shared_with_user_id} &middot; <span className="text-zinc-500">{share.permission}</span>
               </span>
@@ -86,7 +86,7 @@ export default function SharePanel({ listId, initialShares }: SharePanelProps) {
                 type="button"
                 onClick={() => handleRevoke(share.id)}
                 disabled={busy}
-                className="text-xs text-red-700 hover:underline disabled:opacity-50"
+                className="text-xs font-semibold text-red-600 disabled:opacity-50"
               >
                 Revoke
               </button>
@@ -105,7 +105,7 @@ export default function SharePanel({ listId, initialShares }: SharePanelProps) {
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
             placeholder="Supabase Auth user id"
-            className="rounded border border-zinc-300 px-2 py-1.5 text-sm"
+            className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm"
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -116,7 +116,7 @@ export default function SharePanel({ listId, initialShares }: SharePanelProps) {
             id="share-permission"
             value={permission}
             onChange={(e) => setPermission(e.target.value as SharePermission)}
-            className="rounded border border-zinc-300 px-2 py-1.5 text-sm"
+            className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm"
           >
             <option value="view">view</option>
             <option value="edit">edit</option>
@@ -125,14 +125,14 @@ export default function SharePanel({ listId, initialShares }: SharePanelProps) {
         <button
           type="submit"
           disabled={busy}
-          className="rounded bg-zinc-900 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+          className="rounded-full bg-ink px-4 py-2 text-sm font-bold text-white disabled:opacity-50"
         >
           Share
         </button>
       </form>
 
       {error && (
-        <p className="mt-3 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-800">{error}</p>
+        <p className="mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">{error}</p>
       )}
     </div>
   );

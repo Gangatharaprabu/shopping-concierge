@@ -1,26 +1,136 @@
+/**
+ * Design-system tokens for the Figma-Make-derived visual language, ported
+ * from the reference export's src/index.css (see the redesign task brief --
+ * that file is reference-only, not imported directly). This is the single
+ * place these tokens are declared; every component below just reaches for
+ * the resulting Tailwind utilities (`bg-ink`, `text-accent`, `bg-success`,
+ * `rounded-2xl`/`rounded-3xl`, `.fade-in`/`.slide-up`/`.pop`) rather than
+ * hardcoding hex values inline.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
+@theme {
+  /* Outfit replaces the previous Geist pairing app-wide -- see app/layout.tsx. */
+  --font-sans: "Outfit", sans-serif;
+
+  /* Core palette -- near-black primary, orange shopping-CTA accent, green
+     saved/success state. Named (not just arbitrary hex) so `bg-ink`,
+     `text-ink`, `border-ink`, `bg-accent`, `text-accent`, `bg-success`,
+     `text-success`, `bg-success-soft` are all available Tailwind utilities. */
+  --color-ink: #0d0d0d;
+  --color-accent: #ff6b35;
+  --color-success: #16a34a;
+  --color-success-soft: #dcfce7;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #ffffff;
+  color: #0d0d0d;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/**
+ * The 5-color pastel card-background palette the feed/checklist item cards
+ * cycle through by index (see app/design.ts's PALETTES/pal(), the
+ * TypeScript mirror of these exact colors used to pick style per card).
+ * Declared here as CSS custom properties too so either layer can reference
+ * the same source of truth if a future non-JS consumer needs it.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pal-0-bg: #ffffff;
+  --pal-0-border: #ebebeb;
+  --pal-0-text: #0d0d0d;
+  --pal-0-sub: #999999;
+
+  --pal-1-bg: #fffbea;
+  --pal-1-border: #f0e68c;
+  --pal-1-text: #3d2800;
+  --pal-1-sub: #9b7a20;
+
+  --pal-2-bg: #f0fff4;
+  --pal-2-border: #bbf0cc;
+  --pal-2-text: #0d3320;
+  --pal-2-sub: #2e7d52;
+
+  --pal-3-bg: #fff0f5;
+  --pal-3-border: #f5c6d8;
+  --pal-3-text: #3d0820;
+  --pal-3-sub: #8b3055;
+
+  --pal-4-bg: #f0f4ff;
+  --pal-4-border: #c6d4f5;
+  --pal-4-text: #0d1a3d;
+  --pal-4-sub: #3055a0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.fade-in {
+  animation: fadeIn 0.22s ease forwards;
+}
+.slide-up {
+  animation: slideUp 0.32s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+.pop {
+  animation: pop 0.2s ease forwards;
+}
+.bounce-dot {
+  animation: bounce 1s ease infinite;
 }

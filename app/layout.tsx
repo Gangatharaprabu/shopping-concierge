@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import ChatBar from "./components/ChatBar";
 
 export const metadata: Metadata = {
   title: "Shopping Concierge",
@@ -20,46 +8,29 @@ export const metadata: Metadata = {
 };
 
 /**
- * Best-effort "who's signed in" check for the nav bar only -- never throws
- * and never blocks rendering. middleware.ts silently establishes an
- * anonymous session for every visitor (no email), so this resolves to
- * `null` for the common case; it only returns a value for a real
- * (non-anonymous) account, which nothing in this app currently creates --
- * kept as a display-only hook for a possible future real-login feature.
+ * Root layout -- mobile-first (`max-w-md`), Outfit throughout (see
+ * globals.css's `@import`/`@theme`), and the persistent bottom `<ChatBar>`
+ * from this phase's redesign brief, mounted once here so it's present on
+ * every route.
+ *
+ * The previous phase's site-wide `<header>`/nav bar (logo + "Browse" link +
+ * signed-in email) is dropped: the Figma reference's screens each own their
+ * own header (see HomeFeed/DetailView/CartView in the reference), and
+ * stacking a second, generic nav bar above a persistent bottom chat bar
+ * would fight the mobile-first, single-column visual language this redesign
+ * is porting -- every route here now renders its own header treatment
+ * instead (see app/page.tsx, app/usecases/[id]/page.tsx, etc.). The
+ * anonymous-auth display-only hook this header used to have (getNavUserEmail)
+ * is dropped along with it; nothing else depended on it.
  */
-async function getNavUserEmail(): Promise<string | null> {
-  try {
-    const supabase = await createSupabaseServerClient();
-    const { data } = await supabase.auth.getUser();
-    return data.user?.email ?? null;
-  } catch {
-    return null;
-  }
-}
-
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const email = await getNavUserEmail();
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900">
-        <header className="border-b border-zinc-200 bg-white">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-            <Link href="/" className="font-semibold tracking-tight">
-              Shopping Concierge
-            </Link>
-            <div className="flex items-center gap-4 text-sm">
-              <Link href="/" className="text-zinc-600 hover:text-zinc-900">
-                Browse
-              </Link>
-              {email && <span className="text-zinc-600">{email}</span>}
-            </div>
-          </nav>
-        </header>
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">{children}</main>
+    <html lang="en" className="h-full antialiased">
+      <body className="flex justify-center bg-zinc-100">
+        <div className="flex min-h-dvh w-full max-w-md flex-col bg-white" style={{ fontFamily: "var(--font-sans)" }}>
+          <main className="min-h-0 flex-1 overflow-y-auto">{children}</main>
+          <ChatBar />
+        </div>
       </body>
     </html>
   );

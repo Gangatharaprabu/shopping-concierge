@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ScenarioSlotEditor from "@/app/components/ScenarioSlotEditor";
+import CollapsibleSection from "@/app/components/CollapsibleSection";
 import type { ScenarioSlots, ScenarioSlotValues, SlotValue } from "@/app/components/scenario-slots";
 import type { ListItem } from "@/lib/types";
 import ItemsList from "./ItemsList";
@@ -26,6 +27,10 @@ type BasketStatus = "idle" | "adding" | "error" | "done";
  * only touching `owned` flags, not scaling/presence logic). Also hosts the
  * "Add to basket" CTA, which creates a basket (if needed) and syncs it via
  * the basket_update-backed /api/baskets/[id]/sync.
+ *
+ * Restyled for the Figma "Detail view" language (collapsible parameters,
+ * pill CTA) -- none of the fetch/persistence logic above changed from
+ * before this redesign.
  */
 export default function ListWorkspace({
   listId,
@@ -127,55 +132,56 @@ export default function ListWorkspace({
     }
   }
 
+  const remainingCount = items.filter((i) => !i.owned).length;
+
   return (
-    <div className="flex flex-col gap-6">
-      <div className="rounded border border-zinc-200 bg-white p-5">
-        <h2 className="text-lg font-medium">Scenario</h2>
+    <div className="flex flex-col">
+      <div className="px-5 pt-4">
         {scenarioSlots ? (
-          <div className="mt-3">
+          <CollapsibleSection title="Customize parameters" icon="⚙️">
             <ScenarioSlotEditor
               scenarioSlots={scenarioSlots}
               values={slotValues}
               onChange={handleSlotChange}
               disabled={scenarioStatus === "saving"}
             />
-          </div>
+          </CollapsibleSection>
         ) : (
-          <p className="mt-2 text-sm text-zinc-600">Scenario editor unavailable (couldn&apos;t load its use case).</p>
+          <p className="mb-3 text-sm text-zinc-500">Scenario editor unavailable (couldn&apos;t load its use case).</p>
         )}
         {scenarioStatus === "error" && scenarioError && (
-          <p className="mt-3 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+          <p className="mb-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">
             Couldn&apos;t save that change: {scenarioError}
           </p>
         )}
-      </div>
 
-      <div className="rounded border border-zinc-200 bg-white p-5">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-medium">Items</h2>
+        <div className="mb-2 flex items-center justify-between">
+          <p className="text-xs text-zinc-400">
+            {remainingCount}/{items.length} still needed
+          </p>
           <button
             type="button"
             onClick={handleAddToBasket}
             disabled={basketStatus === "adding"}
-            className="rounded bg-zinc-900 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-black text-white active:scale-95 disabled:opacity-50"
           >
-            {basketStatus === "adding" ? "Adding to basket..." : "Add to basket"}
+            {basketStatus === "adding" ? "Adding..." : "Add to basket"}
           </button>
         </div>
+
         {itemsStatus === "error" && itemsError && (
-          <p className="mt-3 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+          <p className="mb-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">
             Couldn&apos;t save that change: {itemsError}
           </p>
         )}
         {basketStatus === "error" && basketError && (
-          <p className="mt-3 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+          <p className="mb-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">
             Couldn&apos;t add to basket: {basketError}
           </p>
         )}
-        <div className="mt-3">
-          <ItemsList items={items} onToggleOwned={handleToggleOwned} disabled={itemsStatus === "saving"} />
-        </div>
       </div>
+
+      <ItemsList items={items} onToggleOwned={handleToggleOwned} disabled={itemsStatus === "saving"} />
     </div>
   );
 }
