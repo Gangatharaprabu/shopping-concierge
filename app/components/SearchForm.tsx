@@ -40,13 +40,13 @@ export default function SearchForm() {
         onChange={(e) => setQ(e.target.value)}
         placeholder="What are you shopping for? e.g. 'hosting a BBQ'"
         aria-label="Search use cases"
-        className="min-w-64 flex-1 rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="min-w-64 flex-1 rounded-full border-[1.5px] border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-ink outline-none focus:border-ink"
       />
       <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         aria-label="Category filter"
-        className="rounded border border-zinc-300 px-2 py-2 text-sm"
+        className="rounded-full border-[1.5px] border-zinc-200 bg-white px-3 py-2.5 text-sm font-medium text-ink"
       >
         <option value="">All categories</option>
         {CATEGORIES.map((c) => (
@@ -55,7 +55,7 @@ export default function SearchForm() {
           </option>
         ))}
       </select>
-      <button type="submit" className="rounded bg-zinc-900 px-4 py-2 text-sm font-medium text-white">
+      <button type="submit" className="rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-white active:scale-95">
         Search
       </button>
     </form>

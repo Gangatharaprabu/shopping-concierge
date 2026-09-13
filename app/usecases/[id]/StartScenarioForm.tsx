@@ -1,29 +1,46 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ScenarioSlotEditor from "@/app/components/ScenarioSlotEditor";
+import CollapsibleSection from "@/app/components/CollapsibleSection";
+import ItemChecklist from "@/app/components/ItemChecklist";
 import { resolveSlotValues, type ScenarioSlots, type ScenarioSlotValues, type SlotValue } from "@/app/components/scenario-slots";
+import { generateList, type UseCaseForList } from "@/lib/tools/generate_list";
 
 export interface StartScenarioFormProps {
   useCaseId: string;
   scenarioSlots: ScenarioSlots;
+  templateList: unknown[];
 }
 
 type Status = "idle" | "starting" | "error";
 
 /**
- * The use-case detail page's "Start" action. Initializes every slot to its
- * declared default, lets the user adjust them via <ScenarioSlotEditor>, and
- * on submit POSTs to the generate_list-backed /api/lists (scenario.items
- * omitted -- see that route's header for why that's the generate_list
- * path, not the raw-overwrite path), then navigates to the new list.
+ * The use-case detail page's scenario editor + "Start" action, redesigned as
+ * the Figma "Detail view": a collapsible "Customize parameters" section
+ * (wrapping the existing, unmodified `ScenarioSlotEditor`) above a live
+ * checklist that recomputes client-side via the existing, unmodified
+ * `generateList` (lib/tools/generate_list.ts) every time a slot value
+ * changes -- no network round-trip needed before the list is actually
+ * started, per this phase's brief.
+ *
+ * The checklist here is read-only (`ItemChecklist` with no `onToggleOwned`):
+ * there is no persisted ShoppingList/ListItem.owned to toggle yet at this
+ * point, only a preview of what `generateList` would produce. "Start
+ * shopping list" still persists via the existing generate_list-backed
+ * POST /api/lists flow, unchanged from before this redesign.
  */
-export default function StartScenarioForm({ useCaseId, scenarioSlots }: StartScenarioFormProps) {
+export default function StartScenarioForm({ useCaseId, scenarioSlots, templateList }: StartScenarioFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<ScenarioSlotValues>(() => resolveSlotValues(scenarioSlots, {}));
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+
+  const previewItems = useMemo(() => {
+    const useCase = { id: useCaseId, scenario_slots: scenarioSlots, template_list: templateList } as unknown as UseCaseForList;
+    return generateList(useCase, values);
+  }, [useCaseId, scenarioSlots, templateList, values]);
 
   function handleChange(slotId: string, newValue: SlotValue) {
     setValues((prev) => ({ ...prev, [slotId]: newValue }));
@@ -52,28 +69,34 @@ export default function StartScenarioForm({ useCaseId, scenarioSlots }: StartSce
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <ScenarioSlotEditor
-        scenarioSlots={scenarioSlots}
-        values={values}
-        onChange={handleChange}
-        disabled={status === "starting"}
-      />
-      <div>
+    <div className="flex flex-col">
+      <div className="px-5 pt-4">
+        <CollapsibleSection title="Customize parameters" icon="⚙️">
+          <ScenarioSlotEditor
+            scenarioSlots={scenarioSlots}
+            values={values}
+            onChange={handleChange}
+            disabled={status === "starting"}
+          />
+        </CollapsibleSection>
+
         <button
           type="button"
           onClick={handleStart}
           disabled={status === "starting"}
-          className="rounded bg-zinc-900 px-5 py-2 text-sm font-medium text-white disabled:opacity-50"
+          className="mb-4 w-full rounded-full bg-accent px-5 py-3 text-sm font-black text-white active:scale-[0.98] disabled:opacity-50"
         >
-          {status === "starting" ? "Starting..." : "Start shopping list"}
+          {status === "starting" ? "Starting..." : `Start shopping list · ${previewItems.length} items`}
         </button>
+
+        {status === "error" && error && (
+          <p className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+            Couldn&apos;t start your list: {error}
+          </p>
+        )}
       </div>
-      {status === "error" && error && (
-        <p className="rounded border border-red-200 bg-red-50 p-3 text-sm text-red-800">
-          Couldn&apos;t start your list: {error}
-        </p>
-      )}
+
+      <ItemChecklist items={previewItems} />
     </div>
   );
 }

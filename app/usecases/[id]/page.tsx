@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ScenarioSlots } from "@/app/components/scenario-slots";
+import { guessUseCaseEmoji } from "@/app/design";
 import StartScenarioForm from "./StartScenarioForm";
 
 interface PageProps {
@@ -16,12 +17,19 @@ interface UseCaseDetail {
   subcategory: string;
   tags: string[];
   scenario_slots: ScenarioSlots;
+  template_list: unknown[];
 }
 
 /**
- * Use-case detail + scenario slot editor. Public/browsable -- no auth
- * required to view (auth is only enforced when actually starting a list,
- * inside StartScenarioForm, per this phase's auth boundary).
+ * Use-case detail + scenario slot editor -- redesigned as the Figma "Detail
+ * view". Public/browsable -- no auth required to view (auth is only
+ * enforced when actually starting a list, inside StartScenarioForm, per
+ * this phase's auth boundary).
+ *
+ * `template_list` is now selected alongside the existing columns (it wasn't
+ * before) so StartScenarioForm can compute a live, client-side checklist
+ * preview via `generateList` as the user adjusts scenario slots, before
+ * ever persisting a ShoppingList.
  */
 export default async function UseCaseDetailPage({ params }: PageProps) {
   const { id } = await params;
@@ -33,7 +41,7 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
     const supabase = await createSupabaseServerClient();
     const { data, error } = await supabase
       .from("use_cases")
-      .select("id, title, description, category, subcategory, tags, scenario_slots")
+      .select("id, title, description, category, subcategory, tags, scenario_slots, template_list")
       .eq("id", id)
       .maybeSingle();
     if (error) throw new Error(error.message);
@@ -44,7 +52,7 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
 
   if (loadError) {
     return (
-      <div className="rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+      <div className="m-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         Couldn&apos;t reach the use-case catalogue right now ({loadError}).
       </div>
     );
@@ -55,20 +63,25 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-800">
-          &larr; Back to browse
+    <div className="flex flex-col">
+      <div className="border-b border-zinc-100 px-5 pt-8 pb-4">
+        <Link href="/" className="text-sm text-zinc-400">
+          &larr; Back
         </Link>
-        <p className="mt-2 text-xs uppercase tracking-wide text-zinc-500">
-          {useCase.category} / {useCase.subcategory}
-        </p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight">{useCase.title}</h1>
-        {useCase.description && <p className="mt-2 text-zinc-600">{useCase.description}</p>}
+        <div className="mt-3 flex items-center gap-2.5">
+          <span className="text-3xl">{guessUseCaseEmoji(useCase.title, useCase.category)}</span>
+          <div>
+            <h1 className="text-xl leading-tight font-black text-ink">{useCase.title}</h1>
+            <p className="text-xs text-zinc-400">
+              {useCase.category} / {useCase.subcategory}
+            </p>
+          </div>
+        </div>
+        {useCase.description && <p className="mt-2 text-sm text-zinc-600">{useCase.description}</p>}
         {useCase.tags.length > 0 && (
-          <p className="mt-3 flex flex-wrap gap-1">
+          <p className="mt-2 flex flex-wrap gap-1">
             {useCase.tags.map((t) => (
-              <span key={t} className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600">
+              <span key={t} className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500">
                 {t}
               </span>
             ))}
@@ -76,15 +89,11 @@ export default async function UseCaseDetailPage({ params }: PageProps) {
         )}
       </div>
 
-      <div className="rounded border border-zinc-200 bg-white p-5">
-        <h2 className="text-lg font-medium">Set up your scenario</h2>
-        <p className="mt-1 text-sm text-zinc-600">
-          Adjust the details below, then start your shopping list -- you can keep editing them after.
-        </p>
-        <div className="mt-4">
-          <StartScenarioForm useCaseId={useCase.id} scenarioSlots={useCase.scenario_slots} />
-        </div>
-      </div>
+      <StartScenarioForm
+        useCaseId={useCase.id}
+        scenarioSlots={useCase.scenario_slots}
+        templateList={useCase.template_list}
+      />
     </div>
   );
 }
