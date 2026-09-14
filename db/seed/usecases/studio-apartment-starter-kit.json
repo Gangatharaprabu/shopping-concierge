@@ -13,11 +13,7 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -26,117 +22,133 @@
       "item_id": "shower_curtain_and_rings",
       "name": "Shower curtain and rings",
       "category": "bathroom",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "basic_bedding_set",
       "name": "Basic bedding set",
       "category": "bedroom",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "foldable_furniture_set",
       "name": "Foldable/multi-use furniture set",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "low" } ]
     },
     {
       "item_id": "premium_space_saving_furniture",
       "name": "Premium space-saving furniture",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "not_equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
     },
     {
       "item_id": "command_hooks_organizers",
       "name": "Command hooks and organizers",
       "category": "storage",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "microwave",
       "name": "Microwave",
       "category": "kitchen",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "not_equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
     },
     {
       "item_id": "hot_plate",
       "name": "Hot plate",
       "category": "kitchen",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "low" } ]
     },
     {
       "item_id": "trash_cans",
       "name": "Trash cans",
       "category": "cleaning",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
+      "qty": { "base": 2, "unit": "count" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "compact_dish_set",
+      "name": "Compact dish set (2 place settings)",
+      "category": "kitchen",
+      "qty": { "base": 2, "unit": "place-settings" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "compact_cookware_set",
+      "name": "Compact cookware set",
+      "category": "kitchen",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "under_bed_storage_bins",
+      "name": "Under-bed storage bins",
+      "category": "storage",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "room_divider_screen",
+      "name": "Room divider screen",
+      "category": "furniture",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "wall_mounted_shelving",
+      "name": "Wall-mounted shelving",
+      "category": "storage",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "bath_towel_set",
+      "name": "Bath towel set",
+      "category": "bathroom",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cleaning_supplies_starter_kit",
+      "name": "Cleaning supplies starter kit",
+      "category": "cleaning",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "compact_vacuum_or_sweeper",
+      "name": "Compact vacuum or sweeper",
+      "category": "cleaning",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
+    },
+    {
+      "item_id": "blackout_curtains",
+      "name": "Blackout curtains",
+      "category": "living-room",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "smart_tv_or_streaming_stick",
+      "name": "Smart TV or streaming stick",
+      "category": "electronics",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     }
   ]
 }

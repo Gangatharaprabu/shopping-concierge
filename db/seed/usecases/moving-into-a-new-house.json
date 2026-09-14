@@ -21,11 +21,7 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -34,139 +30,138 @@
       "item_id": "moving_boxes",
       "name": "Moving boxes",
       "category": "packing",
-      "qty": {
-        "base": 30,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 15,
-          "round": "up",
-          "minimum": 10
-        }
-      ]
+      "qty": { "base": 30, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 15, "round": "up", "minimum": 10 } ]
     },
     {
       "item_id": "packing_tape",
       "name": "Packing tape",
       "category": "packing",
-      "qty": {
-        "base": 4,
-        "unit": "roll"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 4, "unit": "roll" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
     },
     {
       "item_id": "bubble_wrap",
       "name": "Bubble wrap",
       "category": "packing",
-      "qty": {
-        "base": 2,
-        "unit": "roll"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "roll" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "furniture_sliders",
       "name": "Furniture sliders",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "moving_dolly",
       "name": "Moving dolly",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 3,
-              "qty": 1
-            },
-            {
-              "up_to": null,
-              "qty": 2
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 3, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
     },
     {
       "item_id": "box_cutter",
       "name": "Box cutter",
       "category": "gear",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
+      "qty": { "base": 2, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "address_change_kit",
       "name": "Address change kit",
       "category": "documents",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "premium_moving_insurance",
       "name": "Premium moving insurance",
       "category": "services",
-      "qty": {
-        "base": 0,
-        "unit": "policy"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 0, "unit": "policy" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "wardrobe_boxes",
+      "name": "Wardrobe boxes",
+      "category": "packing",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "permanent_markers",
+      "name": "Permanent markers (box labeling)",
+      "category": "packing",
+      "qty": { "base": 3, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "furniture_blankets",
+      "name": "Furniture moving blankets",
+      "category": "packing",
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
+    },
+    {
+      "item_id": "mattress_bags",
+      "name": "Mattress bags",
+      "category": "packing",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 2, "qty": 1 }, { "up_to": 4, "qty": 2 }, { "up_to": null, "qty": 3 } ] } ]
+    },
+    {
+      "item_id": "cleaning_supplies_for_old_home",
+      "name": "Cleaning supplies for move-out clean",
+      "category": "cleaning",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "cleaning_supplies_for_new_home",
+      "name": "Cleaning supplies for move-in clean",
+      "category": "cleaning",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "hand_truck",
+      "name": "Hand truck",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "moving_truck_rental",
+      "name": "Moving truck rental",
+      "category": "rental",
+      "qty": { "base": 1, "unit": "booking" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 2, "qty": 1 }, { "up_to": 5, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
+    },
+    {
+      "item_id": "professional_moving_help",
+      "name": "Professional moving crew (hourly)",
+      "category": "services",
+      "qty": { "base": 0, "unit": "booking" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
+    },
+    {
+      "item_id": "first_night_essentials_box",
+      "name": "First-night essentials box",
+      "category": "packing",
+      "qty": { "base": 1, "unit": "box" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 4, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
     }
   ]
 }

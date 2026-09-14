@@ -22,20 +22,13 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "vegan",
-        "vegetarian"
-      ],
+      "options": [ "vegan", "vegetarian" ],
       "default": []
     }
   },
@@ -44,159 +37,122 @@
       "item_id": "disposable_serving_trays",
       "name": "Disposable serving trays",
       "category": "gear",
-      "qty": {
-        "base": 4,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.3,
-          "round": "up",
-          "minimum": 2
-        }
-      ]
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.3, "round": "up", "minimum": 2 } ]
     },
     {
       "item_id": "dish_name_tags",
       "name": "Dish name/allergen tags",
       "category": "gear",
-      "qty": {
-        "base": 12,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "host_main_turkey_or_ham",
       "name": "Host's main (turkey or ham)",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "dietary"
-      ],
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "dietary" ],
       "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegan"
-        },
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegetarian"
-        }
+        { "slot_id": "dietary", "condition": "excludes", "value": "vegan" },
+        { "slot_id": "dietary", "condition": "excludes", "value": "vegetarian" }
       ]
     },
     {
       "item_id": "host_vegan_main",
       "name": "Host's vegan main",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegan"
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ]
     },
     {
       "item_id": "folding_tables",
       "name": "Folding tables",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 8,
-              "qty": 1
-            },
-            {
-              "up_to": 16,
-              "qty": 2
-            },
-            {
-              "up_to": null,
-              "qty": 3
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 8, "qty": 1 }, { "up_to": 16, "qty": 2 }, { "up_to": null, "qty": 3 } ] } ]
     },
     {
       "item_id": "beverage_napkins",
       "name": "Beverage napkins",
       "category": "gear",
-      "qty": {
-        "base": 20,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 12,
-              "qty": 20
-            },
-            {
-              "up_to": 25,
-              "qty": 40
-            },
-            {
-              "up_to": null,
-              "qty": 60
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 20, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 20 }, { "up_to": 25, "qty": 40 }, { "up_to": null, "qty": 60 } ] } ]
     },
     {
       "item_id": "centerpiece_candles",
       "name": "Centerpiece candles",
       "category": "decor",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
+      "qty": { "base": 2, "unit": "count" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "disposable_plates_and_cutlery",
+      "name": "Disposable plates and cutlery",
+      "category": "gear",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 12 }, { "up_to": 25, "qty": 25 }, { "up_to": null, "qty": 40 } ] } ]
+    },
+    {
+      "item_id": "wine_and_cider",
+      "name": "Wine and cider",
+      "category": "drinks",
+      "qty": { "base": 3, "unit": "bottle" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.3, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "potluck_sign_up_sheet",
+      "name": "Potluck sign-up sheet",
+      "category": "documents",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "extra_serving_utensils",
+      "name": "Extra serving utensils",
+      "category": "gear",
+      "qty": { "base": 6, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.4, "round": "up", "minimum": 4 } ]
+    },
+    {
+      "item_id": "gravy_and_cranberry_sauce",
+      "name": "Gravy and cranberry sauce",
+      "category": "food",
+      "qty": { "base": 2, "unit": "jar" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.15, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "coolers_for_drinks",
+      "name": "Coolers for drinks",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 15, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
+    },
+    {
+      "item_id": "leftovers_to_go_containers",
+      "name": "To-go containers for leftovers",
+      "category": "gear",
+      "qty": { "base": 6, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.5, "round": "up", "minimum": 4 } ]
+    },
+    {
+      "item_id": "premium_dessert_spread",
+      "name": "Premium dessert spread",
+      "category": "food",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     }
   ]
 }

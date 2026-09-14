@@ -14,11 +14,7 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -27,79 +23,123 @@
       "item_id": "notebooks_and_binders",
       "name": "Notebooks and binders",
       "category": "school",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "laptop_backpack",
       "name": "Laptop backpack",
       "category": "school",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "graphing_calculator",
       "name": "Graphing calculator",
       "category": "school",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "desk_supplies_organizer",
       "name": "Desk supplies organizer",
       "category": "school",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "textbook_budget_set",
       "name": "Used textbook bundle",
       "category": "school",
-      "qty": {
-        "base": 0,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 0, "unit": "set" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "low" } ]
     },
     {
       "item_id": "new_laptop",
       "name": "New laptop",
       "category": "electronics",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "pens_and_highlighters",
+      "name": "Pens and highlighters",
+      "category": "school",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "sticky_notes",
+      "name": "Sticky notes",
+      "category": "school",
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "planner_or_agenda",
+      "name": "Planner or agenda",
+      "category": "school",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "usb_flash_drive",
+      "name": "USB flash drive",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "laptop_sleeve",
+      "name": "Laptop sleeve",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "noise_cancelling_headphones",
+      "name": "Noise-cancelling headphones",
+      "category": "electronics",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "printer_paper",
+      "name": "Printer paper",
+      "category": "school",
+      "qty": { "base": 1, "unit": "ream" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "stapler_and_paper_clips",
+      "name": "Stapler and paper clips",
+      "category": "school",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "index_cards",
+      "name": "Index cards (study flashcards)",
+      "category": "school",
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "portable_charger",
+      "name": "Portable charger",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "reusable_water_bottle",
+      "name": "Reusable water bottle",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
     }
   ]
 }

@@ -22,12 +22,14 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
+    },
+    "dietary": {
+      "type": "tag_list",
+      "label": "Lunch allergy notes",
+      "options": [ "nut_free" ],
+      "default": []
     }
   },
   "template_list": [
@@ -35,129 +37,147 @@
       "item_id": "backpacks",
       "name": "Backpacks",
       "category": "school",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "school_supply_bundle",
       "name": "School supply bundle",
       "category": "school",
-      "qty": {
-        "base": 2,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "lunch_boxes",
       "name": "Lunch boxes",
       "category": "school",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "labeled_water_bottles",
       "name": "Labeled water bottles",
       "category": "school",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "new_sneakers",
       "name": "New sneakers",
       "category": "apparel",
-      "qty": {
-        "base": 2,
-        "unit": "pair"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "premium_backpack_upgrade",
       "name": "Premium backpack upgrade",
       "category": "school",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "pencils_and_pens",
+      "name": "Pencils and pens",
+      "category": "school",
+      "qty": { "base": 2, "unit": "pack" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "crayons_and_markers",
+      "name": "Crayons and markers",
+      "category": "school",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "glue_sticks",
+      "name": "Glue sticks",
+      "category": "school",
+      "qty": { "base": 2, "unit": "pack" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "safety_scissors",
+      "name": "Safety scissors",
+      "category": "school",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "folders_and_notebooks",
+      "name": "Folders and notebooks",
+      "category": "school",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "pencil_case",
+      "name": "Pencil case",
+      "category": "school",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "classroom_donation_supplies",
+      "name": "Classroom donation supplies (tissues, hand sanitizer)",
+      "category": "school",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "rain_jacket",
+      "name": "Rain jacket",
+      "category": "apparel",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "reusable_snack_bags",
+      "name": "Reusable snack bags",
+      "category": "school",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "clothing_name_labels",
+      "name": "Iron-on clothing name labels",
+      "category": "school",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "nut_free_snack_pack",
+      "name": "Nut-free snack pack",
+      "category": "food",
+      "qty": { "base": 0, "unit": "pack" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "nut_free" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "lunch_thermos",
+      "name": "Lunch thermos",
+      "category": "school",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     }
   ]
 }

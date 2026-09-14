@@ -21,20 +21,13 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "vegetarian",
-        "gluten_free"
-      ],
+      "options": [ "vegetarian", "gluten_free" ],
       "default": []
     }
   },
@@ -43,161 +36,138 @@
       "item_id": "wine_pairing",
       "name": "Wine for pairing",
       "category": "drinks",
-      "qty": {
-        "base": 3,
-        "unit": "bottle"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.33,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 3, "unit": "bottle" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.33, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "cloth_napkins",
       "name": "Cloth napkins",
       "category": "gear",
-      "qty": {
-        "base": 8,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 8, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "place_cards",
       "name": "Place cards",
       "category": "decor",
-      "qty": {
-        "base": 8,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 8, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "appetizer_course_ingredients",
       "name": "Appetizer course ingredients",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": []
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "main_course_ingredients",
       "name": "Main course ingredients",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.125,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.125, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "dessert_course_ingredients",
       "name": "Dessert course ingredients",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": []
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "vegetarian_main_substitute",
       "name": "Vegetarian main substitute",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegetarian"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegetarian" } ]
     },
     {
       "item_id": "gluten_free_bread",
       "name": "Gluten-free bread",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "loaf"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "gluten_free"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.1,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 0, "unit": "loaf" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "gluten_free" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "candles_and_centerpiece",
       "name": "Candles and centerpiece",
       "category": "decor",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "amuse_bouche_ingredients",
+      "name": "Amuse-bouche ingredients",
+      "category": "food",
+      "qty": { "base": 0, "unit": "set" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "cheese_course",
+      "name": "Cheese course",
+      "category": "food",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "formal_dinnerware_set",
+      "name": "Formal dinnerware set",
+      "category": "gear",
+      "qty": { "base": 8, "unit": "place-settings" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "wine_glasses",
+      "name": "Wine glasses",
+      "category": "gear",
+      "qty": { "base": 8, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "digestif_or_after_dinner_drinks",
+      "name": "Digestif or after-dinner drinks",
+      "category": "drinks",
+      "qty": { "base": 0, "unit": "bottle" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "table_linen",
+      "name": "Table linen / tablecloth",
+      "category": "decor",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "bread_and_butter_course",
+      "name": "Bread and butter course",
+      "category": "food",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.1, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "sparkling_water",
+      "name": "Sparkling water",
+      "category": "drinks",
+      "qty": { "base": 4, "unit": "bottle" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.5, "round": "up" } ]
     }
   ]
 }

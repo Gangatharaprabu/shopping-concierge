@@ -21,11 +21,7 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -34,90 +30,136 @@
       "item_id": "bunkable_bed_risers",
       "name": "Bed risers",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "shared_mini_fridge",
       "name": "Shared mini fridge",
       "category": "kitchen",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "not_equals",
-          "value": "low"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
     },
     {
       "item_id": "room_divider_curtain",
       "name": "Room divider curtain",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "labeled_storage_bins",
       "name": "Labeled storage bins",
       "category": "storage",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "shared_cleaning_supplies_caddy",
       "name": "Shared cleaning supplies caddy",
       "category": "cleaning",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "individual_desk_lamps",
       "name": "Individual desk lamps",
       "category": "furniture",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "twin_xl_bedding_sets",
+      "name": "Twin XL bedding sets",
+      "category": "bedroom",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "bath_towels",
+      "name": "Bath towels",
+      "category": "bathroom",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "shower_caddies",
+      "name": "Shower caddies",
+      "category": "bathroom",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "mini_personal_trash_cans",
+      "name": "Mini personal trash cans",
+      "category": "cleaning",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "extra_long_charging_cables",
+      "name": "Extra-long charging cables",
+      "category": "electronics",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "command_strips",
+      "name": "Command strips",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "power_strip_surge_protector",
+      "name": "Power strip with surge protector",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "area_rug",
+      "name": "Area rug",
+      "category": "furniture",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "whiteboard_chore_chart",
+      "name": "Whiteboard chore/schedule chart",
+      "category": "storage",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "noise_cancelling_earplugs",
+      "name": "Earplugs",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "door_hanger_privacy_sign",
+      "name": "Door hanger privacy sign",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "premium_blackout_curtains",
+      "name": "Premium blackout curtains",
+      "category": "furniture",
+      "qty": { "base": 0, "unit": "set" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     }
   ]
 }

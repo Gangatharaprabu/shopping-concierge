@@ -13,11 +13,7 @@
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -26,69 +22,102 @@
       "item_id": "compact_corner_desk",
       "name": "Compact corner desk",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "room_divider_screen",
       "name": "Room divider screen",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "noise_cancelling_headphones",
       "name": "Noise-cancelling headphones",
       "category": "electronics",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     },
     {
       "item_id": "desk_lamp",
       "name": "Desk lamp",
       "category": "furniture",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "under_desk_cable_tray",
       "name": "Under-desk cable tray",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "wall_mounted_shelving",
       "name": "Wall-mounted shelving",
       "category": "storage",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "compact_desk_chair",
+      "name": "Compact desk chair",
+      "category": "furniture",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "high" } ]
+    },
+    {
+      "item_id": "compact_ergonomic_chair",
+      "name": "Compact ergonomic chair",
+      "category": "furniture",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "foldable_laptop_stand",
+      "name": "Foldable laptop stand",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "desk_pad",
+      "name": "Desk pad",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "blackout_curtain_or_sleep_mask",
+      "name": "Blackout curtain divider (for work/sleep boundary)",
+      "category": "decor",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "small_bookshelf",
+      "name": "Small bookshelf",
+      "category": "storage",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "portable_monitor",
+      "name": "Portable monitor",
+      "category": "electronics",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
+    },
+    {
+      "item_id": "surge_protector_power_strip",
+      "name": "Surge protector power strip",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     }
   ]

@@ -22,29 +22,19 @@
     "setting": {
       "type": "enum",
       "label": "Setting",
-      "options": [
-        "indoor",
-        "mixed"
-      ],
+      "options": [ "indoor", "mixed" ],
       "default": "indoor"
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "vegetarian",
-        "vegan"
-      ],
+      "options": [ "vegetarian", "vegan" ],
       "default": []
     }
   },
@@ -53,205 +43,120 @@
       "item_id": "chicken_wings",
       "name": "Chicken wings",
       "category": "food",
-      "qty": {
-        "base": 72,
-        "unit": "wings"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
+      "qty": { "base": 72, "unit": "wings" },
+      "depends_on_slots": [ "headcount", "dietary" ],
       "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegan"
-        },
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegetarian"
-        }
+        { "slot_id": "dietary", "condition": "excludes", "value": "vegan" },
+        { "slot_id": "dietary", "condition": "excludes", "value": "vegetarian" }
       ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 6,
-          "round": "up"
-        }
-      ]
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 6, "round": "up" } ]
     },
     {
       "item_id": "vegetarian_wings",
       "name": "Cauliflower wings",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "wings"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegetarian"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 6,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "wings" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegetarian" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 6, "round": "up" } ]
     },
     {
       "item_id": "vegan_wings",
       "name": "Vegan buffalo wings",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "wings"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegan"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 6,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "wings" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 6, "round": "up" } ]
     },
     {
       "item_id": "chips_and_dip",
       "name": "Chips and dip",
       "category": "food",
-      "qty": {
-        "base": 3,
-        "unit": "bag"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.25,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 3, "unit": "bag" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.25, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "beer",
       "name": "Beer",
       "category": "drinks",
-      "qty": {
-        "base": 6,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.5,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 6, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.5, "round": "up" } ]
     },
     {
       "item_id": "soda_variety_pack",
       "name": "Soda variety pack",
       "category": "drinks",
-      "qty": {
-        "base": 1,
-        "unit": "pack"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 12,
-              "qty": 1
-            },
-            {
-              "up_to": 25,
-              "qty": 2
-            },
-            {
-              "up_to": null,
-              "qty": 3
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 1 }, { "up_to": 25, "qty": 2 }, { "up_to": null, "qty": 3 } ] } ]
     },
     {
       "item_id": "paper_towels",
       "name": "Paper towels",
       "category": "gear",
-      "qty": {
-        "base": 2,
-        "unit": "roll"
-      },
+      "qty": { "base": 2, "unit": "roll" },
       "depends_on_slots": []
     },
     {
       "item_id": "folding_tv_trays",
       "name": "Folding TV trays",
       "category": "gear",
-      "qty": {
-        "base": 4,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 8,
-              "qty": 4
-            },
-            {
-              "up_to": 20,
-              "qty": 8
-            },
-            {
-              "up_to": null,
-              "qty": 12
-            }
-          ]
-        }
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 8, "qty": 4 }, { "up_to": 20, "qty": 8 }, { "up_to": null, "qty": 12 } ] } ]
+    },
+    {
+      "item_id": "sliders_or_sandwiches",
+      "name": "Sliders or sandwiches",
+      "category": "food",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "queso_or_chili",
+      "name": "Queso or chili",
+      "category": "food",
+      "qty": { "base": 2, "unit": "batch" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.15, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "disposable_plates_and_napkins",
+      "name": "Disposable plates and napkins",
+      "category": "gear",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 12 }, { "up_to": 25, "qty": 25 }, { "up_to": null, "qty": 45 } ] } ]
+    },
+    {
+      "item_id": "extra_seating_or_bean_bags",
+      "name": "Extra seating / floor cushions",
+      "category": "gear",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 0 }, { "up_to": null, "qty": 4 } ] } ]
+    },
+    {
+      "item_id": "premium_smoker_or_grill_setup",
+      "name": "Premium smoker/grill setup for wings",
+      "category": "gear",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "setting", "budget_tier" ],
+      "presence_rules": [
+        { "slot_id": "setting", "condition": "equals", "value": "mixed" },
+        { "slot_id": "budget_tier", "condition": "equals", "value": "high" }
       ]
+    },
+    {
+      "item_id": "team_jersey_or_decor",
+      "name": "Team jerseys / game-day decor",
+      "category": "decor",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
     }
   ]
 }
