@@ -22,19 +22,12 @@
       "type": "duration",
       "label": "Trip length",
       "max_days": 5,
-      "default": {
-        "unit": "days",
-        "count": 2
-      }
+      "default": { "unit": "days", "count": 2 }
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     }
   },
@@ -43,101 +36,122 @@
       "item_id": "business_attire",
       "name": "Business attire",
       "category": "apparel",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "laptop_charger",
       "name": "Laptop charger",
       "category": "electronics",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "business_cards",
       "name": "Business cards",
       "category": "documents",
-      "qty": {
-        "base": 50,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 50,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 50, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 50, "round": "up" } ]
     },
     {
       "item_id": "travel_toiletries_kit",
       "name": "Travel toiletries kit",
       "category": "toiletries",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "dress_shoes",
       "name": "Dress shoes",
       "category": "apparel",
-      "qty": {
-        "base": 1,
-        "unit": "pair"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 1, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "portable_luggage_scale",
       "name": "Portable luggage scale",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "client_dinner_formal_outfit",
+      "name": "Client dinner formal outfit",
+      "category": "apparel",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "garment_bag",
+      "name": "Garment bag",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "presentation_materials_folder",
+      "name": "Presentation materials folder",
+      "category": "documents",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "portable_steamer_or_wrinkle_release",
+      "name": "Portable steamer / wrinkle release spray",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "noise_cancelling_headphones",
+      "name": "Noise-cancelling headphones",
+      "category": "electronics",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
+    },
+    {
+      "item_id": "printed_meeting_agenda",
+      "name": "Printed meeting agenda",
+      "category": "documents",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "portable_charger",
+      "name": "Portable charger",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "airport_lounge_pass",
+      "name": "Airport lounge pass",
+      "category": "services",
+      "qty": { "base": 0, "unit": "pass" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "travel_snacks",
+      "name": "Travel snacks",
+      "category": "food",
+      "qty": { "base": 3, "unit": "bars" },
+      "depends_on_slots": [ "headcount", "duration" ],
+      "scaling_rules": [
+        { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 0.5, "round": "up" }
+      ]
     }
   ]
 }

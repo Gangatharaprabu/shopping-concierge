@@ -23,27 +23,18 @@
       "type": "duration",
       "label": "Trip length",
       "max_days": 14,
-      "default": {
-        "unit": "days",
-        "count": 3
-      }
+      "default": { "unit": "days", "count": 3 }
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "vegan"
-      ],
+      "options": [ "vegan" ],
       "default": []
     }
   },
@@ -52,173 +43,176 @@
       "item_id": "backpacking_backpack",
       "name": "Backpacking backpack",
       "category": "gear",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "freeze_dried_meals",
       "name": "Freeze-dried meals",
       "category": "food",
-      "qty": {
-        "base": 8,
-        "unit": "meals"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "duration",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegan"
-        }
-      ],
+      "qty": { "base": 8, "unit": "meals" },
+      "depends_on_slots": [ "headcount", "duration", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "excludes", "value": "vegan" } ],
       "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        },
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
+        { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
       ]
     },
     {
       "item_id": "vegan_freeze_dried_meals",
       "name": "Vegan freeze-dried meals",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "meals"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "duration",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegan"
-        }
-      ],
+      "qty": { "base": 0, "unit": "meals" },
+      "depends_on_slots": [ "headcount", "duration", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ],
       "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        },
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
+        { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
       ]
     },
     {
       "item_id": "water_purification_tablets",
       "name": "Water purification tablets",
       "category": "gear",
-      "qty": {
-        "base": 6,
-        "unit": "tablets"
-      },
-      "depends_on_slots": [
-        "duration"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 6, "unit": "tablets" },
+      "depends_on_slots": [ "duration" ],
+      "scaling_rules": [ { "slot_id": "duration", "method": "linear", "per_unit": 2, "round": "up" } ]
     },
     {
       "item_id": "lightweight_tent",
       "name": "Lightweight tent",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 2,
-              "qty": 1
-            },
-            {
-              "up_to": 4,
-              "qty": 2
-            },
-            {
-              "up_to": null,
-              "qty": 3
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 2, "qty": 1 }, { "up_to": 4, "qty": 2 }, { "up_to": null, "qty": 3 } ] } ]
     },
     {
       "item_id": "headlamp",
       "name": "Headlamp",
       "category": "gear",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "first_aid_kit",
       "name": "First aid kit",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "sleeping_bag",
+      "name": "Sleeping bag",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "sleeping_pad",
+      "name": "Sleeping pad",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "backpacking_stove",
+      "name": "Backpacking stove",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 4, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
+    },
+    {
+      "item_id": "fuel_canister",
+      "name": "Stove fuel canister",
+      "category": "fuel",
+      "qty": { "base": 1, "unit": "canister" },
+      "depends_on_slots": [ "duration" ],
+      "scaling_rules": [ { "slot_id": "duration", "method": "linear", "per_unit": 0.4, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "trekking_poles",
+      "name": "Trekking poles",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "camp_sandals",
+      "name": "Camp sandals",
+      "category": "apparel",
+      "qty": { "base": 2, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "rain_cover_poncho",
+      "name": "Pack rain cover / poncho",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "toilet_trowel_and_tp",
+      "name": "Trowel and toilet paper (backcountry)",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "bear_bag_or_canister",
+      "name": "Bear bag or canister",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "map_and_compass",
+      "name": "Map and compass",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "portable_battery_pack",
+      "name": "Portable battery pack",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
+    },
+    {
+      "item_id": "trail_snacks",
+      "name": "Trail mix and snacks",
+      "category": "food",
+      "qty": { "base": 7, "unit": "bags" },
+      "depends_on_slots": [ "headcount", "duration" ],
+      "scaling_rules": [
+        { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
+      ]
+    },
+    {
+      "item_id": "camp_bowl_and_spork",
+      "name": "Camp bowl and spork",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "sunscreen",
+      "name": "Sunscreen",
+      "category": "toiletries",
+      "qty": { "base": 1, "unit": "bottle" },
+      "depends_on_slots": [ "duration" ],
+      "scaling_rules": [ { "slot_id": "duration", "method": "linear", "per_unit": 0.3, "round": "up", "minimum": 1 } ]
     }
   ]
 }

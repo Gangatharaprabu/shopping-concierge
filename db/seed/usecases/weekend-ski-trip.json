@@ -23,19 +23,12 @@
       "type": "duration",
       "label": "Trip length",
       "max_days": 7,
-      "default": {
-        "unit": "days",
-        "count": 2
-      }
+      "default": { "unit": "days", "count": 2 }
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
@@ -50,127 +43,118 @@
       "item_id": "lift_tickets",
       "name": "Lift tickets",
       "category": "activities",
-      "qty": {
-        "base": 4,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "ski_rental_or_gear",
       "name": "Ski/snowboard rental",
       "category": "gear",
-      "qty": {
-        "base": 4,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 4, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "hand_warmers",
       "name": "Hand warmers",
       "category": "gear",
-      "qty": {
-        "base": 6,
-        "unit": "pairs"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "duration"
-      ],
+      "qty": { "base": 6, "unit": "pairs" },
+      "depends_on_slots": [ "headcount", "duration" ],
       "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        },
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
+        { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
       ]
     },
     {
       "item_id": "thermal_base_layers",
       "name": "Thermal base layers",
       "category": "apparel",
-      "qty": {
-        "base": 4,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 4, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "hot_cocoa_supplies",
       "name": "Hot cocoa supplies",
       "category": "food",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "ski_wax",
       "name": "Premium ski wax",
       "category": "gear",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     },
     {
       "item_id": "first_aid_kit",
       "name": "First aid kit",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
+    },
+    {
+      "item_id": "goggles",
+      "name": "Goggles",
+      "category": "gear",
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "snow_boots",
+      "name": "Snow boots",
+      "category": "apparel",
+      "qty": { "base": 4, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "wool_socks",
+      "name": "Wool socks",
+      "category": "apparel",
+      "qty": { "base": 8, "unit": "pairs" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
+    },
+    {
+      "item_id": "lip_balm_and_sunscreen",
+      "name": "Lip balm and high-altitude sunscreen",
+      "category": "toiletries",
+      "qty": { "base": 4, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "neck_gaiter",
+      "name": "Neck gaiter or balaclava",
+      "category": "apparel",
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "ski_lesson_booking",
+      "name": "Ski lesson booking",
+      "category": "activities",
+      "qty": { "base": 0, "unit": "booking" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "trail_snacks",
+      "name": "Trail snacks",
+      "category": "food",
+      "qty": { "base": 8, "unit": "bars" },
+      "depends_on_slots": [ "headcount", "duration" ],
+      "scaling_rules": [
+        { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
+      ]
     }
   ]
 }

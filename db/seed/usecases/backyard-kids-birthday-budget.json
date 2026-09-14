@@ -19,22 +19,22 @@
       "default": 12,
       "unit": "kids"
     },
+    "setting": {
+      "type": "enum",
+      "label": "Setting",
+      "options": [ "outdoor", "indoor", "mixed" ],
+      "default": "outdoor"
+    },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "low"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "nut_free"
-      ],
+      "options": [ "nut_free" ],
       "default": []
     }
   },
@@ -43,137 +43,134 @@
       "item_id": "diy_pinata",
       "name": "DIY piñata kit",
       "category": "party-favors",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "not_equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "high" } ]
     },
     {
       "item_id": "hired_entertainer",
       "name": "Hired entertainer / magician",
       "category": "rental",
-      "qty": {
-        "base": 1,
-        "unit": "booking"
-      },
-      "depends_on_slots": [
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ]
+      "qty": { "base": 1, "unit": "booking" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     },
     {
       "item_id": "balloons",
       "name": "Balloons",
       "category": "decor",
-      "qty": {
-        "base": 24,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 24, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
     },
     {
       "item_id": "homemade_cupcakes",
       "name": "Homemade cupcakes",
       "category": "food",
-      "qty": {
-        "base": 12,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "juice_boxes",
       "name": "Juice boxes",
       "category": "food",
-      "qty": {
-        "base": 12,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "paper_tablecloth",
       "name": "Paper tablecloth",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "nut_free_treats",
       "name": "Nut-free treat bags",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "bag"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "nut_free"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "bag" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "nut_free" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "happy_birthday_banner",
+      "name": "Happy Birthday banner",
+      "category": "decor",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "paper_plates_and_napkins",
+      "name": "Paper plates and napkins",
+      "category": "gear",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 12 }, { "up_to": 20, "qty": 20 }, { "up_to": null, "qty": 32 } ] } ]
+    },
+    {
+      "item_id": "goodie_bags",
+      "name": "Goodie bags",
+      "category": "party-favors",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "pin_the_tail_game",
+      "name": "Pin-the-tail party game",
+      "category": "party-favors",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "birthday_candles",
+      "name": "Birthday candles",
+      "category": "decor",
+      "qty": { "base": 1, "unit": "pack" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "birthday_crown_or_sash",
+      "name": "Birthday crown or sash",
+      "category": "party-favors",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "sidewalk_chalk",
+      "name": "Sidewalk chalk",
+      "category": "party-favors",
+      "qty": { "base": 2, "unit": "pack" },
+      "depends_on_slots": [ "setting" ],
+      "presence_rules": [ { "slot_id": "setting", "condition": "not_equals", "value": "indoor" } ]
+    },
+    {
+      "item_id": "water_balloons",
+      "name": "Water balloons",
+      "category": "party-favors",
+      "qty": { "base": 50, "unit": "count" },
+      "depends_on_slots": [ "headcount", "setting" ],
+      "presence_rules": [ { "slot_id": "setting", "condition": "not_equals", "value": "indoor" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 4, "round": "up" } ]
+    },
+    {
+      "item_id": "indoor_craft_activity_kit",
+      "name": "Indoor craft activity kit",
+      "category": "party-favors",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "setting" ],
+      "presence_rules": [ { "slot_id": "setting", "condition": "not_equals", "value": "outdoor" } ]
+    },
+    {
+      "item_id": "folding_table",
+      "name": "Folding table",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 12, "qty": 1 }, { "up_to": null, "qty": 2 } ] } ]
     }
   ]
 }

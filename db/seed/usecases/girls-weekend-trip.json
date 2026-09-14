@@ -22,19 +22,12 @@
       "type": "duration",
       "label": "Trip length",
       "max_days": 7,
-      "default": {
-        "unit": "days",
-        "count": 2
-      }
+      "default": { "unit": "days", "count": 2 }
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
@@ -49,138 +42,106 @@
       "item_id": "going_out_outfits",
       "name": "Going-out outfits",
       "category": "apparel",
-      "qty": {
-        "base": 5,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ],
+      "qty": { "base": 5, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ],
       "notes": "Genuinely multiplicative with duration in theory; per README guidance, dominant slot (headcount) scales, typical trip length folded into the constant."
     },
     {
       "item_id": "phone_charger",
       "name": "Phone charger",
       "category": "electronics",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "travel_size_toiletries",
       "name": "Travel-size toiletries",
       "category": "toiletries",
-      "qty": {
-        "base": 5,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 5, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "champagne_for_toast",
       "name": "Champagne for a toast",
       "category": "drinks",
-      "qty": {
-        "base": 1,
-        "unit": "bottle"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.2,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 1, "unit": "bottle" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.2, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "shared_playlist_speaker",
       "name": "Portable speaker",
       "category": "electronics",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "snacks_for_road",
       "name": "Snacks for the road",
       "category": "food",
-      "qty": {
-        "base": 12,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "duration"
-      ],
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount", "duration" ],
       "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        },
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
+        { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1, "round": "up" }
       ]
     },
     {
       "item_id": "matching_pajamas",
       "name": "Matching pajamas set",
       "category": "apparel",
-      "qty": {
-        "base": 0,
-        "unit": "set"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "budget_tier"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "budget_tier",
-          "condition": "equals",
-          "value": "high"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "set" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "makeup_and_skincare_bag",
+      "name": "Makeup and skincare travel bag",
+      "category": "toiletries",
+      "qty": { "base": 5, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "hangover_kit_supplies",
+      "name": "Hangover kit supplies",
+      "category": "toiletries",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.2, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "polaroid_or_instant_camera",
+      "name": "Instant camera and film",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "reusable_water_bottle",
+      "name": "Reusable water bottle",
+      "category": "gear",
+      "qty": { "base": 5, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "spa_day_reservation_confirmation",
+      "name": "Spa day reservation confirmation",
+      "category": "documents",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "not_equals", "value": "low" } ]
+    },
+    {
+      "item_id": "party_sash_or_decorations",
+      "name": "Bride/birthday sash or decorations",
+      "category": "party-favors",
+      "qty": { "base": 1, "unit": "set" },
+      "depends_on_slots": []
     }
   ]
 }

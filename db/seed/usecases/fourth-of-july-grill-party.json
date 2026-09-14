@@ -15,10 +15,7 @@
     "time_of_day": {
       "type": "enum",
       "label": "Time of day",
-      "options": [
-        "day",
-        "night"
-      ],
+      "options": [ "day", "night" ],
       "default": "night"
     },
     "headcount": {
@@ -32,31 +29,19 @@
     "setting": {
       "type": "enum",
       "label": "Setting",
-      "options": [
-        "outdoor",
-        "mixed"
-      ],
+      "options": [ "outdoor", "mixed" ],
       "default": "outdoor"
     },
     "budget_tier": {
       "type": "enum",
       "label": "Budget",
-      "options": [
-        "low",
-        "mid",
-        "high"
-      ],
+      "options": [ "low", "mid", "high" ],
       "default": "mid"
     },
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
-      "options": [
-        "vegetarian",
-        "vegan",
-        "gluten_free",
-        "nut_free"
-      ],
+      "options": [ "vegetarian", "vegan", "gluten_free", "nut_free" ],
       "default": []
     }
   },
@@ -65,164 +50,60 @@
       "item_id": "charcoal_briquettes",
       "name": "Charcoal briquettes",
       "category": "fuel",
-      "qty": {
-        "base": 2.4,
-        "unit": "kg"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 0.3,
-          "round": "up",
-          "minimum": 1
-        }
-      ]
+      "qty": { "base": 2.4, "unit": "kg" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.3, "round": "up", "minimum": 1 } ]
     },
     {
       "item_id": "hot_dogs",
       "name": "Hot dogs",
       "category": "food",
-      "qty": {
-        "base": 16,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "excludes",
-          "value": "vegan"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 16, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "excludes", "value": "vegan" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
     },
     {
       "item_id": "veggie_dogs",
       "name": "Veggie dogs",
       "category": "food",
-      "qty": {
-        "base": 0,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "dietary"
-      ],
-      "presence_rules": [
-        {
-          "slot_id": "dietary",
-          "condition": "includes",
-          "value": "vegan"
-        }
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 2, "round": "up" } ]
     },
     {
       "item_id": "sparklers",
       "name": "Sparklers",
       "category": "decor",
-      "qty": {
-        "base": 8,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1,
-          "round": "up"
-        }
-      ]
+      "qty": { "base": 8, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
     },
     {
       "item_id": "red_white_blue_decorations",
       "name": "Red, white & blue decorations",
       "category": "decor",
-      "qty": {
-        "base": 1,
-        "unit": "set"
-      },
+      "qty": { "base": 1, "unit": "set" },
       "depends_on_slots": []
     },
     {
       "item_id": "cooler",
       "name": "Cooler",
       "category": "gear",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 15,
-              "qty": 1
-            },
-            {
-              "up_to": 40,
-              "qty": 2
-            },
-            {
-              "up_to": null,
-              "qty": 3
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 15, "qty": 1 }, { "up_to": 40, "qty": 2 }, { "up_to": null, "qty": 3 } ] } ]
     },
     {
       "item_id": "citronella_candles",
       "name": "Citronella candles",
       "category": "gear",
-      "qty": {
-        "base": 4,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "time_of_day",
-        "setting"
-      ],
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "time_of_day", "setting" ],
       "presence_rules": [
-        {
-          "slot_id": "time_of_day",
-          "condition": "equals",
-          "value": "night"
-        },
-        {
-          "slot_id": "setting",
-          "condition": "equals",
-          "value": "outdoor"
-        }
+        { "slot_id": "time_of_day", "condition": "equals", "value": "night" },
+        { "slot_id": "setting", "condition": "equals", "value": "outdoor" }
       ],
       "notes": "Two-slot gate: only present for an outdoor evening party."
     },
@@ -230,33 +111,143 @@
       "item_id": "lawn_chairs",
       "name": "Lawn chairs",
       "category": "gear",
-      "qty": {
-        "base": 6,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "step",
-          "tiers": [
-            {
-              "up_to": 10,
-              "qty": 6
-            },
-            {
-              "up_to": 30,
-              "qty": 15
-            },
-            {
-              "up_to": null,
-              "qty": 25
-            }
-          ]
-        }
-      ]
+      "qty": { "base": 6, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 10, "qty": 6 }, { "up_to": 30, "qty": 15 }, { "up_to": null, "qty": 25 } ] } ]
+    },
+    {
+      "item_id": "hamburger_patties",
+      "name": "Hamburger patties",
+      "category": "food",
+      "qty": { "base": 20, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "excludes", "value": "vegan" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "veggie_burger_patties",
+      "name": "Veggie burger patties",
+      "category": "food",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "buns",
+      "name": "Buns",
+      "category": "food",
+      "qty": { "base": 20, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "excludes", "value": "gluten_free" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "gluten_free_buns",
+      "name": "Gluten-free buns",
+      "category": "food",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "headcount", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "gluten_free" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "watermelon",
+      "name": "Watermelon",
+      "category": "food",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 20, "qty": 2 }, { "up_to": 50, "qty": 4 }, { "up_to": null, "qty": 6 } ] } ]
+    },
+    {
+      "item_id": "corn_on_the_cob",
+      "name": "Corn on the cob",
+      "category": "food",
+      "qty": { "base": 20, "unit": "ears" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "potato_salad",
+      "name": "Potato salad",
+      "category": "food",
+      "qty": { "base": 5, "unit": "lb" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.25, "round": "up" } ]
+    },
+    {
+      "item_id": "ice_bags",
+      "name": "Ice bags",
+      "category": "gear",
+      "qty": { "base": 4, "unit": "bag" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.2, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "disposable_plates",
+      "name": "Disposable plates",
+      "category": "gear",
+      "qty": { "base": 20, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 20, "qty": 20 }, { "up_to": 50, "qty": 50 }, { "up_to": null, "qty": 100 } ] } ]
+    },
+    {
+      "item_id": "napkins",
+      "name": "Paper napkins",
+      "category": "gear",
+      "qty": { "base": 40, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 20, "qty": 40 }, { "up_to": 50, "qty": 80 }, { "up_to": null, "qty": 150 } ] } ]
+    },
+    {
+      "item_id": "canned_soda_and_water",
+      "name": "Canned soda and bottled water",
+      "category": "drinks",
+      "qty": { "base": 30, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1.5, "round": "up" } ]
+    },
+    {
+      "item_id": "beer",
+      "name": "Beer",
+      "category": "drinks",
+      "qty": { "base": 12, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.5, "round": "up" } ]
+    },
+    {
+      "item_id": "nut_free_dessert",
+      "name": "Nut-free dessert option",
+      "category": "food",
+      "qty": { "base": 0, "unit": "count" },
+      "depends_on_slots": [ "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "nut_free" } ]
+    },
+    {
+      "item_id": "blankets_for_fireworks_viewing",
+      "name": "Blankets for fireworks viewing",
+      "category": "gear",
+      "qty": { "base": 4, "unit": "count" },
+      "depends_on_slots": [ "headcount", "time_of_day" ],
+      "presence_rules": [ { "slot_id": "time_of_day", "condition": "equals", "value": "night" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "step", "tiers": [ { "up_to": 20, "qty": 4 }, { "up_to": 50, "qty": 8 }, { "up_to": null, "qty": 12 } ] } ]
+    },
+    {
+      "item_id": "bug_spray",
+      "name": "Bug spray",
+      "category": "toiletries",
+      "qty": { "base": 1, "unit": "bottle" },
+      "depends_on_slots": [ "setting" ],
+      "presence_rules": [ { "slot_id": "setting", "condition": "equals", "value": "outdoor" } ]
+    },
+    {
+      "item_id": "premium_bbq_meat_upgrade",
+      "name": "Premium BBQ meat upgrade (ribs/brisket)",
+      "category": "food",
+      "qty": { "base": 0, "unit": "lb" },
+      "depends_on_slots": [ "headcount", "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 0.4, "round": "up", "minimum": 1 } ]
     }
   ]
 }

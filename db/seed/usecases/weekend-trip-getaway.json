@@ -39,6 +39,9 @@
     "dietary": {
       "type": "tag_list",
       "label": "Dietary needs",
+      "options": [
+        "vegan"
+      ],
       "default": []
     }
   },
@@ -47,56 +50,133 @@
       "item_id": "phone_charger",
       "name": "Phone charger",
       "category": "electronics",
-      "qty": {
-        "base": 1,
-        "unit": "count"
-      },
+      "qty": { "base": 1, "unit": "count" },
       "depends_on_slots": []
     },
     {
       "item_id": "toothbrush",
       "name": "Toothbrush",
       "category": "toiletries",
-      "qty": {
-        "base": 2,
-        "unit": "count"
-      },
-      "depends_on_slots": [
-        "headcount"
-      ],
-      "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 1
-        }
-      ]
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1 } ]
     },
     {
       "item_id": "granola_bars",
       "name": "Granola bars",
       "category": "food",
-      "qty": {
-        "base": 7,
-        "unit": "bars"
-      },
-      "depends_on_slots": [
-        "headcount",
-        "duration"
-      ],
+      "qty": { "base": 7, "unit": "bars" },
+      "depends_on_slots": [ "headcount", "duration", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "excludes", "value": "vegan" } ],
       "scaling_rules": [
-        {
-          "slot_id": "headcount",
-          "method": "linear",
-          "per_unit": 2
-        },
-        {
-          "slot_id": "duration",
-          "method": "linear",
-          "per_unit": 1
-        }
+        { "slot_id": "headcount", "method": "linear", "per_unit": 2 },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1 }
       ],
       "notes": "Additive: 2 bars per traveler + 1 per day, not travelers x days."
+    },
+    {
+      "item_id": "vegan_granola_bars",
+      "name": "Vegan granola bars",
+      "category": "food",
+      "qty": { "base": 0, "unit": "bars" },
+      "depends_on_slots": [ "headcount", "duration", "dietary" ],
+      "presence_rules": [ { "slot_id": "dietary", "condition": "includes", "value": "vegan" } ],
+      "scaling_rules": [
+        { "slot_id": "headcount", "method": "linear", "per_unit": 2 },
+        { "slot_id": "duration", "method": "linear", "per_unit": 1 }
+      ]
+    },
+    {
+      "item_id": "travel_toiletries_kit",
+      "name": "Travel-size toiletries kit",
+      "category": "toiletries",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "packing_cubes",
+      "name": "Packing cubes",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "set" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "outfits",
+      "name": "Packed outfits",
+      "category": "apparel",
+      "qty": { "base": 2, "unit": "sets" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ],
+      "notes": "Genuinely multiplicative with duration in theory; per README guidance, dominant slot (headcount) scales, typical trip length folded into the constant."
+    },
+    {
+      "item_id": "comfortable_walking_shoes",
+      "name": "Comfortable walking shoes",
+      "category": "apparel",
+      "qty": { "base": 2, "unit": "pair" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "reusable_water_bottle",
+      "name": "Reusable water bottle",
+      "category": "gear",
+      "qty": { "base": 2, "unit": "count" },
+      "depends_on_slots": [ "headcount" ],
+      "scaling_rules": [ { "slot_id": "headcount", "method": "linear", "per_unit": 1, "round": "up" } ]
+    },
+    {
+      "item_id": "daypack",
+      "name": "Daypack",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "portable_battery_pack",
+      "name": "Portable battery pack",
+      "category": "electronics",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "medication_travel_case",
+      "name": "Medication travel case",
+      "category": "toiletries",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "sunscreen",
+      "name": "Sunscreen",
+      "category": "toiletries",
+      "qty": { "base": 1, "unit": "bottle" },
+      "depends_on_slots": [ "duration" ],
+      "scaling_rules": [ { "slot_id": "duration", "method": "linear", "per_unit": 0.3, "round": "up", "minimum": 1 } ]
+    },
+    {
+      "item_id": "laundry_bag",
+      "name": "Dirty laundry bag",
+      "category": "gear",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "reservation_confirmation_printout",
+      "name": "Reservation confirmation printout",
+      "category": "documents",
+      "qty": { "base": 1, "unit": "count" },
+      "depends_on_slots": []
+    },
+    {
+      "item_id": "premium_luggage_set",
+      "name": "Premium luggage set",
+      "category": "gear",
+      "qty": { "base": 0, "unit": "set" },
+      "depends_on_slots": [ "budget_tier" ],
+      "presence_rules": [ { "slot_id": "budget_tier", "condition": "equals", "value": "high" } ]
     }
   ]
 }
