@@ -181,6 +181,7 @@ VECTOR_ATTRIBUTES = {
     ("dresses_onepieces_outfitsets", "length_silhouette"): attr("fit_style_pref", catalog_field="length,silhouette", allowed_values=["mini","midi","maxi"]),
     ("dresses_onepieces_outfitsets", "season"): attr("season_climate", catalog_field="season"),
     ("dresses_onepieces_outfitsets", "return_policy_fit_risk"): attr("policy_flag", catalog_field="return_window_days"),
+    ("dresses_onepieces_outfitsets", "price_tier"): attr("price_tier", catalog_field="price"),
 
     ("outerwear_coats_jackets", "warmth_insulation"): attr("capacity_dimension", catalog_field="fill_power_or_insulation_type", unit="fill_power"),
     ("outerwear_coats_jackets", "weather_protection"): attr("safety_flag", catalog_field="waterproof_rating_mm", personalization_field=None),

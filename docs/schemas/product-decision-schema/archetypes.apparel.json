@@ -598,6 +598,26 @@
               "pdp_surface": "warning_banner"
             }
           }
+        },
+        {
+          "id": "price_tier",
+          "label": "Price tier",
+          "why_it_matters": "Dresses and going-out pieces span an unusually wide price range even within one occasion, from fast-fashion to designer.",
+          "how_to_evaluate": "Filter to budget_tier.",
+          "data_source": "user memory: budget_tier",
+          "catalog_attribute": {
+            "attribute_type": "price_tier",
+            "catalog_field": "price",
+            "value_type": "number",
+            "required": true,
+            "unit": "currency",
+            "personalization_match": {
+              "source": "user_memory",
+              "field": "budget_tier",
+              "match_type": "range_overlap",
+              "pdp_surface": "sort_boost"
+            }
+          }
         }
       ],
       "personalization": {
