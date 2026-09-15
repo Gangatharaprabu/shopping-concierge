@@ -207,16 +207,16 @@ all, so there's nothing to ground yet.
   headwear, and 0% of the (admittedly tiny, n=1–2) scarves and gloves
   samples. Any vector that leans on `suitability` needs a real fallback for
   when it's empty, not an assumption it's there.
-- **15 vector-level gaps**: decision vectors that matter (per
+- **14 vector-level gaps**: decision vectors that matter (per
   `archetypes.apparel.json`) but this catalog has no structured field for
   at all — e.g. outerwear's `warmth_insulation` and `weather_protection`
   (only a qualitative fabric-weight string, no rating), sunglasses'
-  `uv_protection_lens_category` and `prescription_compatibility` (not
-  modeled anywhere), fine jewelry's `metal_type_hypoallergenic` (material
-  is captured, an allergy-safe flag isn't), and hosiery's
-  `pack_quantity_value` (every row is a single item, though socks are
-  routinely sold in packs). Each is marked `"gap": true` with a note —
-  these are catalog-enrichment asks for whoever owns this feed, surfaced
+  `prescription_compatibility` (not modeled anywhere), fine jewelry's
+  `metal_type_hypoallergenic` (material is captured, an allergy-safe flag
+  isn't), and hosiery's `pack_quantity_value` (every row is a single item,
+  though socks are routinely sold in packs). Each is marked `"gap": true`
+  with a note — these are catalog-enrichment asks for whoever owns this
+  feed, surfaced
   by the framework rather than papered over.
 
 ## Extending to other departments

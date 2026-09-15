@@ -1,0 +1,623 @@
+[
+  {
+    "archetype_id": "everyday_tops_adult",
+    "archetype_label": "Everyday tops",
+    "name": "Checked Brushed-Cotton Shirt",
+    "brand": "COS",
+    "price": 64.5,
+    "currency": "USD",
+    "color": "Brown",
+    "size": "M",
+    "color_hex": "#6B4A34",
+    "materials": "100% Cotton",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Favor retailers with free returns given how fit-dependent this category is.",
+    "vectors": [
+      {
+        "id": "size_fit",
+        "label": "Size & fit",
+        "why_it_matters": "Tops are the single most-returned apparel type on true-to-size mismatches; brand sizing is not standardized.",
+        "value": "M",
+        "axis": "body_type",
+        "match_data": [
+          "rectangle"
+        ],
+        "gap": false
+      },
+      {
+        "id": "fit_style",
+        "label": "Fit style (slim / relaxed / oversized)",
+        "why_it_matters": "Same nominal size drapes very differently by cut, independent of body measurements.",
+        "value": "Relaxed fit",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "fabric_and_care",
+        "label": "Fabric & care",
+        "why_it_matters": "Determines comfort, breathability, wrinkle behavior, and whether it survives frequent washing.",
+        "value": "100% Cotton \u00b7 Machine wash cold",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "occasion",
+        "label": "Occasion",
+        "why_it_matters": "A work-appropriate blouse and a lounge tee solve different problems even in the same subcategory.",
+        "value": "Errands & shopping",
+        "axis": "occasion",
+        "match_data": [
+          "casual"
+        ],
+        "gap": false
+      },
+      {
+        "id": "season_weight",
+        "label": "Season & weight",
+        "why_it_matters": "Fabric weight determines whether the top is wearable for the season the scenario is set in.",
+        "value": "Fall \u00b7 medium-weight",
+        "axis": "season",
+        "match_data": [
+          "fall"
+        ],
+        "gap": false
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Everyday basics have enormous price spread for near-identical function.",
+        "value": "$64.50",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "bottoms_pants_shorts_skirts_adult",
+    "archetype_label": "Pants, shorts & skirts",
+    "name": "Belted Denim Relaxed-Fit Barrel-Leg Pants",
+    "brand": "COS",
+    "price": 169,
+    "currency": "USD",
+    "color": "Blue",
+    "size": "28R",
+    "color_hex": "#33547A",
+    "materials": "null",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Favor retailers with a printed size chart and free returns \u2014 fit risk here is high.",
+    "vectors": [
+      {
+        "id": "waist_inseam_fit",
+        "label": "Waist & inseam fit",
+        "why_it_matters": "The two measurements that actually determine wearability, more reliable than a size label alone.",
+        "value": "Size 28R",
+        "axis": "body_type",
+        "match_data": [
+          "hourglass",
+          "rectangle",
+          "pear",
+          "athletic"
+        ],
+        "gap": false
+      },
+      {
+        "id": "rise_and_silhouette",
+        "label": "Rise & silhouette",
+        "why_it_matters": "High/mid/low rise and slim/straight/wide leg change comfort and styling independent of size.",
+        "value": "High-rise \u00b7 barrel leg",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "fabric_stretch_comfort",
+        "label": "Fabric & stretch",
+        "why_it_matters": "Stretch percentage drives all-day comfort, especially for jeans and trousers.",
+        "value": "Cotton blend denim \u00b7 medium stretch",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "occasion",
+        "label": "Occasion",
+        "why_it_matters": "Work trousers, weekend chinos, and going-out skirts aren't interchangeable.",
+        "value": "Brunch & day out",
+        "axis": "occasion",
+        "match_data": [
+          "casual"
+        ],
+        "gap": false
+      },
+      {
+        "id": "durability_wash",
+        "label": "Durability & wash care",
+        "why_it_matters": "Bottoms see more wear-and-wash cycles than most apparel; matters more for daily-driver pieces.",
+        "value": null,
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Wide spread between fast-fashion and durable-denim price points for the same garment type.",
+        "value": "$169.00",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "dresses_onepieces_outfitsets",
+    "archetype_label": "Dresses, one-pieces & outfit sets",
+    "name": "Smocked Seersucker Mini Dress",
+    "brand": "COS",
+    "price": 90.3,
+    "currency": "USD",
+    "color": "Gray",
+    "size": 10,
+    "color_hex": "#8B8F8A",
+    "materials": "100% Cotton",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Surface return window prominently; this is the highest fit-risk apparel category.",
+    "vectors": [
+      {
+        "id": "occasion_formality",
+        "label": "Occasion & formality",
+        "why_it_matters": "A cocktail dress, a sundress, and a wrap dress for the office solve unrelated problems.",
+        "value": "Brunch & day out",
+        "axis": "occasion",
+        "match_data": [
+          "casual"
+        ],
+        "gap": false
+      },
+      {
+        "id": "size_and_body_fit",
+        "label": "Size & body fit",
+        "why_it_matters": "Dresses combine bust/waist/hip fit simultaneously, so mismatch risk compounds across three measurements.",
+        "value": "Size 10",
+        "axis": "body_type",
+        "match_data": [
+          "hourglass"
+        ],
+        "gap": false
+      },
+      {
+        "id": "fabric_and_drape",
+        "label": "Fabric & drape",
+        "why_it_matters": "Drape determines how the silhouette actually looks on the body, which a flat product photo often misrepresents.",
+        "value": "100% Cotton \u00b7 structured drape",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "length_silhouette",
+        "label": "Length & silhouette",
+        "why_it_matters": "Mini/midi/maxi and A-line/bodycon/wrap are the main axes of personal style preference in this category.",
+        "value": "Mini \u00b7 A-line",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "season",
+        "label": "Season",
+        "why_it_matters": "Fabric weight and sleeve length need to match the scenario's timing.",
+        "value": "Summer",
+        "axis": "season",
+        "match_data": [
+          "summer"
+        ],
+        "gap": false
+      },
+      {
+        "id": "return_policy_fit_risk",
+        "label": "Return policy",
+        "why_it_matters": "Highest-return apparel category; a generous return window materially de-risks the purchase.",
+        "value": null,
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Dresses and going-out pieces span an unusually wide price range even within one occasion, from fast-fashion to designer.",
+        "value": "$90.30",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "outerwear_coats_jackets",
+    "archetype_label": "Outerwear, coats & jackets",
+    "name": "Collarless Wool-Twill Coat",
+    "brand": "COS",
+    "price": 449,
+    "currency": "USD",
+    "color": "Dark Grey",
+    "size": 6,
+    "color_hex": "#4A4D4C",
+    "materials": "Italian wool-twill",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Weight heavily toward weather/warmth specs matching the scenario's actual climate, not just style.",
+    "vectors": [
+      {
+        "id": "warmth_insulation",
+        "label": "Warmth / insulation rating",
+        "why_it_matters": "The primary functional spec \u2014 down fill weight or insulation type determines usable temperature range.",
+        "value": "No formal rating \u2014 fabric: Italian wool-twill, heavyweight",
+        "axis": "season",
+        "match_data": [
+          "fall",
+          "winter"
+        ],
+        "gap": true
+      },
+      {
+        "id": "weather_protection",
+        "label": "Weather protection",
+        "why_it_matters": "Waterproof/windproof rating matters far more here than in any other apparel archetype.",
+        "value": null,
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "layering_fit",
+        "label": "Layering fit",
+        "why_it_matters": "Outerwear needs to fit over whatever's worn underneath \u2014 sizing runs differently from a standalone top.",
+        "value": "Regular fit",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "material_durability",
+        "label": "Material & durability",
+        "why_it_matters": "Outerwear is typically a multi-year purchase, so build quality matters more than in fast-turnover categories.",
+        "value": "Italian wool-twill, fully lined",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "weight_packability",
+        "label": "Weight & packability",
+        "why_it_matters": "Relevant for travel or activity use cases where the jacket needs to pack down.",
+        "value": "Heavyweight",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Technical outerwear has a very wide price range tied directly to performance claims.",
+        "value": "$449.00",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "fine_jewelry",
+    "archetype_label": "Fine & fashion jewelry",
+    "name": "Twisted Ribbon Ring",
+    "brand": "COS",
+    "price": 45,
+    "currency": "USD",
+    "color": "Gold",
+    "size": "XS/S",
+    "color_hex": "#B8933E",
+    "materials": "Silver-plated brass",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "For rings/chains, confirm exact size before anything else \u2014 it's the dominant return reason.",
+    "vectors": [
+      {
+        "id": "metal_type_hypoallergenic",
+        "label": "Metal type & hypoallergenic properties",
+        "why_it_matters": "Skin sensitivity/allergy is a common, decisive constraint (e.g. nickel-free requirement), not just a style choice.",
+        "value": "Brass, silver-plated \u2014 no hypoallergenic flag reported",
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "size_fit",
+        "label": "Size fit (ring size / chain length)",
+        "why_it_matters": "The single largest return driver in this category, especially for rings.",
+        "value": "Size XS/S only \u2014 no numeric ring size reported",
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "gemstone_authenticity_certification",
+        "label": "Gemstone / material authenticity",
+        "why_it_matters": "For higher-value pieces, authenticity certification materially affects both value and trust.",
+        "value": "No gemstone",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "occasion_symbolism",
+        "label": "Occasion & symbolism",
+        "why_it_matters": "Gift, engagement, and everyday-wear jewelry carry very different weight and expectations.",
+        "value": "Brunch, date night, cocktail party, business casual",
+        "axis": "occasion",
+        "match_data": [
+          "casual",
+          "events",
+          "work"
+        ],
+        "gap": false
+      },
+      {
+        "id": "care_maintenance",
+        "label": "Care & maintenance",
+        "why_it_matters": "Plating wears off, stones need re-tightening \u2014 matters for total cost of ownership.",
+        "value": "Silver-plated brass",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier / resale value",
+        "why_it_matters": "Extremely wide range from costume jewelry to fine jewelry with real resale value.",
+        "value": "$45.00",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "belts_buckles",
+    "archetype_label": "Belts & buckles",
+    "name": "Saffiano Leather Belt",
+    "brand": "COS",
+    "price": 110,
+    "currency": "USD",
+    "color": "Black",
+    "size": "XS/S",
+    "color_hex": "#1C1E1C",
+    "materials": "Cow Leather",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Confirm exact waist-size range before style \u2014 this is the most common return reason.",
+    "vectors": [
+      {
+        "id": "waist_size_fit",
+        "label": "Waist size fit",
+        "why_it_matters": "Straightforward but essential \u2014 the wrong length range makes the item unusable regardless of style.",
+        "value": "Catalog size: XS/S",
+        "axis": "conflict",
+        "match_data": "Retailer\u2019s own suitability data for this same item says waist size \u201cM\u201d \u2014 the two fields disagree.",
+        "gap": false
+      },
+      {
+        "id": "material_quality",
+        "label": "Material quality (leather vs. synthetic)",
+        "why_it_matters": "Drives both longevity and formality level.",
+        "value": "Cow leather",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "buckle_style",
+        "label": "Buckle style",
+        "why_it_matters": "Primary style-differentiation axis in this category.",
+        "value": "Pin buckle",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "occasion",
+        "label": "Occasion (casual / formal)",
+        "why_it_matters": "Casual and formal belts are rarely interchangeable in styling.",
+        "value": "Brunch & day out, business casual",
+        "axis": "occasion",
+        "match_data": [
+          "casual",
+          "work"
+        ],
+        "gap": false
+      },
+      {
+        "id": "reversibility",
+        "label": "Reversibility",
+        "why_it_matters": "Reversible belts offer two looks per purchase, a real value consideration.",
+        "value": "Non-reversible",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Wide range from basic to premium leather goods.",
+        "value": "$110.00",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "hosiery_socks",
+    "archetype_label": "Socks & hosiery",
+    "name": "Waffle-Knit Socks",
+    "brand": "COS",
+    "price": 20.3,
+    "currency": "USD",
+    "color": "Brown",
+    "size": "43/45",
+    "color_hex": "#6B4A34",
+    "materials": "66% Cotton, 28% RWS wool, 5% Polyamide (Nylon), 1% Elastane",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Compare on price-per-pair across pack sizes, not sticker price.",
+    "vectors": [
+      {
+        "id": "size_fit",
+        "label": "Size fit (shoe-size based)",
+        "why_it_matters": "Sized off shoe size rather than body measurement, and often the wrong axis if bought carelessly.",
+        "value": "EU 43/45",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "activity_use",
+        "label": "Activity use (athletic / dress / thermal / everyday)",
+        "why_it_matters": "Cushioning, height (ankle/crew/knee), and material all follow from intended use.",
+        "value": "Casual",
+        "axis": "occasion",
+        "match_data": [
+          "casual"
+        ],
+        "gap": false
+      },
+      {
+        "id": "fabric_material",
+        "label": "Fabric material",
+        "why_it_matters": "Cotton, wool, and compression/nylon blends serve different comfort and durability needs.",
+        "value": "66% cotton, 28% wool, 5% nylon, 1% elastane",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "pack_quantity_value",
+        "label": "Pack quantity & value",
+        "why_it_matters": "Almost always bought in multi-packs; per-pair price is the meaningful comparison unit.",
+        "value": null,
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "durability_wash",
+        "label": "Durability under wash",
+        "why_it_matters": "Heel/toe wear-through is the dominant failure mode; matters for value comparison.",
+        "value": "Medium thickness",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Wide spread from basic multi-packs to technical/compression hosiery.",
+        "value": "$20.30",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  },
+  {
+    "archetype_id": "eyewear_sunglasses",
+    "archetype_label": "Sunglasses",
+    "name": "Wire-Frame Rectangle Sunglasses",
+    "brand": "COS",
+    "price": 69.3,
+    "currency": "USD",
+    "color": "Black",
+    "size": "One Size",
+    "color_hex": "#1C1E1C",
+    "materials": "Stainless Steel",
+    "instock": true,
+    "rating": "null",
+    "return_policy": "null",
+    "best_way_to_buy": "Never compromise the UV-protection check regardless of style or price preference.",
+    "vectors": [
+      {
+        "id": "uv_protection_lens_category",
+        "label": "UV protection / lens category",
+        "why_it_matters": "The core functional/safety spec \u2014 not all cheap sunglasses provide adequate UV protection despite looking similar.",
+        "value": "100% UV protection",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "face_shape_fit",
+        "label": "Face shape fit",
+        "why_it_matters": "Frame shape flattering a given face shape is the dominant style-satisfaction driver.",
+        "value": "Oval, square, rectangular, diamond",
+        "axis": "face_shape",
+        "match_data": [
+          "oval",
+          "square",
+          "rectangular",
+          "diamond"
+        ],
+        "gap": false
+      },
+      {
+        "id": "lens_type",
+        "label": "Lens type (polarized / photochromic / mirrored)",
+        "why_it_matters": "Functional differentiator for driving, water sports, or general glare reduction.",
+        "value": "Polycarbonate lens (material only \u2014 no polarization data)",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "frame_material_durability",
+        "label": "Frame material & durability",
+        "why_it_matters": "Acetate, metal, and TR-90 plastic trade off weight, flexibility, and price.",
+        "value": "Stainless steel frame",
+        "axis": null,
+        "match_data": null,
+        "gap": false
+      },
+      {
+        "id": "prescription_compatibility",
+        "label": "Prescription compatibility",
+        "why_it_matters": "Relevant subset of buyers need prescription lens insert compatibility.",
+        "value": null,
+        "axis": null,
+        "match_data": null,
+        "gap": true
+      },
+      {
+        "id": "price_tier",
+        "label": "Price tier",
+        "why_it_matters": "Enormous range from basic to designer/luxury frames.",
+        "value": "$69.30",
+        "axis": "budget",
+        "match_data": null,
+        "gap": false
+      }
+    ]
+  }
+]

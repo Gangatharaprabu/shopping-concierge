@@ -528,24 +528,24 @@
       "suitability_populated_pct": 66.7,
       "vector_bindings": {
         "uv_protection_lens_category": {
-          "real_field": null,
-          "gap": true,
-          "note": "no UV rating or lens-category field anywhere in the feed"
+          "real_field": "meta.productAttributes.core_information.uv_protection",
+          "gap": false,
+          "note": "populated on 2/3 rows in this sample \u2014 present for most sunglasses but not all; correction from an earlier pass that checked only one row and wrongly called this unmodeled"
         },
         "face_shape_fit": {
           "real_field": "meta.productAttributes.suitability.face_shape",
           "gap": false,
-          "note": "this is exactly the vector that matters most for sunglasses, and it's the one most often empty \u2014 0/3 rows populated in this sample"
+          "note": "populated on 2/3 rows in this sample \u2014 also corrected from an earlier single-row check that read 0/3"
         },
         "lens_type": {
-          "real_field": null,
+          "real_field": "meta.productAttributes.core_information.lens_material",
           "gap": true,
-          "note": "the category leaf (e.g. 'rectangular') describes frame shape, not lens technology (polarized/photochromic)"
+          "note": "lens material (e.g. polycarbonate) is captured; optical treatment \u2014 polarized, photochromic \u2014 still isn't"
         },
         "frame_material_durability": {
           "real_field": "materials, fixed_attributes.fabric.material type",
           "gap": false,
-          "note": "materials was null on the representative example \u2014 inconsistently filled"
+          "note": "materials is null on 2 of 3 rows \u2014 inconsistently filled, not absent"
         },
         "prescription_compatibility": {
           "real_field": null,
