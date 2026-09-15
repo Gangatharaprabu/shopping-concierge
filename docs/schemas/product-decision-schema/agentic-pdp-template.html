@@ -1,0 +1,385 @@
+<title>Decision-Vector PDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1EE; --surface:#FFFFFF; --surface-2:#E4E9E3; --surface-3:#DAE1D8;
+    --border:#D1D8CF; --ink:#151F1B; --ink-muted:#55645C; --ink-faint:#8B978E;
+    --accent:#33415C; --accent-ink:#F5F7F5; --highlight:#A85A1B; --highlight-soft:#F2E3D2;
+    --good:#1E7A4C; --good-soft:#DDEEE3; --warn:#966B00; --warn-soft:#F3E7C8;
+    --critical:#B23A2E; --critical-soft:#F5DEDA; --conflict:#6B4FA0; --conflict-soft:#E7E0F2;
+    --shadow: 0 1px 2px rgba(21,31,27,0.06), 0 8px 24px -12px rgba(21,31,27,0.18);
+    --radius-lg:18px; --radius-md:12px; --radius-sm:8px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121815; --surface:#1A2320; --surface-2:#212B27; --surface-3:#2A3630;
+      --border:#324039; --ink:#EDF1EC; --ink-muted:#9AAAA1; --ink-faint:#657069;
+      --accent:#8FADD9; --accent-ink:#0E1620; --highlight:#E0A659; --highlight-soft:#3A2E1C;
+      --good:#4FAE7A; --good-soft:#1B2E24; --warn:#D9A73B; --warn-soft:#332B14;
+      --critical:#E0847A; --critical-soft:#3A211E; --conflict:#B29AE0; --conflict-soft:#2A2438;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px -14px rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121815; --surface:#1A2320; --surface-2:#212B27; --surface-3:#2A3630;
+    --border:#324039; --ink:#EDF1EC; --ink-muted:#9AAAA1; --ink-faint:#657069;
+    --accent:#8FADD9; --accent-ink:#0E1620; --highlight:#E0A659; --highlight-soft:#3A2E1C;
+    --good:#4FAE7A; --good-soft:#1B2E24; --warn:#D9A73B; --warn-soft:#332B14;
+    --critical:#E0847A; --critical-soft:#3A211E; --conflict:#B29AE0; --conflict-soft:#2A2438;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px -14px rgba(0,0,0,0.55);
+  }
+  *{ box-sizing:border-box; }
+  body{ background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, sans-serif; padding:0 20px 56px; }
+  .wrap{ max-width:1200px; margin:0 auto; }
+  ::selection{ background:var(--accent); color:var(--accent-ink); }
+  h1,h2,h3{ font-family:"Fraunces", Georgia, serif; text-wrap:balance; margin:0; }
+  .num{ font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+  button{ font-family:inherit; }
+
+  header.masthead{ padding:32px 0 18px; border-bottom:1px solid var(--border); }
+  header.masthead .eyebrow{ font-family:"IBM Plex Mono"; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--highlight); font-weight:600; display:block; margin-bottom:8px; }
+  header.masthead h1{ font-size:clamp(24px,3.4vw,34px); font-weight:600; line-height:1.15; max-width:24ch; }
+  header.masthead p{ color:var(--ink-muted); font-size:14px; margin-top:10px; max-width:70ch; line-height:1.6; }
+  header.masthead p b{ color:var(--ink); }
+
+  .switcher{ display:flex; gap:10px; overflow-x:auto; padding:18px 2px; margin-bottom:4px; }
+  .switcher::-webkit-scrollbar{ height:6px; }
+  .sw-item{
+    flex:none; display:flex; align-items:center; gap:10px; background:var(--surface); border:1px solid var(--border);
+    border-radius:999px; padding:6px 14px 6px 6px; cursor:pointer; box-shadow:var(--shadow);
+  }
+  .sw-item.active{ border-color:var(--accent); background:var(--highlight-soft); }
+  .sw-swatch{ width:26px; height:26px; border-radius:50%; flex:none; border:1px solid var(--border); }
+  .sw-text{ text-align:left; }
+  .sw-name{ font-size:12.5px; font-weight:600; white-space:nowrap; }
+  .sw-arch{ font-size:10.5px; color:var(--ink-faint); font-family:"IBM Plex Mono"; white-space:nowrap; }
+
+  .layout{ display:grid; grid-template-columns:1fr 300px; gap:18px; align-items:start; margin-top:8px; }
+  @media (max-width:880px){ .layout{ grid-template-columns:1fr; } }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:22px 24px; }
+
+  /* product header */
+  .p-head{ display:flex; gap:20px; }
+  .p-swatch{ width:96px; height:96px; border-radius:var(--radius-md); flex:none; border:1px solid var(--border); position:relative; overflow:hidden; }
+  .p-swatch::after{ content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(255,255,255,0.18), rgba(0,0,0,0.12)); }
+  .p-info{ min-width:0; flex:1; }
+  .p-arch-pill{ display:inline-block; font-family:"IBM Plex Mono"; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); background:var(--surface-2); border:1px solid var(--border); border-radius:999px; padding:3px 10px; margin-bottom:8px; }
+  .p-name{ font-size:21px; font-weight:600; line-height:1.2; }
+  .p-brand{ color:var(--ink-muted); font-size:13px; margin-top:2px; }
+  .p-meta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; font-size:12.5px; color:var(--ink-muted); font-family:"IBM Plex Mono"; }
+  .p-price-row{ display:flex; align-items:baseline; gap:10px; margin-top:12px; }
+  .p-price{ font-family:"Fraunces"; font-size:26px; font-weight:600; }
+  .p-instock{ font-size:11px; font-weight:600; color:var(--good); background:var(--good-soft); border-radius:999px; padding:3px 10px; }
+
+  .fit-score{ display:flex; align-items:center; gap:10px; margin-top:16px; padding:12px 14px; background:var(--surface-2); border-radius:var(--radius-md); }
+  .fit-score .fs-ring{ width:40px; height:40px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono"; font-size:12px; font-weight:600; border:3px solid var(--good); color:var(--good); }
+  .fit-score .fs-text{ font-size:12.5px; color:var(--ink-muted); line-height:1.4; }
+  .fit-score .fs-text b{ color:var(--ink); }
+
+  .reviews-strip{ margin-top:16px; padding:13px 16px; border:1px dashed var(--border); border-radius:var(--radius-md); background:var(--bg); font-size:12.5px; color:var(--ink-faint); line-height:1.5; }
+  .reviews-strip b{ color:var(--ink-muted); }
+
+  .section-label{ font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-muted); font-weight:600; margin:26px 0 4px; }
+  .section-sub{ font-size:12.5px; color:var(--ink-faint); margin-bottom:14px; line-height:1.5; }
+
+  .vgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  @media (max-width:640px){ .vgrid{ grid-template-columns:1fr; } }
+  .vcard{ border:1px solid var(--border); border-radius:var(--radius-md); padding:14px 16px; background:var(--surface-2); }
+  .vcard .vc-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .vcard .vc-label{ font-weight:600; font-size:13.5px; }
+  .verdict{ flex:none; font-size:10.5px; font-weight:600; font-family:"IBM Plex Mono"; text-transform:uppercase; letter-spacing:0.03em; padding:3px 9px; border-radius:999px; white-space:nowrap; }
+  .verdict.match{ background:var(--good-soft); color:var(--good); }
+  .verdict.worth{ background:var(--warn-soft); color:var(--warn); }
+  .verdict.mismatch{ background:var(--critical-soft); color:var(--critical); }
+  .verdict.conflict{ background:var(--conflict-soft); color:var(--conflict); }
+  .verdict.nodata{ background:var(--surface-3); color:var(--ink-faint); }
+  .verdict.info{ background:var(--surface-3); color:var(--ink-faint); }
+  .vcard .vc-value{ font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--ink); margin-top:8px; }
+  .vcard .vc-value.empty{ color:var(--ink-faint); font-style:italic; }
+  .vcard .vc-why{ font-size:12px; color:var(--ink-faint); margin-top:7px; line-height:1.5; }
+  .vcard .vc-conflict-note{ font-size:12px; color:var(--conflict); margin-top:7px; line-height:1.5; background:var(--conflict-soft); border-radius:8px; padding:8px 10px; }
+
+  .gap-panel{ border:1px dashed var(--border); border-radius:var(--radius-md); padding:14px 16px; background:var(--bg); }
+  .gap-panel ul{ margin:8px 0 0; padding-left:18px; }
+  .gap-panel li{ font-size:12.5px; color:var(--ink-muted); margin-bottom:6px; line-height:1.5; }
+  .gap-panel li b{ color:var(--ink); }
+  .gap-panel .gp-empty{ font-size:12.5px; color:var(--ink-faint); }
+
+  .callout{ background:var(--highlight-soft); border-radius:var(--radius-md); padding:14px 16px; font-size:13.5px; color:var(--ink); line-height:1.55; margin-top:26px; }
+  .callout b{ color:var(--highlight); }
+
+  /* You panel */
+  .you-panel{ position:sticky; top:16px; }
+  .you-panel .yp-head{ font-family:"Fraunces"; font-size:16px; font-weight:600; margin-bottom:4px; }
+  .you-panel .yp-sub{ font-size:12px; color:var(--ink-faint); margin-bottom:16px; line-height:1.5; }
+  .field{ margin-bottom:14px; }
+  .field label{ display:block; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); font-weight:600; margin-bottom:5px; }
+  .field select{
+    width:100%; background:var(--surface-2); border:1px solid var(--border); color:var(--ink);
+    border-radius:var(--radius-sm); padding:8px 10px; font-size:13px; font-family:"IBM Plex Sans";
+  }
+  .field select:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+  .yp-unused{ font-size:11.5px; color:var(--ink-faint); line-height:1.6; margin-top:2px; }
+  .yp-unused:empty{ display:none; }
+  .yp-unused b{ color:var(--ink-muted); font-weight:600; }
+  .legend{ margin-top:18px; padding-top:14px; border-top:1px solid var(--border); }
+  .legend .lg-row{ display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--ink-muted); margin-bottom:6px; }
+  .legend .lg-dot{ width:9px; height:9px; border-radius:50%; flex:none; }
+
+  @media (max-width:880px){ .you-panel{ position:static; } }
+
+  footer.page-footer{ margin-top:36px; padding-top:16px; border-top:1px solid var(--border); font-size:12px; color:var(--ink-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  footer.page-footer a{ color:inherit; }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <span class="eyebrow">Agentic product detail page · reference build</span>
+    <h1>Organized by what actually matters, not by template</h1>
+    <p>A standard PDP is the same six sections for every product: hero image, price, size selector, description, spec table, star rating. This one is built from the <b>decision-vector schema</b> instead — every section below is a thing this specific product category's shoppers actually weigh, scored live against you, using real COS catalog data (including its real gaps — nothing here is padded to look complete).</p>
+  </header>
+
+  <nav class="switcher" id="switcher" aria-label="Choose a product"></nav>
+
+  <div class="layout">
+    <div id="main"></div>
+
+    <aside class="you-panel card">
+      <div class="yp-head">You</div>
+      <div class="yp-sub">Nothing here is stored — it's a live simulation of what personalization would read from your memory and this session's context. <b>Only the fields this product's decision vectors actually use are shown</b> — switch products and watch the form itself change, not just the answers.</div>
+
+      <div id="youFields"></div>
+      <div id="youUnused" class="yp-unused"></div>
+
+      <div class="legend">
+        <div class="lg-row"><span class="lg-dot" style="background:var(--good);"></span>Match — fits what you told us</div>
+        <div class="lg-row"><span class="lg-dot" style="background:var(--warn);"></span>Worth a look — close, not exact</div>
+        <div class="lg-row"><span class="lg-dot" style="background:var(--critical);"></span>Mismatch</div>
+        <div class="lg-row"><span class="lg-dot" style="background:var(--conflict);"></span>Data conflict in the catalog</div>
+        <div class="lg-row"><span class="lg-dot" style="background:var(--ink-faint);"></span>No data yet, either way</div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="page-footer">
+    <span>8 real COS products, one per archetype · decision vectors and catalog gaps from the Apparel &amp; Accessories decision schema.</span>
+    <span><a href="https://claude.ai/artifact/6hkAd1LfnEMHLum2QbY34h">Full decision schema →</a></span>
+  </footer>
+</div>
+
+<script id="pdp-data" type="application/json">__PDP_JSON__</script>
+<script>
+(function(){
+  "use strict";
+  var PRODUCTS = JSON.parse(document.getElementById('pdp-data').textContent);
+  var activeIdx = 2; // start on the dress — richest data, nice mid-complexity example
+
+  // Persistent "You" state — every axis a product *could* use, kept even while
+  // its field is hidden for a product that doesn't use it, so switching back
+  // to a product that does still remembers what you set.
+  var YOU = { budget: 'mid', occasion: 'casual', season: 'fall', body_type: 'unspecified', face_shape: 'unspecified' };
+
+  var FIELD_DEFS = {
+    budget: { label: 'Budget tier', options: [
+      ['economy','Economy — under $50'], ['mid','Mid-range — $50–150'], ['premium','Premium — $150+']
+    ] },
+    occasion: { label: 'Shopping for', options: [
+      ['unspecified','Not specified'], ['casual','Casual & everyday'], ['work','Work & business'],
+      ['events','Events & parties'], ['travel','Travel & vacation']
+    ] },
+    season: { label: 'Season', options: [
+      ['unspecified','Not specified'], ['spring','Spring'], ['summer','Summer'], ['fall','Fall'], ['winter','Winter']
+    ] },
+    body_type: { label: 'Body type', options: [
+      ['unspecified','Not specified'], ['hourglass','Hourglass'], ['rectangle','Rectangle'], ['pear','Pear'], ['athletic','Athletic']
+    ] },
+    face_shape: { label: 'Face shape', options: [
+      ['unspecified','Not specified'], ['oval','Oval'], ['square','Square'], ['round','Round'],
+      ['heart','Heart'], ['diamond','Diamond'], ['rectangular','Rectangular']
+    ] },
+  };
+  var AXIS_ORDER = ['budget','occasion','season','body_type','face_shape'];
+
+  // Which axes does this product's decision schema actually use? Budget is
+  // scoreable on its own (product.price); every other axis needs at least
+  // one vector carrying it *and* match_data to compare against — a gap
+  // vector with no match_data (e.g. weather_protection) doesn't count, it
+  // has nothing for the field to check against.
+  function relevantAxes(product){
+    var set = { budget: true }; // price_tier is on every product
+    product.vectors.forEach(function(v){
+      if(v.axis && v.axis !== 'conflict' && v.axis !== 'budget' && v.match_data){
+        set[v.axis] = true;
+      }
+    });
+    return AXIS_ORDER.filter(function(a){ return set[a]; });
+  }
+
+  var BUDGET_BANDS = ['economy','mid','premium'];
+  function priceBand(price){
+    if(price < 50) return 'economy';
+    if(price <= 150) return 'mid';
+    return 'premium';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function scoreVector(v, product){
+    if(v.axis === 'conflict'){
+      return { verdict: 'conflict', tag: 'Conflict' };
+    }
+    if(v.axis === 'budget'){
+      var band = priceBand(product.price);
+      var dist = Math.abs(BUDGET_BANDS.indexOf(band) - BUDGET_BANDS.indexOf(YOU.budget));
+      if(dist === 0) return { verdict: 'match', tag: 'Match' };
+      if(dist === 1) return { verdict: 'worth', tag: 'Worth a look' };
+      return { verdict: 'mismatch', tag: 'Mismatch' };
+    }
+    if(!v.axis || !v.match_data){
+      // No structured field at all, and no proxy to fall back on: nothing to score.
+      return { verdict: 'nodata', tag: v.gap ? 'No data' : 'Info' };
+    }
+    var userVal = YOU[v.axis];
+    if(userVal === 'unspecified'){
+      return { verdict: 'nodata', tag: 'Tell us to check' };
+    }
+    var hit = v.match_data.indexOf(userVal) !== -1;
+    if(v.gap){
+      // The structured field is missing, but we have an unverified proxy (e.g. fabric
+      // weight standing in for a warmth rating). It can only nudge toward "worth a
+      // look," never confirm a match or rule one out.
+      return hit ? { verdict: 'worth', tag: 'Possibly — unverified' } : { verdict: 'nodata', tag: 'No data' };
+    }
+    if(hit) return { verdict: 'match', tag: 'Match' };
+    if(v.axis === 'season') return { verdict: 'worth', tag: 'Worth a look' };
+    return { verdict: 'mismatch', tag: 'Mismatch' };
+  }
+
+  function renderSwitcher(){
+    var el = document.getElementById('switcher');
+    el.innerHTML = '';
+    PRODUCTS.forEach(function(p, i){
+      var btn = document.createElement('button');
+      btn.className = 'sw-item' + (i === activeIdx ? ' active' : '');
+      btn.innerHTML = '<span class="sw-swatch" style="background:' + p.color_hex + ';"></span>' +
+        '<span class="sw-text"><span class="sw-name"></span><span class="sw-arch"></span></span>';
+      btn.querySelector('.sw-name').textContent = p.name;
+      btn.querySelector('.sw-arch').textContent = p.archetype_label;
+      btn.addEventListener('click', function(){ activeIdx = i; renderAll(); window.scrollTo({top:0, behavior:'instant'}); });
+      el.appendChild(btn);
+    });
+  }
+
+  function renderMain(){
+    var p = PRODUCTS[activeIdx];
+    var scored = p.vectors.map(function(v){ return { v: v, s: scoreVector(v, p) }; });
+    var scoreable = scored.filter(function(x){ return x.s.verdict === 'match' || x.s.verdict === 'worth' || x.s.verdict === 'mismatch'; });
+    var matches = scoreable.filter(function(x){ return x.s.verdict === 'match'; }).length;
+
+    var html = '<div class="card">';
+    html += '<div class="p-head">';
+    html += '<div class="p-swatch" style="background:' + p.color_hex + ';"></div>';
+    html += '<div class="p-info">';
+    html += '<span class="p-arch-pill">' + escapeHtml(p.archetype_label) + '</span>';
+    html += '<div class="p-name">' + escapeHtml(p.name) + '</div>';
+    html += '<div class="p-brand">' + escapeHtml(p.brand) + '</div>';
+    html += '<div class="p-meta-row"><span>' + escapeHtml(p.color) + '</span><span>Size ' + escapeHtml(p.size) + '</span><span>' + escapeHtml(p.materials) + '</span></div>';
+    html += '<div class="p-price-row"><span class="p-price">$' + p.price.toFixed(2) + '</span><span class="p-instock">' + (p.instock ? 'In stock' : 'Out of stock') + '</span></div>';
+    html += '</div></div>';
+
+    if(scoreable.length){
+      html += '<div class="fit-score"><div class="fs-ring">' + matches + '/' + scoreable.length + '</div>' +
+        '<div class="fs-text"><b>' + matches + ' of ' + scoreable.length + ' personalized checks match you</b> — based on what you told us in the panel. Fields left “not specified” aren’t scored either way.</div></div>';
+    }
+
+    html += '<div class="reviews-strip"><b>Reviews:</b> ' +
+      (p.rating && p.rating !== 'null' ? escapeHtml(p.rating) : 'No reviews reported by ' + escapeHtml(p.brand) + ' for this listing yet. Rather than fake a star rating, the checks below are scored on fit instead.') +
+      '</div>';
+
+    html += '<div class="section-label">Does this fit you</div>';
+    html += '<div class="section-sub">The decision vectors for “' + escapeHtml(p.archetype_label) + '”, each scored against the panel on the right.</div>';
+    html += '<div class="vgrid">';
+    scored.forEach(function(x){
+      var v = x.v, s = x.s;
+      html += '<div class="vcard">';
+      html += '<div class="vc-top"><span class="vc-label">' + escapeHtml(v.label) + '</span><span class="verdict ' + s.verdict + '">' + escapeHtml(s.tag) + '</span></div>';
+      if(v.value){
+        html += '<div class="vc-value">' + escapeHtml(v.value) + '</div>';
+      } else {
+        html += '<div class="vc-value empty">Not reported by this retailer</div>';
+      }
+      html += '<div class="vc-why">' + escapeHtml(v.why_it_matters) + '</div>';
+      if(v.axis === 'conflict' && v.match_data){
+        html += '<div class="vc-conflict-note">' + escapeHtml(v.match_data) + '</div>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+
+    var gaps = scored.filter(function(x){ return x.v.gap; });
+    html += '<div class="section-label">What this retailer hasn’t told us</div>';
+    html += '<div class="gap-panel">';
+    if(gaps.length){
+      html += '<div style="font-size:12.5px;color:var(--ink-muted);">A standard PDP would just omit these. Here, the gap is the information:</div><ul>';
+      gaps.forEach(function(x){
+        html += '<li><b>' + escapeHtml(x.v.label) + '</b> — ' + escapeHtml(x.v.why_it_matters) + '</li>';
+      });
+      html += '</ul>';
+    } else {
+      html += '<div class="gp-empty">No structural gaps for this product’s category in the sample checked.</div>';
+    }
+    html += '</div>';
+
+    html += '<div class="callout"><b>Best way to buy:</b> ' + escapeHtml(p.best_way_to_buy) + '</div>';
+
+    html += '</div>';
+    document.getElementById('main').innerHTML = html;
+  }
+
+  function renderYouPanel(product){
+    var relevant = relevantAxes(product);
+    var fieldsEl = document.getElementById('youFields');
+    var unusedEl = document.getElementById('youUnused');
+
+    fieldsEl.innerHTML = '';
+    relevant.forEach(function(axis){
+      var def = FIELD_DEFS[axis];
+      var wrap = document.createElement('div');
+      wrap.className = 'field';
+      var id = 'f_' + axis;
+      wrap.innerHTML = '<label for="' + id + '">' + escapeHtml(def.label) + '</label><select id="' + id + '" data-axis="' + axis + '"></select>';
+      var sel = wrap.querySelector('select');
+      def.options.forEach(function(opt){
+        var o = document.createElement('option');
+        o.value = opt[0]; o.textContent = opt[1];
+        if(YOU[axis] === opt[0]) o.selected = true;
+        sel.appendChild(o);
+      });
+      fieldsEl.appendChild(wrap);
+    });
+
+    var unused = AXIS_ORDER.filter(function(a){ return relevant.indexOf(a) === -1; });
+    unusedEl.innerHTML = unused.length
+      ? 'Not used for this product: <b>' + unused.map(function(a){ return FIELD_DEFS[a].label; }).join(', ') + '</b>.'
+      : '';
+  }
+
+  function renderAll(){ renderSwitcher(); renderMain(); renderYouPanel(PRODUCTS[activeIdx]); }
+
+  document.getElementById('youFields').addEventListener('change', function(e){
+    var axis = e.target.getAttribute('data-axis');
+    if(!axis) return;
+    YOU[axis] = e.target.value;
+    renderMain();
+  });
+
+  renderAll();
+})();
+</script>
