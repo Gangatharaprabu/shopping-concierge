@@ -1,0 +1,668 @@
+{
+  "source": "FixedAttributeSample_COS_15thSept2026.xlsx \u2014 1000 COS product rows via Glance/FLEX",
+  "total_rows": 916,
+  "archetypes_represented": 11,
+  "archetypes_not_represented_in_sample": [
+    "activewear_performance",
+    "baby_childrens_clothing",
+    "bags_wallets_cases",
+    "bridal_occasion_dresses",
+    "costumes_partywear",
+    "footwear",
+    "general_clothing_accessories",
+    "hair_accessories",
+    "lingerie_intimates_shapewear",
+    "maternity_clothing",
+    "mens_undergarments",
+    "neckwear_formalwear_accessories",
+    "shoe_care_accessories",
+    "sleepwear_loungewear",
+    "suits_formalwear",
+    "swimwear_adult",
+    "traditional_ceremonial_clothing",
+    "uniforms_workwear",
+    "watches_smartwatches"
+  ],
+  "universal_signals": {
+    "reviews": {
+      "catalog_field": "rating",
+      "count_field": "rating_count",
+      "populated_in_sample": "0/916",
+      "gap": true,
+      "note": "column exists in the feed contract; unpopulated for every row in this COS sample \u2014 a source gap, not a schema gap. PDP must render without a rating badge when null, not assume presence."
+    },
+    "in_stock": {
+      "catalog_field": "instock",
+      "populated_in_sample": "916/916",
+      "gap": false
+    },
+    "return_policy": {
+      "catalog_field": "return_policy",
+      "populated_in_sample": "27/916",
+      "gap": true,
+      "note": "populated on well under 10% of rows; several populated values are actually wash-care text misfiled into this column \u2014 a data-quality caveat, not just a coverage one."
+    },
+    "price": {
+      "catalog_field": "price",
+      "original_price_field": "original_price",
+      "on_sale_field": "onsale",
+      "populated_in_sample": "916/916",
+      "gap": false
+    },
+    "retailer_trust_proxy": {
+      "catalog_fields": [
+        "brand",
+        "retailer_domain",
+        "source"
+      ],
+      "note": "no seller-legitimacy or counterfeit-risk signal exists; brand+retailer_domain is the only proxy available, and it's a direct-brand feed here so the risk this vector targets (third-party marketplace sellers) doesn't apply to this particular sample."
+    }
+  },
+  "archetypes": {
+    "everyday_tops_adult": {
+      "sample_row_count": 449,
+      "suitability_populated_pct": 37.4,
+      "vector_bindings": {
+        "size_fit": {
+          "real_field": "size",
+          "gap": false,
+          "note": "flat letter/numeric size; personalization needs suitability.body_type"
+        },
+        "fit_style": {
+          "real_field": "fixed_attributes.silhouette & fit.garment fit",
+          "gap": false,
+          "note": null
+        },
+        "fabric_and_care": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": "wash care lives in meta.productAttributes.core_information.wash_care but is rarely populated"
+        },
+        "occasion": {
+          "real_field": "fixed_attributes.styling & context.occasion, meta.productAttributes.suitability.occasion",
+          "gap": false,
+          "note": null
+        },
+        "season_weight": {
+          "real_field": "fixed_attributes.styling & context.season, fixed_attributes.fabric.weight",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price, original_price, onsale",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Textured Drawstring-Hem Shirt",
+        "brand": "COS",
+        "price": 110,
+        "currency": "USD",
+        "size": "M",
+        "color": "Blue",
+        "materials": "<p>Lyocell and nylon blend</p>",
+        "suitability": {},
+        "core_information": {}
+      }
+    },
+    "bottoms_pants_shorts_skirts_adult": {
+      "sample_row_count": 273,
+      "suitability_populated_pct": 39.6,
+      "vector_bindings": {
+        "waist_inseam_fit": {
+          "real_field": "size",
+          "gap": false,
+          "note": "single combined string (e.g. '34R'), not separate waist/inseam fields"
+        },
+        "rise_and_silhouette": {
+          "real_field": "fixed_attributes.silhouette & fit.rise, leg shape, overall shape",
+          "gap": false,
+          "note": null
+        },
+        "fabric_stretch_comfort": {
+          "real_field": "fixed_attributes.fabric.stretch, material type",
+          "gap": false,
+          "note": null
+        },
+        "occasion": {
+          "real_field": "fixed_attributes.styling & context.occasion",
+          "gap": false,
+          "note": null
+        },
+        "durability_wash": {
+          "real_field": null,
+          "gap": true,
+          "note": "no wash-durability rating field; only sparse wash_care text"
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Facade Straight-Leg Jeans",
+        "brand": "COS",
+        "price": 111.2,
+        "currency": "USD",
+        "size": 31,
+        "color": "Blue",
+        "materials": "<p>80% Organic cotton, 20% Recycled cotton. Excluding trims</p>",
+        "suitability": {
+          "season": "spring, summer, fall",
+          "occasion": "errands & shopping, campus & college, weekend getaway",
+          "body_type": "rectangle",
+          "skin_tone": "fair, light, medium/wheatish, tan, deep/dark",
+          "undertone": "warm undertone, cool undertone, neutral undertone, olive undertone",
+          "hair_color": "Black, Soft Black, Jet Black, Brown, Dark Brown, Medium Brown, Light Brown, Chestnut, Auburn, Red, Ginger, Blonde, Dark Blonde, Medium Blonde, Light Blonde, Platinum Blonde, Dirty Blonde, Strawberry Blonde, Grey, Silver, White, Blue, Navy Blue, Sky Blue, Teal, Green, Emerald Green, Mint Green, Purple, Lavender, Violet, Pink, Rose Pink, Hot Pink, Peach, Orange, Copper, Burgundy, Wine, Maroon, Magenta, Ash Blonde, Ash Brown, Ash Grey, Honey Blonde, Golden Blonde, Caramel, Mocha, Chocolate Brown, Sandy Blonde, Rose Gold, Pastel Pink, Pastel Blue, Pastel Purple, Ombre, Balayage",
+          "hair_length": "short, medium, long",
+          "suitable_age": "teen & youth (18\u00e2\u20ac\u201c24), young adult (25\u00e2\u20ac\u201c29, 30\u00e2\u20ac\u201c34)",
+          "height_suitability": "all heights"
+        },
+        "core_information": {
+          "rise": "low-rise",
+          "material": "cotton blend denim",
+          "wash_care": "Machine wash cold",
+          "garment_fit": "regular fit",
+          "closure_type": "button",
+          "transparency": "opaque",
+          "stretch_level": "medium stretch"
+        }
+      }
+    },
+    "dresses_onepieces_outfitsets": {
+      "sample_row_count": 115,
+      "suitability_populated_pct": 28.7,
+      "vector_bindings": {
+        "occasion_formality": {
+          "real_field": "fixed_attributes.styling & context.occasion (has a 'formal & special event' bucket), meta.productAttributes.suitability.occasion",
+          "gap": false,
+          "note": null
+        },
+        "size_and_body_fit": {
+          "real_field": "size, meta.productAttributes.suitability.body_type",
+          "gap": false,
+          "note": "body_type only ~29% populated for dresses in this sample \u2014 the lowest of any apparel archetype"
+        },
+        "fabric_and_drape": {
+          "real_field": "fixed_attributes.fabric.drape, material type",
+          "gap": false,
+          "note": null
+        },
+        "length_silhouette": {
+          "real_field": "fixed_attributes.silhouette & fit.length, overall shape",
+          "gap": false,
+          "note": null
+        },
+        "season": {
+          "real_field": "fixed_attributes.styling & context.season",
+          "gap": false,
+          "note": null
+        },
+        "return_policy_fit_risk": {
+          "real_field": "return_policy",
+          "gap": false,
+          "note": "populated on <3% of rows in this feed; where present, several rows actually contain care instructions, not return terms"
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Smocked Seersucker Mini Dress",
+        "brand": "COS",
+        "price": 90.3,
+        "currency": "USD",
+        "size": 10,
+        "color": "Gray",
+        "materials": "<p>100% Cotton</p>",
+        "suitability": {
+          "season": "summer",
+          "occasion": "brunch & day out",
+          "body_type": "hourglass",
+          "hair_type": "wavy",
+          "skin_tone": "medium/wheatish",
+          "undertone": "neutral undertone",
+          "face_shape": "oval",
+          "hair_color": "Light Brown",
+          "suitable_age": "young adult (25\u00e2\u20ac\u201c29, 30\u00e2\u20ac\u201c34)",
+          "height_suitability": "average height"
+        },
+        "core_information": {
+          "length": "mini",
+          "material": "cotton",
+          "wash_care": "Machine wash cold",
+          "garment_fit": "regular fit",
+          "transparency": "opaque",
+          "stretch_level": "non-stretch"
+        }
+      }
+    },
+    "outerwear_coats_jackets": {
+      "sample_row_count": 41,
+      "suitability_populated_pct": 68.3,
+      "vector_bindings": {
+        "warmth_insulation": {
+          "real_field": null,
+          "gap": true,
+          "note": "no fill-power/insulation-rating field; only qualitative fabric.weight and material name"
+        },
+        "weather_protection": {
+          "real_field": null,
+          "gap": true,
+          "note": "no waterproof/windproof rating field anywhere in fixed_attributes"
+        },
+        "layering_fit": {
+          "real_field": "fixed_attributes.silhouette & fit.garment fit",
+          "gap": false,
+          "note": null
+        },
+        "material_durability": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": null
+        },
+        "weight_packability": {
+          "real_field": "fixed_attributes.fabric.weight",
+          "gap": false,
+          "note": "qualitative (lightweight/midweight/heavyweight) only, no packed-weight-in-grams"
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Over",
+        "brand": "COS",
+        "price": 449,
+        "currency": "USD",
+        "size": "S",
+        "color": "Green",
+        "materials": "<p>Shell: 70% Recycled wool, 30% Recycled polyamide (Recycled nylon). Lining: 100% Viscose.</p>",
+        "suitability": {
+          "season": "fall",
+          "occasion": "brunch & day out",
+          "body_type": "rectangle",
+          "hair_type": "wavy",
+          "skin_tone": "medium/wheatish",
+          "undertone": "neutral undertone",
+          "face_shape": "oval",
+          "hair_color": "Brown",
+          "suitable_age": "all ages (18\u00e2\u20ac\u201c24, 25\u00e2\u20ac\u201c29, 30\u00e2\u20ac\u201c34, 35\u00e2\u20ac\u201c39, 40\u00e2\u20ac\u201c44, 45\u00e2\u20ac\u201c49, 50\u00e2\u20ac\u201c54, 55\u00e2\u20ac\u201c59, 60\u00e2\u20ac\u201c64, 65\u00e2\u20ac\u201c69, 70\u00e2\u20ac\u201c74, 75\u00e2\u20ac\u201c79, 80+)",
+          "height_suitability": "average height"
+        },
+        "core_information": {
+          "length": "ankle length",
+          "material": "wool",
+          "wash_care": "Dry clean only",
+          "transparency": "opaque",
+          "stretch_level": "non-stretch"
+        }
+      }
+    },
+    "fine_jewelry": {
+      "sample_row_count": 14,
+      "suitability_populated_pct": 35.7,
+      "vector_bindings": {
+        "metal_type_hypoallergenic": {
+          "real_field": "meta.productAttributes.core_information.material, plating_type",
+          "gap": true,
+          "note": "metal/plating is captured; no explicit hypoallergenic flag"
+        },
+        "size_fit": {
+          "real_field": "size, core_information.adjustable_length",
+          "gap": false,
+          "note": "confirms the earlier finding \u2014 no numeric ring-size/chain-length field, only a coarse letter size and an adjustable flag"
+        },
+        "gemstone_authenticity_certification": {
+          "real_field": "meta.productAttributes.core_information.gemstone_presence",
+          "gap": true,
+          "note": "presence/absence is captured; no certification or authenticity field"
+        },
+        "occasion_symbolism": {
+          "real_field": "meta.productAttributes.suitability.occasion, fixed_attributes.styling & context.occasion",
+          "gap": false,
+          "note": null
+        },
+        "care_maintenance": {
+          "real_field": "materials, core_information.plating_type",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Twisted Ribbon Bracelet",
+        "brand": "COS",
+        "price": 59,
+        "currency": "USD",
+        "size": "M/L",
+        "color": "Gold",
+        "materials": "<p>Silver-plated brass</p>",
+        "suitability": {
+          "age": "all ages (18\u00e2\u20ac\u201c24, 25\u00e2\u20ac\u201c29, 30\u00e2\u20ac\u201c34, 35\u00e2\u20ac\u201c39, 40\u00e2\u20ac\u201c44, 45\u00e2\u20ac\u201c49, 50\u00e2\u20ac\u201c54, 55\u00e2\u20ac\u201c59, 60\u00e2\u20ac\u201c64, 65\u00e2\u20ac\u201c69, 70\u00e2\u20ac\u201c74, 75\u00e2\u20ac\u201c79, 80+)",
+          "occasion": "brunch & day out, weekend getaway, cocktail party, date night, night out, festive season, holiday party, vacation & resort, business casual, corporate formal, creative workplace",
+          "skin_tone": "fair, light, medium/wheatish, tan, deep/dark",
+          "undertone": "warm undertone, cool undertone, neutral undertone, olive undertone",
+          "style_vibe": "casual chic, elegant business casual, elegant feminine, glamorous, minimalist, refined classic"
+        },
+        "core_information": {
+          "material": "Brass",
+          "plating_type": "Gold plated",
+          "adjustable_length": "Non-adjustable",
+          "gemstone_presence": "No gemstone"
+        }
+      }
+    },
+    "headwear_hats": {
+      "sample_row_count": 6,
+      "suitability_populated_pct": 16.7,
+      "vector_bindings": {
+        "head_size_fit": {
+          "real_field": "size",
+          "gap": false,
+          "note": "usually 'One Size' in this feed"
+        },
+        "weather_protection": {
+          "real_field": null,
+          "gap": true,
+          "note": "no weather-protection rating; only inferable from material name (e.g. cashmere)"
+        },
+        "style_occasion": {
+          "real_field": "fixed_attributes.styling & context.occasion, accessory style",
+          "gap": false,
+          "note": null
+        },
+        "adjustability": {
+          "real_field": null,
+          "gap": true,
+          "note": "construction & design.closure is 'not applicable' for nearly every hat in this sample \u2014 no adjustable-strap flag"
+        },
+        "material_durability": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Suede Baseball Cap",
+        "brand": "COS",
+        "price": 159,
+        "currency": "USD",
+        "size": "XS/S",
+        "color": "Navy",
+        "materials": "<p>Shell: 100% Suede. Lining: 100% Cotton. Excluding trims</p>",
+        "suitability": {
+          "age": "all ages (18\u00e2\u20ac\u201c24, 25\u00e2\u20ac\u201c29, 30\u00e2\u20ac\u201c34, 35\u00e2\u20ac\u201c39, 40\u00e2\u20ac\u201c44, 45\u00e2\u20ac\u201c49, 50\u00e2\u20ac\u201c54, 55\u00e2\u20ac\u201c59, 60\u00e2\u20ac\u201c64, 65\u00e2\u20ac\u201c69, 70\u00e2\u20ac\u201c74, 75\u00e2\u20ac\u201c79, 80+)",
+          "occasion": "brunch & day out, errands & shopping, weekend getaway, concert & festival, date night, vacation & resort, airport look",
+          "face_shape": "oval, round, square, rectangular, heart-shaped, oblong, diamond, triangle",
+          "lifestyle_fit": "Casual, Everyday, Fashion-forward"
+        },
+        "core_information": {
+          "adjustable_fit": "Adjustable",
+          "weather_protection": "Sun protection"
+        }
+      }
+    },
+    "belts_buckles": {
+      "sample_row_count": 4,
+      "suitability_populated_pct": 75.0,
+      "vector_bindings": {
+        "waist_size_fit": {
+          "real_field": "size, meta.productAttributes.suitability.waist_size",
+          "gap": false,
+          "note": null
+        },
+        "material_quality": {
+          "real_field": "meta.productAttributes.core_information.belt_material, materials",
+          "gap": false,
+          "note": null
+        },
+        "buckle_style": {
+          "real_field": "meta.productAttributes.core_information.buckle_type",
+          "gap": false,
+          "note": null
+        },
+        "occasion": {
+          "real_field": "meta.productAttributes.suitability.occasion",
+          "gap": false,
+          "note": null
+        },
+        "reversibility": {
+          "real_field": "meta.productAttributes.core_information.reversible",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Saffiano Leather Belt",
+        "brand": "COS",
+        "price": 110,
+        "currency": "USD",
+        "size": "XS/S",
+        "color": "Black",
+        "materials": "<p>Cow Leather</p>",
+        "suitability": {
+          "occasion": "brunch & day out",
+          "style_vibe": "refined classic",
+          "waist_size": "M",
+          "lifestyle_fit": "Everyday"
+        },
+        "core_information": {
+          "reversible": "Non-Reversible",
+          "buckle_type": "Pin Buckle",
+          "closure_type": "Pin",
+          "belt_material": "Leather",
+          "adjustable_length": "Adjustable"
+        }
+      }
+    },
+    "hosiery_socks": {
+      "sample_row_count": 8,
+      "suitability_populated_pct": 50.0,
+      "vector_bindings": {
+        "size_fit": {
+          "real_field": "size",
+          "gap": false,
+          "note": "EU shoe-size range string (e.g. '43/45'), not a separate sock-size field"
+        },
+        "activity_use": {
+          "real_field": "meta.productAttributes.suitability.lifestyle_fit, fixed_attributes.styling & context.occasion",
+          "gap": false,
+          "note": null
+        },
+        "fabric_material": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": null
+        },
+        "pack_quantity_value": {
+          "real_field": null,
+          "gap": true,
+          "note": "every row in this sample is a single item \u2014 no multi-pack/pack-size field, even though socks are routinely sold in packs"
+        },
+        "durability_wash": {
+          "real_field": "meta.productAttributes.core_information.thickness",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Contrast-Tipped Cotton Socks",
+        "brand": "COS",
+        "price": 19,
+        "currency": "USD",
+        "size": "2026-06-08 00:00:00",
+        "color": "Brown",
+        "materials": "<p>Cotton blend</p>",
+        "suitability": {},
+        "core_information": {}
+      }
+    },
+    "eyewear_sunglasses": {
+      "sample_row_count": 3,
+      "suitability_populated_pct": 66.7,
+      "vector_bindings": {
+        "uv_protection_lens_category": {
+          "real_field": null,
+          "gap": true,
+          "note": "no UV rating or lens-category field anywhere in the feed"
+        },
+        "face_shape_fit": {
+          "real_field": "meta.productAttributes.suitability.face_shape",
+          "gap": false,
+          "note": "this is exactly the vector that matters most for sunglasses, and it's the one most often empty \u2014 0/3 rows populated in this sample"
+        },
+        "lens_type": {
+          "real_field": null,
+          "gap": true,
+          "note": "the category leaf (e.g. 'rectangular') describes frame shape, not lens technology (polarized/photochromic)"
+        },
+        "frame_material_durability": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": "materials was null on the representative example \u2014 inconsistently filled"
+        },
+        "prescription_compatibility": {
+          "real_field": null,
+          "gap": true,
+          "note": "not modeled"
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Slim Rectangular Sunglasses",
+        "brand": "COS",
+        "price": 59.4,
+        "currency": "USD",
+        "size": "One Size",
+        "color": "Black",
+        "materials": "null",
+        "suitability": {},
+        "core_information": {}
+      }
+    },
+    "cold_weather_small_accessories": {
+      "sample_row_count": 2,
+      "suitability_populated_pct": 0.0,
+      "vector_bindings": {
+        "warmth_insulation": {
+          "real_field": "materials",
+          "gap": false,
+          "note": "qualitative only, from material description"
+        },
+        "size_fit": {
+          "real_field": "size",
+          "gap": false,
+          "note": null
+        },
+        "material_touchscreen_compat": {
+          "real_field": null,
+          "gap": true,
+          "note": "not modeled"
+        },
+        "weather_resistance": {
+          "real_field": null,
+          "gap": true,
+          "note": "not modeled"
+        },
+        "durability": {
+          "real_field": "materials, fixed_attributes.fabric.material type",
+          "gap": false,
+          "note": null
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Long Leather Gloves",
+        "brand": "COS",
+        "price": 159,
+        "currency": "USD",
+        "size": "XS/S",
+        "color": "Purple",
+        "materials": "<p>Shell: 100% Leather. Lining: 96% Cotton, 4% Elastane. Excluding trims</p>",
+        "suitability": {},
+        "core_information": {}
+      }
+    },
+    "scarves_wraps": {
+      "sample_row_count": 1,
+      "suitability_populated_pct": 0.0,
+      "vector_bindings": {
+        "fabric_material_season": {
+          "real_field": "materials, fixed_attributes.styling & context.season",
+          "gap": false,
+          "note": null
+        },
+        "size_dimensions": {
+          "real_field": null,
+          "gap": true,
+          "note": "flat size is often 'One Size'; no explicit cm dimensions field"
+        },
+        "styling_versatility": {
+          "real_field": "fixed_attributes.styling & context.accessory style",
+          "gap": false,
+          "note": null
+        },
+        "occasion": {
+          "real_field": "fixed_attributes.styling & context.occasion",
+          "gap": false,
+          "note": null
+        },
+        "care_instructions": {
+          "real_field": null,
+          "gap": true,
+          "note": "wash_care exists in the schema but was empty for every scarf in this sample"
+        },
+        "price_tier": {
+          "real_field": "price",
+          "gap": false,
+          "note": null
+        }
+      },
+      "worked_example": {
+        "name": "Lace-Trimmed Satin Headscarf",
+        "brand": "COS",
+        "price": 59,
+        "currency": "USD",
+        "size": "One Size",
+        "color": "Brown",
+        "materials": "<p>Rayon</p>",
+        "suitability": {},
+        "core_information": {}
+      }
+    }
+  }
+}

@@ -44,6 +44,11 @@ needs the second.
   registry) and `VECTOR_ATTRIBUTES` (which type + overrides each decision
   vector uses). The generator fails loudly if any decision vector has no
   entry here, same guarantee as `classify()`.
+- `catalog-source-cos.json` — the schema above, checked against a real
+  catalog sample instead of assumed. See "Grounding against a real catalog
+  sample" below.
+- `../../../scripts/generate-cos-catalog-binding.py` — regenerates it from
+  the source workbook.
 
 ## Why archetypes, not one schema per leaf category
 
@@ -151,6 +156,68 @@ isn't a new kind of memory, just a field this app hasn't needed until now).
 Until that exists, every `size_profile`-sourced attribute still has a
 fallback: `display_only` with the size chart surfaced to the user directly,
 same as today's `resolve_products` flow.
+
+## Grounding against a real catalog sample (COS)
+
+`catalog-source-cos.json` checks the schema above against
+`FixedAttributeSample_COS_15thSept2026.xlsx` — 1000 real COS product rows
+(916 resolved to one of our archetypes; the rest had malformed or
+unparseable category data, which is realistic for a live feed). For every
+decision vector on an archetype the sample actually covers, it records the
+**real field path** that answers it, computed from the data rather than
+assumed:
+
+```json
+"face_shape_fit": {
+  "real_field": "meta.productAttributes.suitability.face_shape",
+  "gap": false,
+  "note": "this is exactly the vector that matters most for sunglasses, and it's the one most often empty — 0/3 rows populated in this sample"
+}
+```
+
+11 of the 30 archetypes are represented in this sample (mostly core
+apparel — tops, bottoms, dresses, outerwear — plus jewelry, headwear,
+belts, hosiery, sunglasses, gloves, scarves); the other 19, including
+`footwear` and `bags_wallets_cases`, aren't present in these 1000 rows at
+all, so there's nothing to ground yet.
+
+**What this validated:**
+
+- The universal signals proposed earlier turned out to already be real
+  catalog columns: `rating`/`rating_count`, `instock`, `return_policy`,
+  `price`/`original_price`/`onsale` all exist in this feed's contract.
+- The `meta.productAttributes.suitability` block is a real, populated field
+  carrying exactly the kind of appearance/body data (`body_type`,
+  `skin_tone`, `hair_color`, `face_shape`, `occasion`, `season`) the
+  proposed `size_profile` memory extension would need to match against —
+  independent confirmation this personalization approach is realistic, not
+  invented.
+
+**What this refined, with real numbers instead of guesses:**
+
+- `rating`/`rating_count` are **0/916 populated** in this feed —
+  columns exist, this retailer's data doesn't. A PDP built on this source
+  cannot show a review badge; `universal_signals.reviews` documents this as
+  a source gap, not a schema one.
+- `return_policy` is **27/916 populated (<3%)**, and several of the
+  populated values are actually wash-care text misfiled into that column —
+  a data-quality problem on top of the coverage problem.
+- `suitability` population is inconsistent and often low even within one
+  retailer: 68% of outerwear rows carry it, but only 29% of dresses, 17% of
+  headwear, and 0% of the (admittedly tiny, n=1–2) scarves and gloves
+  samples. Any vector that leans on `suitability` needs a real fallback for
+  when it's empty, not an assumption it's there.
+- **15 vector-level gaps**: decision vectors that matter (per
+  `archetypes.apparel.json`) but this catalog has no structured field for
+  at all — e.g. outerwear's `warmth_insulation` and `weather_protection`
+  (only a qualitative fabric-weight string, no rating), sunglasses'
+  `uv_protection_lens_category` and `prescription_compatibility` (not
+  modeled anywhere), fine jewelry's `metal_type_hypoallergenic` (material
+  is captured, an allergy-safe flag isn't), and hosiery's
+  `pack_quantity_value` (every row is a single item, though socks are
+  routinely sold in packs). Each is marked `"gap": true` with a note —
+  these are catalog-enrichment asks for whoever owns this feed, surfaced
+  by the framework rather than papered over.
 
 ## Extending to other departments
 
